@@ -15,14 +15,12 @@ export const metadata: Metadata = {
 
 const RootLayoutPage = ({
   children,
-  color,
 }: Readonly<{
   children: React.ReactNode;
-  color: 'dark' | 'white';
 }>) => {
   return (
     <html lang='uk'>
-      <body className={raleway.className}>{children}</body>
+      <body className={`${raleway.className} w-full`}>{children}</body>
     </html>
   );
 };

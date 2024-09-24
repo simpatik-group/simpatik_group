@@ -1,17 +1,23 @@
+import { FC, ReactNode } from 'react';
+
+import Navigation from '@/components/ui/Navigation/Navigation';
+
 import Header from './Header/Header';
 
-export default function RootLayout({
-  children,
-  color,
-}: Readonly<{
-  children: React.ReactNode;
+interface IRootLayout {
+  children: ReactNode;
   color: 'dark' | 'white';
-}>) {
+}
+
+const RootLayout: FC<IRootLayout> = ({ children, color }) => {
   return (
     <>
-      <Header bg={color} />
+      <Header bg={color}></Header>
       <main>{children}</main>
-      <footer className='text-main'>футер</footer>
+      <footer className='text-main'>
+        <Navigation color='white' />
+      </footer>
     </>
   );
-}
+};
+export default RootLayout;

@@ -12,7 +12,7 @@ const ContactsPage = async (props: Props) => {
   // console.log('data:', data);
   return (
     <RootLayout color='dark'>
-      <div className='font-black text-7xl'>Контакти</div>
+      <div className='font-black text-7xl'>Життя в Сімпатік</div>
     </RootLayout>
   );
 };
