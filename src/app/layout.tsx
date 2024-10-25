@@ -20,7 +20,11 @@ const RootLayoutPage = ({
 }>) => {
   return (
     <html lang='uk'>
-      <body className={`${raleway.className} w-full`}>{children}</body>
+      <body
+        className={`${raleway.className} w-full leading-loose tracking-wide`}
+      >
+        {children}
+      </body>
     </html>
   );
 };

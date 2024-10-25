@@ -14,8 +14,8 @@ const RootLayout: FC<IRootLayout> = ({ children, color }) => {
     <>
       <Header bg={color}></Header>
       <main>{children}</main>
-      <footer className='text-main'>
-        <Navigation color='white' />
+      <footer className='text-dark-400'>
+        <Navigation color={color} />
       </footer>
     </>
   );

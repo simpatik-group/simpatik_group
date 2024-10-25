@@ -9,19 +9,22 @@ import { INavigationProps } from './Navigation.props';
 
 const Navigation: FC<INavigationProps> = ({ color, withLangSwitcher }) => {
   const pathname = usePathname();
-  console.log('pathname:', pathname);
+  console.log('color:', color);
 
   return (
-    <nav className={color === 'white' ? 'text-white' : 'text-main-400'}>
+    <nav className={color === 'white' ? 'text-white' : 'text-grey-400'}>
       <ul>
         <li>
-          <Link className={`link ${pathname === '/' ? 'active' : ''}`} href='/'>
+          <Link
+            className={`interaction link ${pathname === '/' ? 'active' : ''}`}
+            href='/'
+          >
             Про нас
           </Link>
         </li>
         <li>
           <Link
-            className={`link ${pathname === '/life' ? 'active' : ''}`}
+            className={`interaction link ${pathname === '/life' ? 'active' : ''}`}
             href='/life'
           >
             Життя в Сімпатік
@@ -29,7 +32,7 @@ const Navigation: FC<INavigationProps> = ({ color, withLangSwitcher }) => {
         </li>
         <li>
           <Link
-            className={`link ${pathname === '/teams' ? 'active' : ''}`}
+            className={`interaction link ${pathname === '/teams' ? 'active' : ''}`}
             href='/teams'
           >
             Наші команди
@@ -37,7 +40,7 @@ const Navigation: FC<INavigationProps> = ({ color, withLangSwitcher }) => {
         </li>
         <li>
           <Link
-            className={`link ${pathname === '/career' ? 'active' : ''}`}
+            className={`interaction link ${pathname === '/career' ? 'active' : ''}`}
             href='/career'
           >
             Кар`єра
@@ -45,7 +48,7 @@ const Navigation: FC<INavigationProps> = ({ color, withLangSwitcher }) => {
         </li>
         <li>
           <Link
-            className={`link ${pathname === '/locations' ? 'active' : ''}`}
+            className={`interaction link ${pathname === '/locations' ? 'active' : ''}`}
             href='/locations'
           >
             Наші локації
@@ -53,7 +56,7 @@ const Navigation: FC<INavigationProps> = ({ color, withLangSwitcher }) => {
         </li>
         <li>
           <Link
-            className={`link ${pathname === '/contacts' ? 'active' : ''}`}
+            className={`interaction link ${pathname === '/contacts' ? 'active' : ''}`}
             href='/contacts'
           >
             Контакти

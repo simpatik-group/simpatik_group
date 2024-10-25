@@ -9,13 +9,30 @@ const config = {
   theme: {
     colors: {
       transparent: 'transparent',
-      main: {
-				400: '#292929',
-				500: '#333',
-				200: '#F6F6F6'
-			},
-      white: '#fff',
-      attention: '#E09D2D',
+      grey: {
+        400: '#7D7D7D',
+        300: '#333333',
+      },
+      dark: {
+        400: '#292929',
+        300: 'rgba(41, 41, 41, 0.3)',
+      },
+      white: {
+        400: '#fff',
+        500: '#F6F6F6',
+      },
+      blue: {
+        400: '#1C1E24',
+        300: '#20222B',
+        500: '#17181C',
+      },
+      orange: {
+        400: '#F1A21E',
+        500: '#DA8C0A',
+      },
+      red: {
+        400: '#FF0000',
+      },
     },
     extend: {
       transitionTimingFunction: {
@@ -26,27 +43,83 @@ const config = {
       },
     },
   },
-  plugins: [plugin(({ addUtilities, addComponents, theme }) => {
-		addComponents({
-			'.title': {
-				fontSize: '38px',
-				fontWeight: '900',
-				'@media (min-width: 992px)': {
-					fontSize: '64px'
-				}
-			},
-			'.second-title': {
-				fontSize: '18px',
-				fontWeight: '800',
-			},
-			'.main-btn': {
-				outline: 'none',
-				display: 'block',
-				cursor: 'pointer',
-				margin: '0 auto',
-			}
-			
-		})
-	})],
+  plugins: [
+    plugin(({ addUtilities, addComponents, theme }) => {
+      addComponents({
+        '.h1': {
+          fontSize: '40px',
+          fontWeight: '900',
+          lineHeight: '1.2',
+          '@media (min-width: 1024px)': {
+            fontSize: '64px',
+          },
+          '@media (min-width: 1280px)': {
+            fontSize: '96px',
+          },
+        },
+        '.h2': {
+          fontSize: '32px',
+          fontWeight: '900',
+          lineHeight: '1.2',
+          '@media (min-width: 1024px)': {
+            fontSize: '48px',
+          },
+          '@media (min-width: 1280px)': {
+            fontSize: '64px',
+          },
+        },
+        '.h3': {
+          fontSize: '24px',
+          fontWeight: '900',
+          lineHeight: '1.2',
+          '@media (min-width: 1024px)': {
+            fontSize: '36px',
+          },
+          '@media (min-width: 1280px)': {
+            fontSize: '48px',
+          },
+        },
+        '.h4': {
+          fontSize: '20px',
+          fontWeight: '900',
+          lineHeight: '1.3',
+          '@media (min-width: 1024px)': {
+            fontSize: '28px',
+          },
+          '@media (min-width: 1280px)': {
+            fontSize: '36px',
+          },
+        },
+        '.h5': {
+          fontSize: '18px',
+          fontWeight: '800',
+          lineHeight: '1.3',
+          '@media (min-width: 1024px)': {
+            fontSize: '20px',
+          },
+          '@media (min-width: 1280px)': {
+            fontSize: '24px',
+          },
+        },
+        '.h6': {
+          fontSize: '14px',
+          fontWeight: '700',
+          lineHeight: '1.5',
+          '@media (min-width: 1024px)': {
+            fontSize: '16px',
+          },
+        },
+        '.interaction': {
+          fontSize: '16px',
+          fontWeight: '700',
+          lineHeight: '1.2',
+          outline: 'none',
+          display: 'block',
+          cursor: 'pointer',
+          margin: '0 auto',
+        },
+      });
+    }),
+  ],
 };
 export default config;

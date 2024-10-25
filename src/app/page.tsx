@@ -1,10 +1,10 @@
 import RootLayout from '@/components/layouts/RootLayout/RootLayout';
+import Home from '@/components/pages/Home/Home';
 
-type Props = {};
-const HomePage = async (props: Props) => {
+const HomePage = () => {
   return (
     <RootLayout color='dark'>
-      <div className='title'>Home</div>
+      <Home />
     </RootLayout>
   );
 };

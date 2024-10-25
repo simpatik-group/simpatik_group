@@ -1,0 +1,34 @@
+.wrap {
+  @apply flex justify-between;
+}
+.hamburgerWrap {
+  @apply grid w-10 h-10 p-3.5 mx-auto cursor-pointer;
+  &.active {
+    opacity: 0.5;
+    .hamburger {
+      @apply -translate-x-full opacity-100;
+    }
+  }
+}
+.hamburger {
+  @apply w-3.5 h-px  transition-all rounded-full relative;
+  &.dark {
+    @apply bg-dark-400;
+  }
+  &.white {
+    @apply bg-white-400;
+  }
+  &::before,
+  &::after {
+    content: '';
+    background-color: inherit;
+    border-radius: inherit;
+    @apply absolute w-3.5 h-px block cursor-pointer transition-all;
+  }
+  &::before {
+    @apply -translate-y-1;
+  }
+  &::after {
+    @apply translate-y-1 w-2 right-0;
+  }
+}
