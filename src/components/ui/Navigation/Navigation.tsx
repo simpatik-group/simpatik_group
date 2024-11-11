@@ -2,21 +2,34 @@
 
 import { FC } from 'react';
 
+import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import styles from './Navigation.module.scss';
 import { INavigationProps } from './Navigation.props';
 
-const Navigation: FC<INavigationProps> = ({ color, withLangSwitcher }) => {
+const Navigation: FC<INavigationProps> = ({
+  color,
+  withLangSwitcher,
+  className,
+}) => {
   const pathname = usePathname();
   console.log('color:', color);
 
   return (
-    <nav className={color === 'white' ? 'text-white' : 'text-grey-400'}>
+    <nav
+      className={clsx(
+        className,
+        color === 'white' ? 'text-white' : 'text-grey-400',
+      )}
+    >
       <ul>
         <li>
           <Link
-            className={`interaction link ${pathname === '/' ? 'active' : ''}`}
+            className={clsx(styles.link, {
+              [styles.active]: pathname === '/',
+            })}
             href='/'
           >
             Про нас
@@ -24,7 +37,9 @@ const Navigation: FC<INavigationProps> = ({ color, withLangSwitcher }) => {
         </li>
         <li>
           <Link
-            className={`interaction link ${pathname === '/life' ? 'active' : ''}`}
+            className={clsx(styles.link, {
+              [styles.active]: pathname === '/life',
+            })}
             href='/life'
           >
             Життя в Сімпатік
@@ -32,7 +47,9 @@ const Navigation: FC<INavigationProps> = ({ color, withLangSwitcher }) => {
         </li>
         <li>
           <Link
-            className={`interaction link ${pathname === '/teams' ? 'active' : ''}`}
+            className={clsx(styles.link, {
+              [styles.active]: pathname === '/teams',
+            })}
             href='/teams'
           >
             Наші команди
@@ -40,7 +57,9 @@ const Navigation: FC<INavigationProps> = ({ color, withLangSwitcher }) => {
         </li>
         <li>
           <Link
-            className={`interaction link ${pathname === '/career' ? 'active' : ''}`}
+            className={clsx(styles.link, {
+              [styles.active]: pathname === '/career',
+            })}
             href='/career'
           >
             Кар`єра
@@ -48,7 +67,9 @@ const Navigation: FC<INavigationProps> = ({ color, withLangSwitcher }) => {
         </li>
         <li>
           <Link
-            className={`interaction link ${pathname === '/locations' ? 'active' : ''}`}
+            className={clsx(styles.link, {
+              [styles.active]: pathname === '/locations',
+            })}
             href='/locations'
           >
             Наші локації
@@ -56,7 +77,9 @@ const Navigation: FC<INavigationProps> = ({ color, withLangSwitcher }) => {
         </li>
         <li>
           <Link
-            className={`interaction link ${pathname === '/contacts' ? 'active' : ''}`}
+            className={clsx(styles.link, {
+              [styles.active]: pathname === '/contacts',
+            })}
             href='/contacts'
           >
             Контакти
@@ -64,10 +87,7 @@ const Navigation: FC<INavigationProps> = ({ color, withLangSwitcher }) => {
         </li>
         {withLangSwitcher && (
           <li>
-            <Link
-              className={`link ${pathname === '/about' ? 'active' : ''}`}
-              href='/'
-            >
+            <Link className={clsx(styles.link, styles.language)} href='/'>
               UA | EN
             </Link>
           </li>

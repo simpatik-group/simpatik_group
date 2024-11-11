@@ -41,6 +41,9 @@ const config = {
       transitionDuration: {
         DEFAULT: '0.3s',
       },
+      gridTemplateColumns: {
+        header: 'auto min-content',
+      },
     },
   },
   plugins: [

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Raleway } from 'next/font/google';
 
-import './globals.scss';
+import '../styles/globals.scss';
 
 const raleway = Raleway({
   subsets: ['cyrillic', 'latin'],

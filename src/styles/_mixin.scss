@@ -1,0 +1,125 @@
+// Center
+@mixin center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin centerY {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@mixin centerX {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@mixin fullsize {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+//blocks
+@mixin border_block($border, $padding, $radius: 0) {
+  border: $border;
+  box-sizing: border-box;
+  border-radius: $radius;
+  padding: $padding;
+}
+@mixin btn($border, $padding, $bgc: transparent, $radius: 0) {
+  border: $border;
+  box-sizing: border-box;
+  border-radius: $radius;
+  padding: $padding;
+  background-color: $bgc;
+  cursor: pointer;
+}
+
+// @mixin _768 {
+//   @media (min-width: 768px) {
+//     @content;
+//   }
+// }
+// @mixin _992 {
+//   @media (min-width: 992px) {
+//     @content;
+//   }
+// }
+// @mixin _1200 {
+//   @media (min-width: 1200px) {
+//     @content;
+//   }
+// }
+// @mixin _1400 {
+//   @media (min-width: 1400px) {
+//     @content;
+//   }
+// }
+@mixin customMedia($min-width) {
+  @media (min-width: $min-width) {
+    @content;
+  }
+}
+// using
+// .question li{
+// 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+// 	@for $i from 1 through 3 {
+// 		&:nth-child(#{$i}) .question_list__header{
+// 			display: flex;
+// 			align-items: center;
+// 			justify-content: space-between;
+// 			font-size: 16px;
+// 			margin-bottom: 25px;
+// 			&::before{
+// 				content: '';
+// 				width: 49px;
+// 				height: 49px;
+// 				display: inline-block;
+// 				flex: 1 0 auto;
+// 				margin-right: 15px;
+// 				background-image: url("../img/question_item" + $i + ".svg");
+// 			}
+// 		}
+// 	}
+// }
+
+// $themes: (
+//   default: (
+//     logo: url('../img/logo_prizeme.svg') center/cover,
+//     color-main: $color_main,
+//   ),
+//   dark: (
+//     logo: url('../img/logo_prizeme--dark.svg') center/cover,
+//     color-main: $color-white,
+//   ),
+// );
+
+// @mixin themed() {
+//   @each $theme, $map in $themes {
+//     .theme--#{$theme} & {
+//       $theme-map: map-get($themes, $theme) !global;
+
+//       // Apply media queries
+//       @if map-get($theme-map, 'media-query') {
+//         $media-query: map-get($theme-map, 'media-query');
+//       }
+
+//       @content;
+
+//       $theme-map: null !global;
+//     }
+//   }
+// }
+
+// @function t($key) {
+//   @return map-get($theme-map, $key);
+// }
+
+// using
+// @include themed() {
+//   background-color: t('color-main');
+// }

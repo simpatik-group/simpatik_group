@@ -1,0 +1,6 @@
+.link {
+  @apply interaction;
+  &.active {
+    color: red;
+  }
+}
