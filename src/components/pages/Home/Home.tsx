@@ -1,10 +1,14 @@
 import { FC } from 'react';
 
+import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
+
 const Home: FC = () => {
   return (
     <>
-      <div className='h1'>Home</div>
-      {/* <ParticleImageComponent /> */}
+      <ContainerUI>
+        <div className='h1 h-screen'>Надихати людей</div>
+        {/* <ParticleImageComponent /> */}
+      </ContainerUI>
     </>
   );
 };

@@ -11,7 +11,6 @@ import { INavigationProps } from './Navigation.props';
 
 const Navigation: FC<INavigationProps> = ({ color, className }) => {
   const pathname = usePathname();
-  console.log('🚀 ~ pathname:', pathname);
   const menuItems = [
     {
       name: 'Про нас',

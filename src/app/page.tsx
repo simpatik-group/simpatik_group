@@ -3,7 +3,7 @@ import Home from '@/components/pages/Home/Home';
 
 const HomePage = () => {
   return (
-    <RootLayout color='dark'>
+    <RootLayout color='white'>
       <Home />
     </RootLayout>
   );
