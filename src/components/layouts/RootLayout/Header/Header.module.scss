@@ -1,11 +1,36 @@
 .header {
-  @apply sticky transition-all h-20;
+  @apply sticky transition-all h-20 py-2;
+  &::before {
+    content: '';
+    @apply fixed top-0 left-0 right-0 bg-grey-300 h-0 opacity-0 transition-all scale-y-0 origin-top;
+
+    // тут фон для відкритого меню мобайла
+  }
+  &.dark {
+    @apply bg-blue-400 text-white-400;
+    .hamburgerWrap {
+      span {
+        @apply bg-white-400;
+      }
+    }
+  }
+  &.white {
+    @apply bg-white-400 text-dark-400;
+    .hamburgerWrap {
+      span {
+        @apply bg-dark-400;
+      }
+    }
+  }
   &.active {
-    @apply h-dvh top-0 left-0 right-0 bottom-0;
+    &::before {
+      @apply h-dvh opacity-100 scale-y-100;
+    }
     .menuMobile {
-      @apply static opacity-100 scale-y-100 pointer-events-auto;
+      @apply h-[calc(100dvh-5rem)] opacity-100 scale-y-100 visible;
     }
     .hamburgerWrap span {
+      @apply bg-white-400;
       &:nth-child(1),
       &:nth-child(6) {
         @apply rotate-45;
@@ -39,7 +64,7 @@
   }
 }
 .wrap {
-  @apply grid items-center justify-between;
+  @apply relative z-10 grid items-center justify-between h-full;
 }
 .hamburgerWrap {
   @apply grid w-10 h-10 p-3 cursor-pointer relative col-start-2 col-end-3;
@@ -70,13 +95,31 @@
       border-radius: 4px;
     }
   }
-  &.dark span {
-    @apply bg-dark-400;
-  }
-  &.white span {
-    @apply bg-white-500;
-  }
 }
 .menuMobile {
-  @apply opacity-0 pointer-events-none transition-all scale-y-0 origin-top;
+  @apply fixed h-[calc(100dvh-5rem)] top-20 left-4 right-4 opacity-0 transition-all invisible scale-y-0 origin-top grid content-between;
+}
+
+@include customMedia(992px) {
+  .header {
+    @apply h-auto;
+  }
+  .logo {
+    @apply w-auto;
+  }
+  .menuMobile {
+    @apply contents visible;
+  }
+  .hamburgerWrap {
+    @apply hidden;
+  }
+  .menuDesktop {
+    @apply flex flex-row-reverse items-center col-start-2 col-end-3;
+  }
+}
+
+@include customMedia(1322px) {
+  .menuDesktop {
+    @apply gap-20;
+  }
 }

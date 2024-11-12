@@ -34,7 +34,19 @@ const config = {
         400: '#FF0000',
       },
     },
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '992px',
+      xl: '1322px',
+    },
+    container: {
+      center: true,
+    },
     extend: {
+      // border: {
+      //   px: '1px',
+      // },
       transitionTimingFunction: {
         DEFAULT: 'ease-in-out',
       },
@@ -53,10 +65,10 @@ const config = {
           fontSize: '40px',
           fontWeight: '900',
           lineHeight: '1.2',
-          '@media (min-width: 1024px)': {
+          '@media (min-width: 992px)': {
             fontSize: '64px',
           },
-          '@media (min-width: 1280px)': {
+          '@media (min-width: 1322px)': {
             fontSize: '96px',
           },
         },
@@ -64,10 +76,10 @@ const config = {
           fontSize: '32px',
           fontWeight: '900',
           lineHeight: '1.2',
-          '@media (min-width: 1024px)': {
+          '@media (min-width: 992px)': {
             fontSize: '48px',
           },
-          '@media (min-width: 1280px)': {
+          '@media (min-width: 1322px)': {
             fontSize: '64px',
           },
         },
@@ -75,10 +87,10 @@ const config = {
           fontSize: '24px',
           fontWeight: '900',
           lineHeight: '1.2',
-          '@media (min-width: 1024px)': {
+          '@media (min-width: 992px)': {
             fontSize: '36px',
           },
-          '@media (min-width: 1280px)': {
+          '@media (min-width: 1322px)': {
             fontSize: '48px',
           },
         },
@@ -86,10 +98,10 @@ const config = {
           fontSize: '20px',
           fontWeight: '900',
           lineHeight: '1.3',
-          '@media (min-width: 1024px)': {
+          '@media (min-width: 992px)': {
             fontSize: '28px',
           },
-          '@media (min-width: 1280px)': {
+          '@media (min-width: 1322px)': {
             fontSize: '36px',
           },
         },
@@ -97,10 +109,10 @@ const config = {
           fontSize: '18px',
           fontWeight: '800',
           lineHeight: '1.3',
-          '@media (min-width: 1024px)': {
+          '@media (min-width: 992px)': {
             fontSize: '20px',
           },
-          '@media (min-width: 1280px)': {
+          '@media (min-width: 1322px)': {
             fontSize: '24px',
           },
         },
@@ -108,7 +120,7 @@ const config = {
           fontSize: '14px',
           fontWeight: '700',
           lineHeight: '1.5',
-          '@media (min-width: 1024px)': {
+          '@media (min-width: 992px)': {
             fontSize: '16px',
           },
         },
@@ -117,7 +129,7 @@ const config = {
           fontWeight: '700',
           lineHeight: '1.2',
           outline: 'none',
-          display: 'block',
+          // display: 'block',
           cursor: 'pointer',
           margin: '0 auto',
         },

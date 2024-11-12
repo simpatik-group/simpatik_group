@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher/LanguageSwitcher';
 import Navigation from '@/components/ui/Navigation/Navigation';
 import Social from '@/components/ui/Social/Social';
 
@@ -27,9 +28,7 @@ const Header: FC<IHeaderProps> = ({ bg }) => {
   return (
     <header
       className={clsx(
-        bg === 'white'
-          ? 'bg-white-400 text-dark-400-400'
-          : 'bg-dark-400 text-white-400',
+        bg === 'white' ? styles.white : styles.dark,
         styles.header,
         { [styles.active]: active },
       )}
@@ -37,13 +36,22 @@ const Header: FC<IHeaderProps> = ({ bg }) => {
       <ContainerUI>
         <div className={styles.wrap}>
           <Link href='/'>
-            <Image src='./img/logo.svg' width={56} height={56} alt='Simpatik' />
+            <Image
+              src={
+                active
+                  ? '/img/logo.svg'
+                  : bg === 'white'
+                    ? '/img/logo-dark.svg'
+                    : '/img/logo.svg'
+              }
+              width={56}
+              height={56}
+              alt='Simpatik'
+              className={styles.logo}
+            />
           </Link>
           <div
-            className={clsx(
-              styles.hamburgerWrap,
-              bg === 'white' ? styles.dark : styles.white,
-            )}
+            className={clsx(styles.hamburgerWrap)}
             onClick={() => setActive(!active)}
           >
             <span className={clsx(styles.hamburger)}></span>
@@ -54,17 +62,18 @@ const Header: FC<IHeaderProps> = ({ bg }) => {
             <span className={clsx(styles.hamburger)}></span>
           </div>
           <div className={styles.menuMobile}>
-            <Navigation
-              className={clsx(styles.nav, styles.active)}
-              color={bg === 'white' ? 'dark' : 'white'}
-              withLangSwitcher
-            />
-            <Social />
+            <div className={styles.menuDesktop}>
+              <LanguageSwitcher
+                className='text-center'
+                color={active ? 'white' : bg === 'white' ? 'dark' : 'white'}
+              />
+              <Navigation
+                className={clsx(styles.nav, styles.active)}
+                color={active ? 'white' : bg === 'white' ? 'dark' : 'white'}
+              />
+            </div>
+            <Social className='pb-[26px] lg:!hidden' />
           </div>
-          {/* <Navigation
-            className={clsx(styles.nav, styles.active)}
-            color={bg === 'white' ? 'dark' : 'white'}
-          /> */}
         </div>
       </ContainerUI>
     </header>

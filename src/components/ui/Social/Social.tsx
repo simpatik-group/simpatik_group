@@ -14,7 +14,7 @@ const Social: FC<ISocialProps> = ({ className }) => {
         target='_blank'
         rel='nofollow noopener noreferrer'
       >
-        <img src='./img/social/fb.svg' width={40} height={40} alt='facebook' />
+        <img src='/img/social/fb.svg' width={40} height={40} alt='facebook' />
       </Link>
       <Link
         href='https://www.facebook.com/holdingsimpatikgroup/'
@@ -22,7 +22,7 @@ const Social: FC<ISocialProps> = ({ className }) => {
         rel='nofollow noopener noreferrer'
       >
         <img
-          src='./img/social/instagram.svg'
+          src='/img/social/instagram.svg'
           width={40}
           height={40}
           alt='facebook'
@@ -34,7 +34,7 @@ const Social: FC<ISocialProps> = ({ className }) => {
         rel='nofollow noopener noreferrer'
       >
         <img
-          src='./img/social/linkedin.svg'
+          src='/img/social/linkedin.svg'
           width={40}
           height={40}
           alt='facebook'
@@ -46,7 +46,7 @@ const Social: FC<ISocialProps> = ({ className }) => {
         rel='nofollow noopener noreferrer'
       >
         <img
-          src='./img/social/email.svg'
+          src='/img/social/email.svg'
           width={40}
           height={40}
           alt='facebook'
@@ -58,7 +58,7 @@ const Social: FC<ISocialProps> = ({ className }) => {
         rel='nofollow noopener noreferrer'
       >
         <img
-          src='./img/social/youtube.svg'
+          src='/img/social/youtube.svg'
           width={40}
           height={40}
           alt='facebook'

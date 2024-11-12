@@ -1,6 +1,54 @@
+.nav {
+  &.white {
+    @apply text-white-400;
+    .link:not(.active):hover {
+      @apply border-white-400;
+    }
+  }
+  &.dark {
+    @apply text-dark-400;
+    .link:not(.active):hover {
+      @apply border-dark-400;
+    }
+  }
+  ul {
+    @apply grid gap-4;
+    counter-reset: item;
+  }
+}
 .link {
-  @apply interaction;
+  @apply relative interaction block transition-all border-b border-transparent p-2 pl-7;
+  &::before {
+    @apply text-orange-400 text-xs left-2 absolute -rotate-90;
+    content: '0' counter(item);
+    counter-increment: item;
+  }
   &.active {
-    color: red;
+    @apply cursor-auto text-orange-400 border-orange-400;
+  }
+}
+.language {
+  @apply interaction;
+}
+
+@include customMedia(992px) {
+  .nav {
+    ul {
+      display: flex;
+    }
+  }
+  .link {
+    @apply pl-2;
+    &::before {
+      content: none;
+    }
+  }
+}
+
+@include customMedia(1322px) {
+  .nav {
+    ul {
+      @apply gap-6;
+    }
   }
 }

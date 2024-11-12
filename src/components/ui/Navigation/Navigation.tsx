@@ -9,89 +9,64 @@ import { usePathname } from 'next/navigation';
 import styles from './Navigation.module.scss';
 import { INavigationProps } from './Navigation.props';
 
-const Navigation: FC<INavigationProps> = ({
-  color,
-  withLangSwitcher,
-  className,
-}) => {
+const Navigation: FC<INavigationProps> = ({ color, className }) => {
   const pathname = usePathname();
-  console.log('color:', color);
+  console.log('🚀 ~ pathname:', pathname);
+  const menuItems = [
+    {
+      name: 'Про нас',
+      href: '/',
+    },
+    {
+      name: 'Життя в Сімпатік',
+      href: '/life/',
+    },
+    {
+      name: 'Наші команди',
+      href: '/teams/',
+    },
+    {
+      name: 'Кар`єра',
+      href: '/career/',
+    },
+    {
+      name: 'Наші локації',
+      href: '/locations/',
+    },
+    {
+      name: 'Контакти',
+      href: '/contacts/',
+    },
+  ];
 
   return (
     <nav
       className={clsx(
+        styles.nav,
         className,
-        color === 'white' ? 'text-white' : 'text-grey-400',
+        color === 'white' ? styles.white : styles.dark,
       )}
     >
       <ul>
-        <li>
-          <Link
-            className={clsx(styles.link, {
-              [styles.active]: pathname === '/',
-            })}
-            href='/'
-          >
-            Про нас
-          </Link>
-        </li>
-        <li>
-          <Link
-            className={clsx(styles.link, {
-              [styles.active]: pathname === '/life',
-            })}
-            href='/life'
-          >
-            Життя в Сімпатік
-          </Link>
-        </li>
-        <li>
-          <Link
-            className={clsx(styles.link, {
-              [styles.active]: pathname === '/teams',
-            })}
-            href='/teams'
-          >
-            Наші команди
-          </Link>
-        </li>
-        <li>
-          <Link
-            className={clsx(styles.link, {
-              [styles.active]: pathname === '/career',
-            })}
-            href='/career'
-          >
-            Кар`єра
-          </Link>
-        </li>
-        <li>
-          <Link
-            className={clsx(styles.link, {
-              [styles.active]: pathname === '/locations',
-            })}
-            href='/locations'
-          >
-            Наші локації
-          </Link>
-        </li>
-        <li>
-          <Link
-            className={clsx(styles.link, {
-              [styles.active]: pathname === '/contacts',
-            })}
-            href='/contacts'
-          >
-            Контакти
-          </Link>
-        </li>
-        {withLangSwitcher && (
-          <li>
-            <Link className={clsx(styles.link, styles.language)} href='/'>
-              UA | EN
-            </Link>
-          </li>
-        )}
+        {menuItems.map((item) => {
+          if (pathname === item.href) {
+            return (
+              <li key={item.href}>
+                <span className={clsx(styles.link, styles.active)}>
+                  {item.name}
+                </span>
+              </li>
+            );
+          } else {
+            return (
+              <li key={item.href}>
+                <Link className={styles.link} href={item.href}>
+                  {item.name}
+                </Link>
+              </li>
+            );
+          }
+        })}
       </ul>
     </nav>
   );

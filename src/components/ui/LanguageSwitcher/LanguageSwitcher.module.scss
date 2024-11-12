@@ -1,0 +1,16 @@
+.white {
+  .language {
+    @apply text-white-400 border-r-white-400;
+  }
+}
+.dark {
+  .language {
+    @apply text-dark-400 border-r-grey-300;
+  }
+}
+.language {
+  @apply interaction p-2 first:border-r;
+  &.active {
+    @apply text-orange-400;
+  }
+}
