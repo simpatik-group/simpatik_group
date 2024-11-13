@@ -8,8 +8,9 @@ import { usePathname } from 'next/navigation';
 
 import styles from './Navigation.module.scss';
 import { INavigationProps } from './Navigation.props';
+import { Color } from '@/types/enums';
 
-const Navigation: FC<INavigationProps> = ({ color, className }) => {
+const Navigation: FC<INavigationProps> = ({ themeColor, className }) => {
   const pathname = usePathname();
   const menuItems = [
     {
@@ -43,7 +44,7 @@ const Navigation: FC<INavigationProps> = ({ color, className }) => {
       className={clsx(
         styles.nav,
         className,
-        color === 'white' ? styles.white : styles.dark,
+        themeColor === Color.white ? styles.white : styles.dark,
       )}
     >
       <ul>

@@ -1,20 +1,24 @@
 import RootLayout from '@/components/layouts/RootLayout/RootLayout';
 
+import { Color } from '@/types/enums';
+
 type Props = {};
 
 const fetchData = async () => {
-  const response = await fetch('https://apitest2.megabox.best/api/ua/boxes');
-  const data = await response.json();
-  return data;
+  // const response = await fetch(
+  //   process.env.NEXT_PUBLIC_DOMAIN + '/homepage?populate=*&locale=uk',
+  // );
+  // const data = await response.json();
+  // return data;
 };
-const ContactsPage = async (props: Props) => {
+const LifePage = async (props: Props) => {
   // const data = await fetchData();
   // console.log('data:', data);
   return (
-    <RootLayout color='dark'>
+    <RootLayout themeColor={Color.dark}>
       <div className='font-black text-7xl'>Життя в Сімпатік</div>
     </RootLayout>
   );
 };
 
-export default ContactsPage;
+export default LifePage;

@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-import { IContainerProps } from './ContainerUI.props';
+import { IDivProps } from '@/types/interfaces';
 
-const ContainerUI: FC<IContainerProps> = ({ children }) => {
+const ContainerUI: FC<IDivProps> = ({ children }) => {
   return <div className='container px-4'>{children}</div>;
 };
 

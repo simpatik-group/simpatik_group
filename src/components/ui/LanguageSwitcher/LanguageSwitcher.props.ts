@@ -1,7 +1,7 @@
-import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import { Color } from '@/types/enums';
+import { IDivProps } from '@/types/interfaces';
 
-export interface ILanguageSwitcher
-  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  color: 'dark' | 'white';
+export interface ILanguageSwitcher extends IDivProps {
+  themeColor: Color;
   withLangSwitcher?: boolean;
 }

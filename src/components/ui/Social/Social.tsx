@@ -4,9 +4,9 @@ import clsx from 'clsx';
 import Link from 'next/link';
 
 import styles from './Social.module.scss';
-import { ISocialProps } from './Social.props';
+import { IDivProps } from '@/types/interfaces';
 
-const Social: FC<ISocialProps> = ({ className }) => {
+const Social: FC<IDivProps> = ({ className }) => {
   return (
     <div className={clsx(styles.wrap, className)}>
       <Link

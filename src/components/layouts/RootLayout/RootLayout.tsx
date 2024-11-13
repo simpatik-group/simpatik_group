@@ -2,16 +2,17 @@ import { FC, ReactNode } from 'react';
 
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
+import { Color } from '@/types/enums';
 
 interface IRootLayout {
   children: ReactNode;
-  color: 'dark' | 'white';
+  themeColor: Color;
 }
 
-const RootLayout: FC<IRootLayout> = ({ children, color }) => {
+const RootLayout: FC<IRootLayout> = ({ children, themeColor }) => {
   return (
     <div className='overflow-clip'>
-      <Header bg={color} />
+      <Header themeColor={themeColor} />
       <main>{children}</main>
       <Footer />
     </div>

@@ -1,5 +1,7 @@
 import RootLayout from '@/components/layouts/RootLayout/RootLayout';
 
+import { Color } from '@/types/enums';
+
 const fetchData = async () => {
   const response = await fetch('https://apitest2.megabox.best/api/ua/boxes');
   const data = await response.json();
@@ -10,7 +12,7 @@ const ContactsPage = () => {
   // console.log('data:', data);
 
   return (
-    <RootLayout color='dark'>
+    <RootLayout themeColor={Color.dark}>
       <div className='font-black text-7xl'>Наші локації</div>
     </RootLayout>
   );

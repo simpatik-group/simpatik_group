@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,19 +9,9 @@ import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 import Social from '@/components/ui/Social/Social';
 
 import styles from './Footer.module.scss';
-import { IFooterProps } from './Footer.props';
+import { IDivProps } from '@/types/interfaces';
 
-const Footer: FC<IFooterProps> = () => {
-  const [active, setActive] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (active) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-  });
-
+const Footer: FC<IDivProps> = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerTop}>

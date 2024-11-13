@@ -13,8 +13,9 @@ import Social from '@/components/ui/Social/Social';
 
 import styles from './Header.module.scss';
 import { IHeaderProps } from './Header.props';
+import { Color } from '@/types/enums';
 
-const Header: FC<IHeaderProps> = ({ bg }) => {
+const Header: FC<IHeaderProps> = ({ themeColor }) => {
   const [active, setActive] = useState<boolean>(false);
 
   useEffect(() => {
@@ -28,7 +29,7 @@ const Header: FC<IHeaderProps> = ({ bg }) => {
   return (
     <header
       className={clsx(
-        bg === 'white' ? styles.white : styles.dark,
+        themeColor === Color.white ? styles.white : styles.dark,
         styles.header,
         { [styles.active]: active },
       )}
@@ -40,7 +41,7 @@ const Header: FC<IHeaderProps> = ({ bg }) => {
               src={
                 active
                   ? '/img/logo.svg'
-                  : bg === 'white'
+                  : themeColor === Color.white
                     ? '/img/logo-dark.svg'
                     : '/img/logo.svg'
               }
@@ -65,11 +66,23 @@ const Header: FC<IHeaderProps> = ({ bg }) => {
             <div className={styles.menuDesktop}>
               <LanguageSwitcher
                 className='text-center'
-                color={active ? 'white' : bg === 'white' ? 'dark' : 'white'}
+                themeColor={
+                  active
+                    ? Color.white
+                    : themeColor === Color.white
+                      ? Color.dark
+                      : Color.white
+                }
               />
               <Navigation
                 className={clsx(styles.nav, styles.active)}
-                color={active ? 'white' : bg === 'white' ? 'dark' : 'white'}
+                themeColor={
+                  active
+                    ? Color.white
+                    : themeColor === Color.white
+                      ? Color.dark
+                      : Color.white
+                }
               />
             </div>
             <Social className='pb-[26px] lg:!hidden' />

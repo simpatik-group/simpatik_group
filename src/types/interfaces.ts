@@ -1,4 +1,4 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-export interface ISocialProps
+export interface IDivProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
