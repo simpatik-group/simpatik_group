@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-import { Color } from '@/types/enums';
+import { Color } from '@/interfaces/enums';
 
 export interface IHeadingProps
   extends DetailedHTMLProps<

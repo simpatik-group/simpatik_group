@@ -1,7 +1,7 @@
 import RootLayout from '@/components/layouts/RootLayout/RootLayout';
 import Life from '@/components/pages/Life/Life';
 
-import { Color } from '@/types/enums';
+import { Color } from '@/interfaces/enums';
 
 type Props = {};
 
@@ -11,9 +11,10 @@ const LifePage = async (props: Props) => {
     process.env.NEXT_PUBLIC_DOMAIN + '/life?populate=*&locale=uk',
     { cache: 'force-cache' },
   );
-  const data = await res.json();
+  const { data } = await res.json();
+  const lifePage = { lifePage: data };
   return (
-    <RootLayout data={data} themeColor={Color.dark}>
+    <RootLayout localization={lifePage} themeColor={Color.dark}>
       <Life />
     </RootLayout>
   );

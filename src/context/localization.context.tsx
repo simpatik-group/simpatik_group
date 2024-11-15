@@ -1,15 +1,19 @@
 'use client';
 
-import { PropsWithChildren, ReactNode, createContext } from 'react';
+import { FC, ReactNode, createContext } from 'react';
+
+import { ICommonLocalization } from '@/interfaces/common.localization';
+import { IHomeLocalization } from '@/interfaces/home.localization';
+import { ILifeLocalization } from '@/interfaces/life.localization';
 
 export interface ILocalizationContext {
-  homePage?: {};
-  common?: {};
-  life?: {};
+  homePage?: IHomeLocalization;
+  commonContent?: ICommonLocalization;
+  lifePage?: ILifeLocalization;
 }
 
 interface ILocalizationProps {
-  data: ILocalizationContext;
+  localization: ILocalizationContext;
   children: ReactNode;
 }
 
@@ -17,12 +21,12 @@ export const LocalizationContext = createContext<
   ILocalizationContext | undefined
 >(undefined);
 
-const LocalizationProvider = ({
-  data,
+const LocalizationProvider: FC<ILocalizationProps> = ({
+  localization,
   children,
-}: PropsWithChildren<ILocalizationProps>) => {
+}) => {
   return (
-    <LocalizationContext.Provider value={data}>
+    <LocalizationContext.Provider value={localization}>
       {children}
     </LocalizationContext.Provider>
   );

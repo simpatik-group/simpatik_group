@@ -6,9 +6,10 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
+import { Color } from '@/interfaces/enums';
+
 import styles from './LanguageSwitcher.module.scss';
 import { ILanguageSwitcher } from './LanguageSwitcher.props';
-import { Color } from '@/types/enums';
 
 const LanguageSwitcher: FC<ILanguageSwitcher> = ({ themeColor, className }) => {
   const router = useParams();

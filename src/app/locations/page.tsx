@@ -1,6 +1,6 @@
 import RootLayout from '@/components/layouts/RootLayout/RootLayout';
 
-import { Color } from '@/types/enums';
+import { Color } from '@/interfaces/enums';
 
 const fetchData = async () => {
   const response = await fetch('https://apitest2.megabox.best/api/ua/boxes');

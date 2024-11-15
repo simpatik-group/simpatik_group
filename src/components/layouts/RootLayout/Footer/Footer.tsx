@@ -8,8 +8,9 @@ import Link from 'next/link';
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 import Social from '@/components/ui/Social/Social';
 
+import { IDivProps } from '@/interfaces/interfaces';
+
 import styles from './Footer.module.scss';
-import { IDivProps } from '@/types/interfaces';
 
 const Footer: FC<IDivProps> = () => {
   return (

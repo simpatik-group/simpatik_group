@@ -1,15 +1,12 @@
 'use client';
 
-import { FC, useContext } from 'react';
+import { useOwnSelector } from '@/hooks/useOwnSelector';
 
-import { LocalizationContext } from '@/context/localization.context';
-
-const Life: FC = () => {
-  const context = useContext(LocalizationContext);
-  console.log('🚀 ~ context:', context);
+const Life = () => {
+  const lifePage = useOwnSelector('lifePage');
   return (
     <>
-      <p>{context?.homePage.data.advantages_title}</p>
+      <p>{lifePage?.advantages_title}</p>
     </>
   );
 };

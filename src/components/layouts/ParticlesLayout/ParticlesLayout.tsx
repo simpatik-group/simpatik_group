@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 
-import { IDivProps } from '@/types/interfaces';
+import { IDivProps } from '@/interfaces/interfaces';
 
 const ParticlesLayout: FC<IDivProps> = ({ className, children, ...props }) => {
   return (

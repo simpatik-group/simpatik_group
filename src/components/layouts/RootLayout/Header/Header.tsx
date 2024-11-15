@@ -11,11 +11,16 @@ import LanguageSwitcher from '@/components/ui/LanguageSwitcher/LanguageSwitcher'
 import Navigation from '@/components/ui/Navigation/Navigation';
 import Social from '@/components/ui/Social/Social';
 
+import { Color } from '@/interfaces/enums';
+
+import { useOwnSelector } from '@/hooks/useOwnSelector';
+
 import styles from './Header.module.scss';
 import { IHeaderProps } from './Header.props';
-import { Color } from '@/types/enums';
 
 const Header: FC<IHeaderProps> = ({ themeColor }) => {
+  const commonContent = useOwnSelector('commonContent');
+
   const [active, setActive] = useState<boolean>(false);
 
   useEffect(() => {
@@ -38,6 +43,7 @@ const Header: FC<IHeaderProps> = ({ themeColor }) => {
         <div className={styles.wrap}>
           <Link href='/'>
             <Image
+              priority
               src={
                 active
                   ? '/img/logo.svg'

@@ -1,6 +1,6 @@
 import RootLayout from '@/components/layouts/RootLayout/RootLayout';
 
-import { Color } from '@/types/enums';
+import { Color } from '@/interfaces/enums';
 
 type Props = {};
 

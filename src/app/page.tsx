@@ -1,7 +1,7 @@
 import RootLayout from '@/components/layouts/RootLayout/RootLayout';
 import Home from '@/components/pages/Home/Home';
 
-import { Color } from '@/types/enums';
+import { Color } from '@/interfaces/enums';
 
 // https://nextjs.org/docs/app/building-your-application/data-fetching/incremental-static-regeneration
 // генерація метаданих
@@ -27,13 +27,20 @@ import { Color } from '@/types/enums';
 export const revalidate = 3600; // invalidate every hour
 
 export default async function HomePage() {
-  const res = await fetch(
+  const { data: homePage } = await fetch(
     process.env.NEXT_PUBLIC_DOMAIN + '/homepage?populate=*&locale=uk',
     { cache: 'force-cache' },
-  );
-  const data = await res.json();
+  ).then((res) => res.json());
+
+  const { data: commonContent } = await fetch(
+    process.env.NEXT_PUBLIC_DOMAIN +
+      '/common?populate=social_links.image&populate=menu&locale=uk',
+    { cache: 'force-cache' },
+  ).then((res) => res.json());
+
+  const homePageLocalization = { homePage, commonContent };
   return (
-    <RootLayout data={data} themeColor={Color.dark}>
+    <RootLayout localization={homePageLocalization} themeColor={Color.dark}>
       <Home />
     </RootLayout>
   );

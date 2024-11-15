@@ -3,8 +3,9 @@ import { FC } from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
 
+import { IDivProps } from '@/interfaces/interfaces';
+
 import styles from './Social.module.scss';
-import { IDivProps } from '@/types/interfaces';
 
 const Social: FC<IDivProps> = ({ className }) => {
   return (

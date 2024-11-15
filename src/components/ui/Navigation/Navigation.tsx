@@ -6,38 +6,43 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import { Color } from '@/interfaces/enums';
+
+import { useOwnSelector } from '@/hooks/useOwnSelector';
+
 import styles from './Navigation.module.scss';
 import { INavigationProps } from './Navigation.props';
-import { Color } from '@/types/enums';
 
 const Navigation: FC<INavigationProps> = ({ themeColor, className }) => {
+  const commonContent = useOwnSelector('commonContent');
+
   const pathname = usePathname();
-  const menuItems = [
-    {
-      name: 'Про нас',
-      href: '/',
-    },
-    {
-      name: 'Життя в Сімпатік',
-      href: '/life/',
-    },
-    {
-      name: 'Наші команди',
-      href: '/teams/',
-    },
-    {
-      name: 'Кар`єра',
-      href: '/career/',
-    },
-    {
-      name: 'Наші локації',
-      href: '/locations/',
-    },
-    {
-      name: 'Контакти',
-      href: '/contacts/',
-    },
-  ];
+  // const menuItems = [
+  //   {
+  //     name: 'Про нас',
+  //     href: '/',
+  //   },
+  //   {
+  //     name: 'Життя в Сімпатік',
+  //     href: '/life/',
+  //   },
+  //   {
+  //     name: 'Наші команди',
+  //     href: '/teams/',
+  //   },
+  //   {
+  //     name: 'Кар`єра',
+  //     href: '/career/',
+  //   },
+  //   {
+  //     name: 'Наші локації',
+  //     href: '/locations/',
+  //   },
+  //   {
+  //     name: 'Контакти',
+  //     href: '/contacts/',
+  //   },
+  // ];
 
   return (
     <nav
@@ -48,20 +53,20 @@ const Navigation: FC<INavigationProps> = ({ themeColor, className }) => {
       )}
     >
       <ul>
-        {menuItems.map((item) => {
-          if (pathname === item.href) {
+        {commonContent?.menu.map((item) => {
+          if (pathname === item.url) {
             return (
-              <li key={item.href}>
+              <li key={item.id}>
                 <span className={clsx(styles.link, styles.active)}>
-                  {item.name}
+                  {item.title}
                 </span>
               </li>
             );
           } else {
             return (
-              <li key={item.href}>
-                <Link className={styles.link} href={item.href}>
-                  {item.name}
+              <li key={item.url}>
+                <Link className={styles.link} href={item.url}>
+                  {item.title}
                 </Link>
               </li>
             );

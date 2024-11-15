@@ -9,6 +9,7 @@
   "importOrder": [
     "^react(.*)$",
     "<THIRD_PARTY_MODULES>",
+    "^@/context/(.*)$",
     "^@/components/(.*)$",
     "^@/layout/(.*)$",
     "^@/ui/(.*)$",
@@ -16,7 +17,6 @@
     "^@/providers/(.*)$",
     "^@/interfaces/(.*)$",
     "^@/hooks/(.*)$",
-    "^@/redux/(.*)$",
     "^@/helpers/(.*)$",
     "^../(.*)",
     "^./(.*)",

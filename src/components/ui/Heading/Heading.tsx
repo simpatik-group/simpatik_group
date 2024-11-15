@@ -2,9 +2,10 @@ import { FC, createElement } from 'react';
 
 import clsx from 'clsx';
 
+import { Color } from '@/interfaces/enums';
+
 import styles from './Heading.module.scss';
 import { IHeadingProps } from './Heading.props';
-import { Color } from '@/types/enums';
 
 const Heading: FC<IHeadingProps> = ({
   heading,
