@@ -18,14 +18,14 @@ const Heading: FC<IHeadingProps> = ({
   return (
     <div
       className={clsx(
-        'relative',
+        'relative z-10',
         themeColor === Color.white ? styles.white : styles.black,
       )}
     >
       {createElement(
         heading,
         {
-          className: clsx(className, styles.heading),
+          className: clsx(styles.heading, className),
           ...props,
         },
         title || children,

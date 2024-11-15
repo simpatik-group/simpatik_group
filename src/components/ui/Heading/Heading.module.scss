@@ -1,12 +1,15 @@
 .white {
   @apply text-white-400;
+  .shadowTitle {
+    @apply text-blue-300;
+  }
 }
 .black {
   @apply text-dark-400;
-}
-.heading {
-  @apply h2;
+  .shadowTitle {
+    @apply text-white-500;
+  }
 }
 .shadowTitle {
-  @apply h1;
+  @apply h1 absolute left-6 top-6 -z-10;
 }
