@@ -6,7 +6,7 @@ import ParticlesLayout from '@/components/layouts/ParticlesLayout/ParticlesLayou
 import Heading from '@/components/ui/Heading/Heading';
 import ParticleImageComponent from '@/components/ui/ParticleImageComponent/ParticleImage';
 
-import { Color } from '@/interfaces/enums';
+import { EColor } from '@/interfaces/enums';
 
 const Inspire: FC = () => {
   const context = useContext(LocalizationContext);
@@ -17,7 +17,7 @@ const Inspire: FC = () => {
           className='uppercase h1'
           heading='h1'
           title='Надихати людей'
-          themeColor={Color.white}
+          themeColor={EColor.white}
         />
         <p className='uppercase h6'>{context?.homePage?.hero_text}</p>
       </div>

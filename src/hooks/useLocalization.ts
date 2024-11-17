@@ -5,7 +5,7 @@ import {
   LocalizationContext,
 } from '@/context/localization.context';
 
-export function useOwnSelector<Key extends keyof ILocalizationContext>(
+export function useLocalization<Key extends keyof ILocalizationContext>(
   key: Key,
 ) {
   const context = useContext(LocalizationContext);
@@ -13,7 +13,7 @@ export function useOwnSelector<Key extends keyof ILocalizationContext>(
 
   if (!context) {
     throw new Error(
-      'useOwnSelector must be used within a LocalizationProvider',
+      'useLocalization must be used within a LocalizationProvider',
     );
   }
 

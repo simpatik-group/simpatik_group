@@ -4,14 +4,14 @@ import LocalizationProvider, {
   ILocalizationContext,
 } from '@/context/localization.context';
 
-import type { Color } from '@/interfaces/enums';
+import type { EColor } from '@/interfaces/enums';
 
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
 
 interface IRootLayout {
   children: ReactNode;
-  themeColor: Color;
+  themeColor: EColor;
   localization: ILocalizationContext;
 }
 

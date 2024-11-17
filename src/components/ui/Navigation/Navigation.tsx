@@ -6,15 +6,15 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { Color } from '@/interfaces/enums';
+import { EColor } from '@/interfaces/enums';
 
-import { useOwnSelector } from '@/hooks/useOwnSelector';
+import { useLocalization } from '@/hooks/useLocalization';
 
 import styles from './Navigation.module.scss';
 import { INavigationProps } from './Navigation.props';
 
 const Navigation: FC<INavigationProps> = ({ themeColor, className }) => {
-  const commonContent = useOwnSelector('commonContent');
+  const commonContent = useLocalization('commonContent');
 
   const pathname = usePathname();
   // const menuItems = [
@@ -49,7 +49,7 @@ const Navigation: FC<INavigationProps> = ({ themeColor, className }) => {
       className={clsx(
         styles.nav,
         className,
-        themeColor === Color.white ? styles.white : styles.dark,
+        themeColor === EColor.white ? styles.white : styles.dark,
       )}
     >
       <ul>

@@ -2,7 +2,7 @@ import { FC, createElement } from 'react';
 
 import clsx from 'clsx';
 
-import { Color } from '@/interfaces/enums';
+import { EColor } from '@/interfaces/enums';
 
 import styles from './Heading.module.scss';
 import { IHeadingProps } from './Heading.props';
@@ -20,7 +20,7 @@ const Heading: FC<IHeadingProps> = ({
     <div
       className={clsx(
         'relative z-10',
-        themeColor === Color.white ? styles.white : styles.black,
+        themeColor === EColor.white ? styles.white : styles.black,
       )}
     >
       {createElement(

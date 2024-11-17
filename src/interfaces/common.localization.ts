@@ -2,7 +2,7 @@ export interface ICommonLocalization {
   id: number;
   address_title: string;
   address_text: string;
-  hone_title: string;
+  phone_title: string;
   phone_text: string;
   email_title: string;
   email_text: string;

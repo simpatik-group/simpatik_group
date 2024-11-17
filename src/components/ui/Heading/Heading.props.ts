@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-import { Color } from '@/interfaces/enums';
+import { EColor } from '@/interfaces/enums';
 
 export interface IHeadingProps
   extends DetailedHTMLProps<
@@ -10,5 +10,5 @@ export interface IHeadingProps
   heading: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   title: string;
   shadowTitle?: string;
-  themeColor: Color;
+  themeColor: EColor;
 }

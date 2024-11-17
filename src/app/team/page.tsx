@@ -1,6 +1,6 @@
 import RootLayout from '@/components/layouts/RootLayout/RootLayout';
 
-import { Color } from '@/interfaces/enums';
+import { EColor } from '@/interfaces/enums';
 
 type Props = {};
 
@@ -13,7 +13,7 @@ const ContactsPage = async (props: Props) => {
   // const data = await fetchData();
   // console.log('data:', data);
   return (
-    <RootLayout themeColor={Color.dark}>
+    <RootLayout themeColor={EColor.dark}>
       <div className='font-black text-7xl'>Наші команди</div>
     </RootLayout>
   );

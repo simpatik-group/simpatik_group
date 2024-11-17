@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
-import { Color } from '@/interfaces/enums';
+import { EColor } from '@/interfaces/enums';
 
 import styles from './LanguageSwitcher.module.scss';
 import { ILanguageSwitcher } from './LanguageSwitcher.props';
@@ -18,7 +18,7 @@ const LanguageSwitcher: FC<ILanguageSwitcher> = ({ themeColor, className }) => {
     <div
       className={clsx(
         className,
-        themeColor === Color.white ? styles.white : styles.dark,
+        themeColor === EColor.white ? styles.white : styles.dark,
       )}
     >
       <Link className={clsx(styles.language, styles.active)} href='/'>

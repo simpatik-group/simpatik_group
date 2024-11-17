@@ -11,15 +11,15 @@ import LanguageSwitcher from '@/components/ui/LanguageSwitcher/LanguageSwitcher'
 import Navigation from '@/components/ui/Navigation/Navigation';
 import Social from '@/components/ui/Social/Social';
 
-import { Color } from '@/interfaces/enums';
+import { EColor } from '@/interfaces/enums';
 
-import { useOwnSelector } from '@/hooks/useOwnSelector';
+import { useLocalization } from '@/hooks/useLocalization';
 
 import styles from './Header.module.scss';
 import { IHeaderProps } from './Header.props';
 
 const Header: FC<IHeaderProps> = ({ themeColor }) => {
-  const commonContent = useOwnSelector('commonContent');
+  const commonContent = useLocalization('commonContent');
 
   const [active, setActive] = useState<boolean>(false);
 
@@ -34,7 +34,7 @@ const Header: FC<IHeaderProps> = ({ themeColor }) => {
   return (
     <header
       className={clsx(
-        themeColor === Color.white ? styles.white : styles.dark,
+        themeColor === EColor.white ? styles.white : styles.dark,
         styles.header,
         { [styles.active]: active },
       )}
@@ -47,7 +47,7 @@ const Header: FC<IHeaderProps> = ({ themeColor }) => {
               src={
                 active
                   ? '/img/logo.svg'
-                  : themeColor === Color.white
+                  : themeColor === EColor.white
                     ? '/img/logo-dark.svg'
                     : '/img/logo.svg'
               }
@@ -74,20 +74,20 @@ const Header: FC<IHeaderProps> = ({ themeColor }) => {
                 className='text-center'
                 themeColor={
                   active
-                    ? Color.white
-                    : themeColor === Color.white
-                      ? Color.dark
-                      : Color.white
+                    ? EColor.white
+                    : themeColor === EColor.white
+                      ? EColor.dark
+                      : EColor.white
                 }
               />
               <Navigation
                 className={clsx(styles.nav, styles.active)}
                 themeColor={
                   active
-                    ? Color.white
-                    : themeColor === Color.white
-                      ? Color.dark
-                      : Color.white
+                    ? EColor.white
+                    : themeColor === EColor.white
+                      ? EColor.dark
+                      : EColor.white
                 }
               />
             </div>

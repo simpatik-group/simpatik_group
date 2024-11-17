@@ -1,7 +1,9 @@
 import RootLayout from '@/components/layouts/RootLayout/RootLayout';
 import Home from '@/components/pages/Home/Home';
 
-import { Color } from '@/interfaces/enums';
+import { EColor } from '@/interfaces/enums';
+
+import localizationService from '@/services/localization.service';
 
 // https://nextjs.org/docs/app/building-your-application/data-fetching/incremental-static-regeneration
 // генерація метаданих
@@ -27,20 +29,19 @@ import { Color } from '@/interfaces/enums';
 export const revalidate = 3600; // invalidate every hour
 
 export default async function HomePage() {
-  const { data: homePage } = await fetch(
-    process.env.NEXT_PUBLIC_DOMAIN + '/homepage?populate=*&locale=uk',
-    { cache: 'force-cache' },
-  ).then((res) => res.json());
+  const commonContent = await localizationService.getCommon('uk');
+  // const { data: homePage } = await fetch(
+  //   process.env.NEXT_PUBLIC_DOMAIN + '/homepage?populate=*&locale=uk',
+  //   { cache: 'force-cache' },
+  // ).then((res) => res.json());
 
-  const { data: commonContent } = await fetch(
-    process.env.NEXT_PUBLIC_DOMAIN +
-      '/common?populate=social_links.image&populate=menu&locale=uk',
-    { cache: 'force-cache' },
-  ).then((res) => res.json());
+  const homePage = await localizationService.getHomePage('uk');
 
-  const homePageLocalization = { homePage, commonContent };
   return (
-    <RootLayout localization={homePageLocalization} themeColor={Color.dark}>
+    <RootLayout
+      localization={{ homePage, commonContent }}
+      themeColor={EColor.dark}
+    >
       <Home />
     </RootLayout>
   );

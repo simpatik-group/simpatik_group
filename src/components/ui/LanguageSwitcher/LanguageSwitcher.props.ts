@@ -1,7 +1,7 @@
-import { Color } from '@/interfaces/enums';
+import { EColor } from '@/interfaces/enums';
 import { IDivProps } from '@/interfaces/interfaces';
 
 export interface ILanguageSwitcher extends IDivProps {
-  themeColor: Color;
+  themeColor: EColor;
   withLangSwitcher?: boolean;
 }

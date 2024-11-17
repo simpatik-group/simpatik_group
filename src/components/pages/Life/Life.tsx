@@ -1,9 +1,9 @@
 'use client';
 
-import { useOwnSelector } from '@/hooks/useOwnSelector';
+import { useLocalization } from '@/hooks/useLocalization';
 
 const Life = () => {
-  const lifePage = useOwnSelector('lifePage');
+  const lifePage = useLocalization('lifePage');
   return (
     <>
       <p>{lifePage?.advantages_title}</p>
