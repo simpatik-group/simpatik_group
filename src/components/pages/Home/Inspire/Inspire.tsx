@@ -13,7 +13,7 @@ import { useLocalization } from '@/hooks/useLocalization';
 const Inspire: FC = () => {
   const homePage = useLocalization('HOME_PAGE');
   return (
-    <ParticlesLayout className='pt-8 pb-2'>
+    <ParticlesLayout className='pt-8 pb-2 md:pb-14'>
       <ContainerUI className='md:grid-cols-2'>
         <div>
           <Heading
@@ -24,8 +24,8 @@ const Inspire: FC = () => {
           />
           <p className='uppercase h6'>{homePage?.hero_text}</p>
         </div>
-        <div>
-          <ParticleImageComponent />
+        <div className='md:-mt-10'>
+          <ParticleImageComponent className='w-full' />
           <Social className='!hidden md:!flex md:mt-10 md:!justify-end' />
         </div>
       </ContainerUI>

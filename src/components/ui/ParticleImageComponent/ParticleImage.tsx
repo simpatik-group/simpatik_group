@@ -8,7 +8,9 @@ import ParticleImage, {
   forces,
 } from 'react-particle-image';
 
-const ParticleImageComponent: FC = () => {
+import { IDivProps } from '@/interfaces/interfaces';
+
+const ParticleImageComponent: FC<IDivProps> = ({ className }) => {
   const particleOptions: ParticleOptions = {
     filter: ({ x, y, image }) => {
       // Get pixel
@@ -43,7 +45,7 @@ const ParticleImageComponent: FC = () => {
       mouseMoveForce={motionForce}
       touchMoveForce={motionForce}
       backgroundColor='transparent'
-      className='w-full'
+      className={className}
     />
   );
 };

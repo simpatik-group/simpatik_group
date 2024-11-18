@@ -5,6 +5,7 @@ import { FC, ReactNode, createContext } from 'react';
 import { ICommonLocalization } from '@/interfaces/common.localization';
 import { IHomeLocalization } from '@/interfaces/home.localization';
 import { ILifeLocalization } from '@/interfaces/life.localization';
+import { ILocationsLocalization } from '@/interfaces/locations.localization';
 
 export interface ILocalizationContext {
   COMMON?: ICommonLocalization;
@@ -12,7 +13,7 @@ export interface ILocalizationContext {
   LIFE?: ILifeLocalization;
   CAREER?: ILifeLocalization;
   CONTACTS?: ILifeLocalization;
-  LOCATIONS?: ILifeLocalization;
+  LOCATIONS?: ILocationsLocalization;
   NEWS?: ILifeLocalization;
   CHARITIES?: ILifeLocalization;
   TEAM?: ILifeLocalization;
