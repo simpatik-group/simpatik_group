@@ -1,21 +1,19 @@
 import RootLayout from '@/components/layouts/RootLayout/RootLayout';
+import Locations from '@/components/pages/Locations/Locations';
 
 import { EColor } from '@/interfaces/enums';
 
-const fetchData = async () => {
-  const response = await fetch('https://apitest2.megabox.best/api/ua/boxes');
-  const data = await response.json();
-  return data;
-};
-const ContactsPage = () => {
-  // const data = await fetchData();
-  // console.log('data:', data);
+import localizationService from '@/services/localization.service';
+
+export default async function LocationPage() {
+  const localization = await localizationService.getLocalizations('uk', [
+    'COMMON',
+    'LOCATIONS',
+  ]);
 
   return (
-    <RootLayout themeColor={EColor.dark}>
-      <div className='font-black text-7xl'>Наші локації</div>
+    <RootLayout localization={localization} themeColor={EColor.dark}>
+      <Locations />
     </RootLayout>
   );
-};
-
-export default ContactsPage;
+}

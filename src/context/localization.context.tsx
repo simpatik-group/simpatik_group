@@ -7,9 +7,15 @@ import { IHomeLocalization } from '@/interfaces/home.localization';
 import { ILifeLocalization } from '@/interfaces/life.localization';
 
 export interface ILocalizationContext {
-  homePage?: IHomeLocalization;
-  commonContent?: ICommonLocalization;
-  lifePage?: ILifeLocalization;
+  COMMON?: ICommonLocalization;
+  HOME_PAGE?: IHomeLocalization;
+  LIFE?: ILifeLocalization;
+  CAREER?: ILifeLocalization;
+  CONTACTS?: ILifeLocalization;
+  LOCATIONS?: ILifeLocalization;
+  NEWS?: ILifeLocalization;
+  CHARITIES?: ILifeLocalization;
+  TEAM?: ILifeLocalization;
 }
 
 interface ILocalizationProps {

@@ -1,9 +1,7 @@
 .header {
   @apply sticky top-0 z-30 transition-all h-20 py-2.5;
-  &::before {
-    content: '';
-    @apply fixed top-0 left-0 right-0 bg-grey-300 h-0 opacity-0 transition-all scale-y-0 origin-top;
-
+  .headerMobileBg {
+    @apply fixed top-0 left-0 right-0 bg-blue-300 h-0 opacity-0 transition-all scale-y-0 origin-top;
     // тут фон для відкритого меню мобайла
   }
   &.dark {
@@ -23,7 +21,7 @@
     }
   }
   &.active {
-    &::before {
+    .headerMobileBg {
       @apply h-dvh opacity-100 scale-y-100;
     }
     .menuMobile {
@@ -103,6 +101,9 @@
 @include customMedia(992px) {
   .header {
     @apply h-auto;
+    .headerMobileBg {
+      @apply hidden;
+    }
   }
   .logo {
     @apply w-auto;

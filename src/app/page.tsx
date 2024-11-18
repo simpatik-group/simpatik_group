@@ -29,19 +29,13 @@ import localizationService from '@/services/localization.service';
 export const revalidate = 3600; // invalidate every hour
 
 export default async function HomePage() {
-  const commonContent = await localizationService.getCommon('uk');
-  // const { data: homePage } = await fetch(
-  //   process.env.NEXT_PUBLIC_DOMAIN + '/homepage?populate=*&locale=uk',
-  //   { cache: 'force-cache' },
-  // ).then((res) => res.json());
-
-  const homePage = await localizationService.getHomePage('uk');
+  const localization = await localizationService.getLocalizations('uk', [
+    'COMMON',
+    'HOME_PAGE',
+  ]);
 
   return (
-    <RootLayout
-      localization={{ homePage, commonContent }}
-      themeColor={EColor.dark}
-    >
+    <RootLayout localization={localization} themeColor={EColor.dark}>
       <Home />
     </RootLayout>
   );

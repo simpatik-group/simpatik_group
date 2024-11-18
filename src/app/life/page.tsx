@@ -5,17 +5,15 @@ import { EColor } from '@/interfaces/enums';
 
 import localizationService from '@/services/localization.service';
 
-type Props = {};
-
-const fetchData = async () => {};
-const LifePage = async (props: Props) => {
-  const lifePage = await localizationService.getLife();
+export default async function LifePage() {
+  const localization = await localizationService.getLocalizations('uk', [
+    'COMMON',
+    'LIFE',
+  ]);
 
   return (
-    <RootLayout localization={{ lifePage }} themeColor={EColor.dark}>
+    <RootLayout localization={localization} themeColor={EColor.dark}>
       <Life />
     </RootLayout>
   );
-};
-
-export default LifePage;
+}

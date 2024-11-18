@@ -43,6 +43,7 @@ const ParticleImageComponent: FC = () => {
       mouseMoveForce={motionForce}
       touchMoveForce={motionForce}
       backgroundColor='transparent'
+      className='w-full'
     />
   );
 };

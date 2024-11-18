@@ -42,6 +42,9 @@ const config = {
     },
     container: {
       center: true,
+      padding: '1rem',
+      display: 'grid',
+      columnGap: '1rem',
     },
     extend: {
       // border: {
@@ -129,7 +132,6 @@ const config = {
           fontWeight: '700',
           lineHeight: '1.2',
           outline: 'none',
-          // display: 'block',
           cursor: 'pointer',
           margin: '0 auto',
         },

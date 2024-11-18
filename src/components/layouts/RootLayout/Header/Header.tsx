@@ -13,14 +13,12 @@ import Social from '@/components/ui/Social/Social';
 
 import { EColor } from '@/interfaces/enums';
 
-import { useLocalization } from '@/hooks/useLocalization';
+import ParticlesLayout from '../../ParticlesLayout/ParticlesLayout';
 
 import styles from './Header.module.scss';
 import { IHeaderProps } from './Header.props';
 
 const Header: FC<IHeaderProps> = ({ themeColor }) => {
-  const commonContent = useLocalization('commonContent');
-
   const [active, setActive] = useState<boolean>(false);
 
   useEffect(() => {
@@ -39,6 +37,7 @@ const Header: FC<IHeaderProps> = ({ themeColor }) => {
         { [styles.active]: active },
       )}
     >
+      <ParticlesLayout className={styles.headerMobileBg} />
       <ContainerUI>
         <div className={styles.wrap}>
           <Link href='/'>

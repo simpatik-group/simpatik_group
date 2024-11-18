@@ -3,7 +3,7 @@
 import { useLocalization } from '@/hooks/useLocalization';
 
 const Life = () => {
-  const lifePage = useLocalization('lifePage');
+  const lifePage = useLocalization('LIFE');
   return (
     <>
       <p>{lifePage?.advantages_title}</p>

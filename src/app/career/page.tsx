@@ -1,21 +1,18 @@
 import RootLayout from '@/components/layouts/RootLayout/RootLayout';
+import Career from '@/components/pages/Career/Career';
 
 import { EColor } from '@/interfaces/enums';
 
-const fetchData = async () => {
-  const response = await fetch('https://apitest2.megabox.best/api/ua/boxes');
-  const data = await response.json();
-  return data;
-};
-const ContactsPage = () => {
-  // const data = await fetchData();
-  // console.log('data:', data);
+import localizationService from '@/services/localization.service';
+
+export default async function CareerPage() {
+  const localization = await localizationService.getLocalizations('uk', [
+    'COMMON',
+  ]);
 
   return (
-    <RootLayout themeColor={EColor.dark}>
-      <div className='font-black text-7xl'>Кар'єра</div>
+    <RootLayout localization={localization} themeColor={EColor.dark}>
+      <Career />
     </RootLayout>
   );
-};
-
-export default ContactsPage;
+}

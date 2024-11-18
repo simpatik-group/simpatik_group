@@ -14,35 +14,9 @@ import styles from './Navigation.module.scss';
 import { INavigationProps } from './Navigation.props';
 
 const Navigation: FC<INavigationProps> = ({ themeColor, className }) => {
-  const commonContent = useLocalization('commonContent');
+  const commonContent = useLocalization('COMMON');
 
   const pathname = usePathname();
-  // const menuItems = [
-  //   {
-  //     name: 'Про нас',
-  //     href: '/',
-  //   },
-  //   {
-  //     name: 'Життя в Сімпатік',
-  //     href: '/life/',
-  //   },
-  //   {
-  //     name: 'Наші команди',
-  //     href: '/teams/',
-  //   },
-  //   {
-  //     name: 'Кар`єра',
-  //     href: '/career/',
-  //   },
-  //   {
-  //     name: 'Наші локації',
-  //     href: '/locations/',
-  //   },
-  //   {
-  //     name: 'Контакти',
-  //     href: '/contacts/',
-  //   },
-  // ];
 
   return (
     <nav
@@ -65,7 +39,7 @@ const Navigation: FC<INavigationProps> = ({ themeColor, className }) => {
           } else {
             return (
               <li key={item.url}>
-                <Link className={styles.link} href={item.url}>
+                <Link className={styles.link} href={`/${item.url}`}>
                   {item.title}
                 </Link>
               </li>
