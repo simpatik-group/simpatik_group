@@ -26,7 +26,6 @@ import localizationService from '@/services/localization.service';
 //     title: product.data.hero_title + ' | test',
 //   };
 // }
-export const revalidate = Number(process.env.REVALIDATING_TIME); // invalidate every hour
 
 export default async function HomePage() {
   const localization = await localizationService.getLocalizations('uk', [

@@ -24,7 +24,7 @@ class LocalizationService {
       `${process.env.NEXT_PUBLIC_DOMAIN}${this[url]}&locale=${localization}`,
       {
         method,
-        cache: 'force-cache',
+        next: { revalidate: Number(process.env.REVALIDATING_TIME) },
       },
     );
     const data = await resp.json();
