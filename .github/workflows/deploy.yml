@@ -1,4 +1,4 @@
-name: Deploy Strapi
+name: Deploy NextJS
 
 on:
   push:
@@ -12,40 +12,35 @@ jobs:
     steps:
       # Клонування репозиторію
       - name: Checkout repository
-        uses: actions/checkout@v3
-
-      # Встановлення SSH-клієнта
-      #- name: Install SSH client
-      #  run: sudo apt-get update && sudo apt-get install -y sshpass
+        uses: actions/checkout@v4
 
       # Виконання команд на сервері
       - name: Deploy on server
-        env:
-          SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
-          SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
-          SERVER_IP: ${{ secrets.SERVER_IP }}
-          SSH_PORT: ${{ secrets.SSH_PORT }}
-        run: |
-          sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no -p ${SSH_PORT:-22} $SSH_USERNAME@$SERVER_IP << EOF
-          echo "Stopping NextJS application..."
-          echo "$SSH_PASSWORD" | sudo -S systemctl stop nextjs
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            echo "Stopping NextJS application..."
+            echo "${{ secrets.SSH_PASSWORD }}" | sudo -S systemctl stop nextjs
 
-          cd /home/max/simpatik.group || exit
+            cd /home/max/simpatik.group || exit
 
-          echo "Stashing local changes..."
-          git stash
+            echo "Stashing local changes..."
+            git stash
 
-          echo "Pulling latest version from Git..."
-          git pull
+            echo "Pulling latest version from Git..."
+            git pull
 
-          echo "Installing dependencies..."
-          npm install -y
+            echo "Installing dependencies..."
+            npm install -y
 
-          echo "Building project..."
-          npm run build
+            echo "Building project..."
+            npm run build
 
-          echo "Starting NextJS application..."
-          echo "$SSH_PASSWORD" | sudo -S systemctl start nextjs
+            echo "Starting NextJS application..."
+            echo "${{ secrets.SSH_PASSWORD }}" | sudo -S systemctl start nextjs
 
-          echo "Deployment completed successfully!"
-          EOF
+            echo "Deployment completed successfully!"
