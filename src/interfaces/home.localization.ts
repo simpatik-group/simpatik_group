@@ -10,6 +10,7 @@ export interface IHomeLocalization {
   feedback_title: string;
   feedback_title_shadow: string;
   locale: string;
+  location_button: string;
   fag_title: string;
   fag_title_shadow: string;
   fag_text: string;
