@@ -13,6 +13,7 @@ import styles from './LocationsHomePage.module.scss';
 
 const LocationsHomePage: FC = () => {
   const locationsData = useLocalization('LOCATIONS');
+
   return (
     <section className='pageSection'>
       <ContainerUI className={styles.container}>

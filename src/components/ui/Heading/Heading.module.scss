@@ -21,7 +21,7 @@
     @apply mb-20;
   }
   .shadowTitle {
-    @apply top-1/2 left-14;
+    @apply top-[calc(100%-24px)] left-14;
   }
 }
 @include customMedia(1322px) {
@@ -29,6 +29,6 @@
     @apply mb-[7.5rem];
   }
   .shadowTitle {
-    @apply left-28;
+    @apply top-[calc(100%-36px)] left-28;
   }
 }

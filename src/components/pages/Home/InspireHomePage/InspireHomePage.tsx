@@ -12,6 +12,7 @@ import { useLocalization } from '@/hooks/useLocalization';
 
 const Inspire: FC = () => {
   const homePage = useLocalization('HOME_PAGE');
+
   return (
     <ParticlesLayout className='pt-8 pb-2 md:pb-14'>
       <ContainerUI withoutGridSystem className='md:grid-cols-2'>

@@ -1,0 +1,35 @@
+.title {
+  @apply h2;
+}
+.description {
+  @apply mb-6 mt-4;
+}
+.link {
+  @apply justify-self-center;
+}
+.image {
+  @apply w-full;
+}
+
+@include customMedia(768px) {
+  .container {
+    @apply grid-cols-12;
+  }
+  .title {
+    @apply col-span-6 row-start-1;
+  }
+  .description {
+    @apply col-span-6 row-start-2;
+  }
+  .link {
+    @apply col-span-6 row-start-3 justify-self-auto;
+  }
+  .image {
+    @apply w-[50vw] object-cover max-w-none row-start-1 row-end-4 h-[calc(100%+5rem)] -mt-10;
+  }
+}
+@include customMedia(992px) {
+  .image {
+    @apply w-[50vw] object-cover max-w-none row-start-1 row-end-4 h-[calc(100%+10rem)] -mt-20;
+  }
+}

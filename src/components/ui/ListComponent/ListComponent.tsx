@@ -23,7 +23,7 @@ const ListComponent: FC<IListComponent> = ({
   ...props
 }) => {
   return (
-    <li className={styles.item}>
+    <li className={styles.item} {...props}>
       {typeof counter === 'string' ? (
         <img src={counter} alt={title} className={styles.counter} />
       ) : (

@@ -1,6 +1,10 @@
-import { IDivProps } from '@/interfaces/interfaces';
+import { AnchorHTMLAttributes, DetailedHTMLProps } from 'react';
 
-export interface IListComponent extends IDivProps {
+export interface IListComponent
+  extends DetailedHTMLProps<
+    AnchorHTMLAttributes<HTMLLIElement>,
+    HTMLLIElement
+  > {
   title: string;
   description: string;
   url?: string;

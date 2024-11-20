@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, Fragment } from 'react';
 
 import Image from 'next/image';
 
@@ -11,41 +11,50 @@ import { EColor } from '@/interfaces/enums';
 
 import { useLocalization } from '@/hooks/useLocalization';
 
-import styles from './HistoryHomePage.module.scss';
+import styles from './CharityHomePage.module.scss';
 
-const HistoryHomePage: FC = () => {
+const CharityHomePage: FC = () => {
   const homePage = useLocalization('HOME_PAGE');
-
   return (
     <ParticlesLayout>
       <ContainerUI className={styles.container}>
         <Heading
           className={styles.title}
           heading='h2'
-          title={homePage?.history_title || ''}
-          shadowTitle={homePage?.history_title_shadow}
+          title={homePage?.military_aid_title || ''}
+          shadowTitle={homePage?.military_aid_shadow}
           textColor={EColor.white}
         />
         <Image
-          src={homePage?.history_cover.url || ''}
-          alt={homePage?.history_title || ''}
+          src={homePage?.military_aid_cover.url || ''}
+          alt={homePage?.military_aid_title || ''}
           width={288}
           height={192}
           sizes='75vw'
           className={styles.image}
         />
-        <p className={styles.description}>{homePage?.history_description}</p>
+        <p className={styles.description}>
+          {homePage?.military_aid_description.split('\n').map((line, index) => (
+            <Fragment key={index}>
+              {line}
+              {index !==
+                homePage.military_aid_description.split('\n').length - 1 && (
+                <br />
+              )}
+            </Fragment>
+          ))}
+        </p>
         <LinkUI
-          href='/history'
+          href='/charity'
           withArrow
           themeColor={EColor.white}
           className={styles.link}
         >
-          {homePage?.history_button}
+          {homePage?.military_aid_button}
         </LinkUI>
       </ContainerUI>
     </ParticlesLayout>
   );
 };
 
-export default HistoryHomePage;
+export default CharityHomePage;
