@@ -26,7 +26,7 @@ const CharityHomePage: FC = () => {
           textColor={EColor.white}
         />
         <Image
-          src={homePage?.military_aid_cover.url || ''}
+          src={homePage?.military_aid_cover?.url || ''}
           alt={homePage?.military_aid_title || ''}
           width={288}
           height={192}

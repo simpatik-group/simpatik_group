@@ -27,7 +27,7 @@ const HistoryHomePage: FC = () => {
           textColor={EColor.white}
         />
         <Image
-          src={homePage?.history_cover.url || ''}
+          src={homePage?.history_cover?.url || ''}
           alt={homePage?.history_title || ''}
           width={288}
           height={192}

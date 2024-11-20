@@ -9,6 +9,7 @@ import HistoryHomePage from './HistoryHomePage/HistoryHomePage';
 import InspireHomePage from './InspireHomePage/InspireHomePage';
 import LocationsHomePage from './LocationsHomePage/LocationsHomePage';
 import NumbersHomePage from './NumbersHomePage/NumbersHomePage';
+import PartnersHomePage from './PartnersHomePage/PartnersHomePage';
 
 const Home: FC = () => {
   const context = useContext(LocalizationContext);
@@ -21,6 +22,9 @@ const Home: FC = () => {
       <HistoryHomePage />
       <NumbersHomePage />
       <CharityHomePage />
+      <section className='pageSection'>
+        <PartnersHomePage />
+      </section>
     </>
   );
 };

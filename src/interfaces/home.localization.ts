@@ -23,12 +23,12 @@ export interface IHomeLocalization {
   military_aid_title: string;
   military_aid_shadow: string;
   military_aid_description: string;
-  military_aid_cover: Image;
+  military_aid_cover?: Image;
   numbers: Number[];
   feedbacks: Feedback[];
   partner_logos: Image[];
   fag: Fag[];
-  history_cover: Image;
+  history_cover?: Image;
 }
 
 interface Number {
