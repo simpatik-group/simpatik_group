@@ -37,11 +37,7 @@ const RootLayoutPage = ({
         <link rel='manifest' href='/favicon/site.webmanifest' />
         <link rel='icon' href='/favicon/favicon.svg' type='image/svg+xml' />
       </head>
-      <body
-        className={`${raleway.className} w-full leading-loose tracking-wide`}
-      >
-        {children}
-      </body>
+      <body className={`${raleway.className} `}>{children}</body>
     </html>
   );
 };

@@ -10,5 +10,6 @@ interface Location {
   id: number;
   title: string;
   text: string;
+  url?: string;
   position_homepage?: number;
 }

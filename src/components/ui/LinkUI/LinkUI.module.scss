@@ -1,0 +1,11 @@
+.link {
+  @apply px-2 py-4 flex items-baseline gap-4 btn;
+  img {
+    @apply origin-left transition-transform;
+  }
+  &:hover {
+    img {
+      @apply scale-x-[2];
+    }
+  }
+}

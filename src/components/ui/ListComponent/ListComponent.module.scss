@@ -1,0 +1,26 @@
+.title {
+  @apply h5 mb-2;
+}
+.item {
+  @apply px-2 py-4;
+}
+.counter {
+  @apply border-b border-grey-400 pb-2 mb-6;
+  &.number {
+    @apply inline-block border-b-0 border-l pb-0 pl-4 text-orange-400 font-semibold text-[14px] -rotate-90 -translate-x-2 leading-tight;
+  }
+}
+.link {
+  @apply mt-4 block p-0;
+}
+@include customMedia(992px) {
+  .counter {
+    @apply pb-6 mb-8;
+    &.number {
+      @apply text-[18px] pl-6;
+    }
+  }
+  .link {
+    @apply mt-8;
+  }
+}

@@ -160,6 +160,19 @@ const config = {
             fontSize: '16px',
           },
         },
+        '.btn': {
+          fontSize: '16px',
+          lineHeight: '1.2',
+          fontWeight: '700',
+        },
+        '.pageSection': {
+          paddingTop: '2.5rem',
+          paddingBottom: '2.5rem',
+          '@media (min-width: 992px)': {
+            paddingTop: '5rem',
+            paddingBottom: '5rem',
+          },
+        },
         '.interaction': {
           fontSize: '16px',
           fontWeight: '700',

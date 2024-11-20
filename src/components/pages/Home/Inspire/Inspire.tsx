@@ -17,10 +17,10 @@ const Inspire: FC = () => {
       <ContainerUI className='md:grid-cols-2'>
         <div>
           <Heading
-            className='uppercase h1 mb-6'
+            className='uppercase h1 !mb-6'
             heading='h1'
             title={homePage?.hero_title || ''}
-            themeColor={EColor.white}
+            textColor={EColor.white}
           />
           <p className='uppercase h6'>{homePage?.hero_text}</p>
         </div>

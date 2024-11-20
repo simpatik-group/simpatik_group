@@ -10,7 +10,7 @@ import { IHeadingProps } from './Heading.props';
 const Heading: FC<IHeadingProps> = ({
   heading,
   title,
-  themeColor,
+  textColor,
   shadowTitle,
   children,
   className,
@@ -19,14 +19,15 @@ const Heading: FC<IHeadingProps> = ({
   return (
     <div
       className={clsx(
-        'relative z-10',
-        themeColor === EColor.white ? styles.white : styles.black,
+        styles.headingWrap,
+        textColor === EColor.white ? styles.white : styles.black,
+        className,
       )}
     >
       {createElement(
         heading,
         {
-          className: clsx(styles.heading, className),
+          className: styles.heading,
           ...props,
         },
         title || children,

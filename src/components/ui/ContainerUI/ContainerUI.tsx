@@ -6,7 +6,7 @@ import { IDivProps } from '@/interfaces/interfaces';
 
 const ContainerUI: FC<IDivProps> = ({ className, children }) => {
   return (
-    <div className={clsx(className, 'container', 'grid', 'gap-4')}>
+    <div className={clsx(className, 'container', 'grid', 'gap-x-4')}>
       {children}
     </div>
   );
