@@ -16,7 +16,7 @@ const Footer: FC<IDivProps> = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerTop}>
-        <ContainerUI>
+        <ContainerUI withoutGridSystem>
           <div className={styles.wrap}>
             <Image
               src='/img/logo.svg'
@@ -53,7 +53,7 @@ const Footer: FC<IDivProps> = () => {
         </ContainerUI>
       </div>
       <div className={styles.footerBottom}>
-        <ContainerUI>
+        <ContainerUI withoutGridSystem>
           <p className={styles.copyright}>
             Copyright © {new Date().getFullYear()} Сімпатік Груп.
           </p>

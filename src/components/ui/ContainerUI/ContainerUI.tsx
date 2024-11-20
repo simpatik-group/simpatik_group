@@ -2,11 +2,23 @@ import { FC } from 'react';
 
 import clsx from 'clsx';
 
-import { IDivProps } from '@/interfaces/interfaces';
+import { IContainerUIProps } from './ContainerUI.props';
 
-const ContainerUI: FC<IDivProps> = ({ className, children }) => {
+const ContainerUI: FC<IContainerUIProps> = ({
+  withoutGridSystem,
+  className,
+  children,
+}) => {
   return (
-    <div className={clsx(className, 'container', 'grid', 'gap-x-4')}>
+    <div
+      className={clsx(
+        className,
+        'container',
+        'grid',
+        'gap-x-4',
+        !withoutGridSystem && 'md:grid-cols-12',
+      )}
+    >
       {children}
     </div>
   );

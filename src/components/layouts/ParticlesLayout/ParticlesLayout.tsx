@@ -7,7 +7,12 @@ import { IDivProps } from '@/interfaces/interfaces';
 const ParticlesLayout: FC<IDivProps> = ({ className, children, ...props }) => {
   return (
     <section
-      className={clsx(className, 'bg-blue-400', 'relative text-white-400')}
+      className={clsx(
+        className,
+        'bg-blue-400',
+        'relative text-white-400',
+        'pageSection',
+      )}
       {...props}
     >
       {children}

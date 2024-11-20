@@ -1,5 +1,6 @@
+// @ts-check
+
 /** @type {import('next').NextConfig} */
-// import type { NextConfig } from 'next';
 import path from 'path';
 
 const nextConfig = {
@@ -8,7 +9,9 @@ const nextConfig = {
     defaultLocale: 'uk',
     localeDetection: false,
   },
-
+  images: {
+    domains: ['cloud.devtome.top'],
+  },
   trailingSlash: true,
   sassOptions: {
     includePaths: [path.join(process.cwd(), 'src/styles')],

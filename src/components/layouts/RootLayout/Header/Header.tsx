@@ -38,7 +38,7 @@ const Header: FC<IHeaderProps> = ({ themeColor }) => {
       )}
     >
       <ParticlesLayout className={styles.headerMobileBg} />
-      <ContainerUI>
+      <ContainerUI withoutGridSystem>
         <div className={styles.wrap}>
           <Link href='/'>
             <Image

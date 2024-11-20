@@ -4,6 +4,7 @@ import { FC, useContext } from 'react';
 
 import { LocalizationContext } from '@/context/localization.context';
 
+import HistoryHomePage from './HistoryHomePage/HistoryHomePage';
 import Inspire from './Inspire/Inspire';
 import LocationsHomePage from './LocationsHomePage/LocationsHomePage';
 
@@ -14,6 +15,7 @@ const Home: FC = () => {
     <>
       <Inspire />
       <LocationsHomePage />
+      <HistoryHomePage />
     </>
   );
 };

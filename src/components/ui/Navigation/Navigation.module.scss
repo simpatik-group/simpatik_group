@@ -28,10 +28,13 @@
   }
   &:not(.active)::after {
     content: '';
-    @apply absolute left-0 top-full h-px opacity-0 w-full;
+    @apply absolute left-0 top-full h-px w-full transition-transform;
+    transform-origin: 100% 50%;
+    transform: scale3d(0, 1, 1);
   }
   &:not(.active):hover::after {
-    @apply opacity-100 animate-glitchLine;
+    transform-origin: 0% 50%;
+    transform: scale3d(1, 1, 1);
   }
 }
 .language {

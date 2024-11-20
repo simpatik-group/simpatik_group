@@ -28,7 +28,7 @@ export interface IHomeLocalization {
   feedbacks: Feedback[];
   partner_logos: Image[];
   fag: Fag[];
-  history_cover: HistoryCover[];
+  history_cover: Image;
 }
 
 interface Number {
@@ -53,9 +53,4 @@ interface Fag {
   id: number;
   fag_question: string;
   faq_answer: string;
-}
-
-interface HistoryCover {
-  id: number;
-  url: string;
 }
