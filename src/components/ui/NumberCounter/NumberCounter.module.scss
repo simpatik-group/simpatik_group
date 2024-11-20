@@ -1,0 +1,28 @@
+.number {
+  @apply font-extrabold text-7xl leading-[initial];
+}
+.suffix {
+  @apply font-extrabold text-5xl leading-[initial];
+}
+.text {
+  @apply h6;
+}
+@include customMedia(992px) {
+  .number {
+    @apply text-8xl mb-2;
+  }
+  .suffix {
+    @apply text-6xl;
+  }
+  .text {
+    @apply mt-2;
+  }
+}
+@include customMedia(1322px) {
+  .number {
+    @apply text-9xl;
+  }
+  .suffix {
+    @apply text-8xl;
+  }
+}

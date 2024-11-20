@@ -1,0 +1,14 @@
+.title {
+  @apply h2;
+}
+.numbers {
+  @apply grid gap-2;
+}
+@include customMedia(768px) {
+  .title {
+    @apply col-span-12;
+  }
+  .numbers {
+    @apply col-span-12 grid-cols-4 gap-7;
+  }
+}

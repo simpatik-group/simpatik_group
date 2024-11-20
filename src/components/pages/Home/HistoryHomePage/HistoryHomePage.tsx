@@ -25,13 +25,6 @@ const HistoryHomePage: FC = () => {
           shadowTitle={homePage?.history_title_shadow}
           textColor={EColor.white}
         />
-        {/* <Image
-          src={homePage?.history_cover.url || ''}
-          alt={homePage?.history_title || ''}
-          width={288}
-          height={192}
-          className={styles.image}
-        /> */}
         <Image
           src={homePage?.history_cover.url || ''}
           alt={homePage?.history_title || ''}
