@@ -47,9 +47,9 @@ const config = {
       columnGap: '1rem',
     },
     extend: {
-      // border: {
-      //   px: '1px',
-      // },
+      boxShadow: {
+        custom: '0 2px 20px 0 rgba(0, 0, 0, 0.05)',
+      },
       transitionTimingFunction: {
         DEFAULT: 'ease-in-out',
       },

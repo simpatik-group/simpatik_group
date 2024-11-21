@@ -1,0 +1,9 @@
+.slider {
+  @apply min-h-0 min-w-0 -mx-4;
+}
+
+@include customMedia(768px) {
+  .slider {
+    @apply col-span-12 mx-0;
+  }
+}

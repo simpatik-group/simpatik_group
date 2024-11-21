@@ -5,3 +5,43 @@
 body {
   @apply bg-white-400 leading-loose w-full tracking-wide text-dark-400;
 }
+.slick-arrow {
+  @apply absolute -bottom-10 cursor-pointer transition-colors rounded-full;
+  &.slick-prev {
+    @apply left-4 -scale-x-100;
+  }
+  &.slick-next {
+    @apply right-4;
+  }
+  &:hover {
+    @apply bg-dark-300;
+  }
+}
+.slick-dots {
+  @apply w-full h-4 p-0 m-0 text-center leading-none;
+  li {
+    @apply cursor-pointer inline-block;
+    button {
+      @apply flex justify-center items-center text-[0px] h-4 w-4 text-transparent bg-transparent border-0 outline-none;
+      &::before {
+        @apply w-2 h-2 rounded-full border-grey-400 border inline-block transition-colors;
+        content: '';
+      }
+    }
+    &.slick-active button:before {
+      @apply bg-grey-400;
+    }
+  }
+}
+.slick-list {
+  @apply transition-all;
+}
+
+@include customMedia(768px) {
+  .slick-arrow {
+    @apply bottom-[calc(100%+32px)];
+    &.slick-prev {
+      @apply left-auto right-36;
+    }
+  }
+}

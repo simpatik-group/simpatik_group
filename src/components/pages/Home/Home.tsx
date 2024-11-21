@@ -5,6 +5,7 @@ import { FC, useContext } from 'react';
 import { LocalizationContext } from '@/context/localization.context';
 
 import CharityHomePage from './CharityHomePage/CharityHomePage';
+import FeedbacksHomePage from './FeedbacksHomePage/FeedbacksHomePage';
 import HistoryHomePage from './HistoryHomePage/HistoryHomePage';
 import InspireHomePage from './InspireHomePage/InspireHomePage';
 import LocationsHomePage from './LocationsHomePage/LocationsHomePage';
@@ -24,6 +25,7 @@ const Home: FC = () => {
       <CharityHomePage />
       <section className='pageSection'>
         <PartnersHomePage />
+        <FeedbacksHomePage />
       </section>
     </>
   );

@@ -1,0 +1,18 @@
+.title {
+  @apply h2;
+}
+
+.feedbackSlide div {
+  @apply p-2 shadow-custom mx-4 mb-4;
+}
+.feedbackText {
+  @apply mt-4 mb-6;
+}
+.feedback_person {
+  @apply h6 mb-2;
+}
+@include customMedia(768px) {
+  .title {
+    @apply col-span-12;
+  }
+}
