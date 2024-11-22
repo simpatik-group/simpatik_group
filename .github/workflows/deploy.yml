@@ -28,6 +28,9 @@ jobs:
 
             cd /home/max/simpatik.group || exit
 
+            echo "Pulling latest version from Git..."
+            git pull
+
             echo "Resetting to specific commit ${GITHUB_SHA}..."
             git reset --hard ${{ github.sha }}
 
