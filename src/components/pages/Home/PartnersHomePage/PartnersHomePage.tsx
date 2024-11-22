@@ -1,4 +1,4 @@
-import { FC, Fragment } from 'react';
+import { FC } from 'react';
 
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 import Heading from '@/components/ui/Heading/Heading';
@@ -7,6 +7,8 @@ import { EColor } from '@/interfaces/enums';
 import { IDivProps } from '@/interfaces/interfaces';
 
 import { useLocalization } from '@/hooks/useLocalization';
+
+import { Breaks } from '@/helpers/breacksModification';
 
 import styles from './PartnersHomePage.module.scss';
 
@@ -22,20 +24,8 @@ const PartnersHomePage: FC<IDivProps> = () => {
         shadowTitle={homePage?.partners_title_shadow}
         textColor={EColor.dark}
       />
-      {/* <p className={styles.description}>{homePage?.partners_text}</p> */}
       <p className={styles.description}>
-        {homePage?.partners_text.split('\n').map((line, index) => (
-          <Fragment key={index}>
-            {index !== homePage.partners_text.split('\n').length - 1 ? (
-              <>
-                {line}
-                <br />
-              </>
-            ) : (
-              <span className='font-semibold'>{line}</span>
-            )}
-          </Fragment>
-        ))}
+        <Breaks description={homePage?.partners_text || ''} boldParagraphs />
       </p>
     </ContainerUI>
   );

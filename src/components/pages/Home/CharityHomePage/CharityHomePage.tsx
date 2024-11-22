@@ -1,4 +1,4 @@
-import { FC, Fragment } from 'react';
+import { FC } from 'react';
 
 import Image from 'next/image';
 
@@ -10,6 +10,8 @@ import LinkUI from '@/components/ui/LinkUI/LinkUI';
 import { EColor } from '@/interfaces/enums';
 
 import { useLocalization } from '@/hooks/useLocalization';
+
+import { Breaks } from '@/helpers/breacksModification';
 
 import styles from './CharityHomePage.module.scss';
 
@@ -34,15 +36,7 @@ const CharityHomePage: FC = () => {
           className={styles.image}
         />
         <p className={styles.description}>
-          {homePage?.military_aid_description.split('\n').map((line, index) => (
-            <Fragment key={index}>
-              {line}
-              {index !==
-                homePage.military_aid_description.split('\n').length - 1 && (
-                <br />
-              )}
-            </Fragment>
-          ))}
+          <Breaks description={homePage?.military_aid_description || ''} />
         </p>
         <LinkUI
           href='/charity'

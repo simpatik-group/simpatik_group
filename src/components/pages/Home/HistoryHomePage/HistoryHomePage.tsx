@@ -11,6 +11,8 @@ import { EColor } from '@/interfaces/enums';
 
 import { useLocalization } from '@/hooks/useLocalization';
 
+import { Breaks } from '@/helpers/breacksModification';
+
 import styles from './HistoryHomePage.module.scss';
 
 const HistoryHomePage: FC = () => {
@@ -34,7 +36,9 @@ const HistoryHomePage: FC = () => {
           sizes='75vw'
           className={styles.image}
         />
-        <p className={styles.description}>{homePage?.history_description}</p>
+        <p className={styles.description}>
+          <Breaks description={homePage?.history_description || ''} />
+        </p>
         <LinkUI
           href='/history'
           withArrow
