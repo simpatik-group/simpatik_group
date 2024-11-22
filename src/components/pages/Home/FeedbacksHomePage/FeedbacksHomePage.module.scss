@@ -11,6 +11,13 @@
 .feedback_person {
   @apply h6 mb-2;
 }
+
+.partnersSlide {
+  @apply inline-block px-5 transition-all grayscale cursor-pointer;
+  &:hover {
+    @apply grayscale-0;
+  }
+}
 @include customMedia(768px) {
   .title {
     @apply col-span-12;

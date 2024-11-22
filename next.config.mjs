@@ -10,7 +10,13 @@ const nextConfig = {
     localeDetection: false,
   },
   images: {
-    domains: ['cloud.devtome.top'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cloud.devtome.top',
+        pathname: '/domains/simpatik.group/**',
+      },
+    ],
   },
   trailingSlash: true,
   sassOptions: {

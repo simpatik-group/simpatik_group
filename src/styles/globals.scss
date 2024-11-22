@@ -1,12 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+// :global(.slick-center) .partnersSlide { add access to0 global class
+//   @apply grayscale-0;
+// }
 
 body {
   @apply bg-white-400 leading-loose w-full tracking-wide text-dark-400;
 }
 .slick-arrow {
-  @apply absolute -bottom-10 cursor-pointer transition-colors rounded-full;
+  @apply absolute -bottom-16 cursor-pointer transition-colors rounded-full;
   &.slick-prev {
     @apply left-4 -scale-x-100;
   }

@@ -29,26 +29,17 @@ const FeedbacksHomePage: FC<IDivProps> = () => {
   };
   const settingsPartners1: Settings = {
     draggable: false,
+    swipe: false,
+    touchMove: false,
     pauseOnHover: true,
     variableWidth: true,
+    centerMode: true,
     dots: false,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 3500,
     speed: 3000,
     cssEase: 'ease-in-out',
-  };
-  const settingsPartners2: Settings = {
-    draggable: false,
-    pauseOnHover: true,
-    variableWidth: true,
-    dots: false,
-    arrows: false,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    speed: 3000,
-    cssEase: 'ease-in-out',
-    rtl: true,
   };
 
   return (
@@ -60,7 +51,7 @@ const FeedbacksHomePage: FC<IDivProps> = () => {
         shadowTitle={homePage?.feedback_title_shadow}
         textColor={EColor.dark}
       />
-      <SliderUI className='mb-4' settingsProps={settingsFeedbacks}>
+      <SliderUI className='mb-20' settingsProps={settingsFeedbacks}>
         {homePage?.feedbacks.map((feedback) => {
           return (
             <div
@@ -68,37 +59,31 @@ const FeedbacksHomePage: FC<IDivProps> = () => {
               style={{ width: 370 }}
               className={styles.feedbackSlide}
             >
-              <img src='img/quote-icon.svg' alt='quote' />
-              <p className={styles.feedbackText}>{feedback.feedback_content}</p>
-              <h6 className={styles.feedback_person}>
-                {feedback.feedback_person}
-              </h6>
-              <p className={styles.feedbackPosition}>
-                {feedback.feedback_company}
-              </p>
+              <div>
+                <img src='img/quote-icon.svg' alt='quote' />
+                <p className={styles.feedbackText}>
+                  {feedback.feedback_content}
+                </p>
+                <h6 className={styles.feedback_person}>
+                  {feedback.feedback_person}
+                </h6>
+                <p className={styles.feedbackPosition}>
+                  {feedback.feedback_company}
+                </p>
+              </div>
             </div>
           );
         })}
       </SliderUI>
-      <SliderUI settingsProps={settingsPartners1}>
+      <SliderUI className='mb-4' settingsProps={settingsPartners1}>
         {homePage?.partner_logos.map((partner) => (
           <img
             src={partner.url}
             alt='logo'
             loading='lazy'
             key={partner.id}
-            style={{ width: 190 }}
-          />
-        ))}
-      </SliderUI>
-      <SliderUI settingsProps={settingsPartners2}>
-        {homePage?.partner_logos.map((partner) => (
-          <img
-            src={partner.url}
-            alt='logo'
-            loading='lazy'
-            key={partner.id}
-            style={{ width: 190 }}
+            style={{ width: 222 }}
+            className={styles.partnersSlide}
           />
         ))}
       </SliderUI>
