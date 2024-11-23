@@ -1,10 +1,8 @@
-import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
-
-import { IFag } from '@/interfaces/home.localization';
+import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
 export interface IAccordionItemProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLLIElement>, HTMLLIElement> {
-  accordionItem: IFag;
-  accordionTitle: ReactNode;
-  accordionDescription: ReactNode;
+  accordionTitle: JSX.Element | string;
+  accordionDescription: JSX.Element | string;
+  index?: number;
 }

@@ -12,6 +12,8 @@ import { useLocalization } from '@/hooks/useLocalization';
 
 import { Breaks } from '@/helpers/breacksModification';
 
+import AccordionItem from '../AccardioneItem/AccordionItem';
+
 import styles from './FAQ.module.scss';
 
 const FAQ: FC<IDivProps> = ({ className }) => {
@@ -20,7 +22,7 @@ const FAQ: FC<IDivProps> = ({ className }) => {
   return (
     <ParticlesLayout>
       <ContainerUI>
-        <div className='md:col-span-6'>
+        <div className='md:col-span-6 mb-8 md:mb-0'>
           <Heading
             heading='h2'
             textColor={EColor.white}
@@ -35,7 +37,22 @@ const FAQ: FC<IDivProps> = ({ className }) => {
             {faqContent?.fag_button}
           </LinkUI>
         </div>
-        <div className='md:col-span-6'></div>
+        <ul className='md:col-span-6 grid gap-y-4 self-baseline md:mt-7 lg:mt-14'>
+          {faqContent?.fag.map((item, index) => {
+            return (
+              <AccordionItem
+                key={item.id}
+                accordionTitle={
+                  <span>
+                    {<span className={styles.number}>{index + 1 + '. '}</span>}
+                    {item.fag_question}
+                  </span>
+                }
+                accordionDescription={item.faq_answer}
+              />
+            );
+          })}
+        </ul>
       </ContainerUI>
     </ParticlesLayout>
   );

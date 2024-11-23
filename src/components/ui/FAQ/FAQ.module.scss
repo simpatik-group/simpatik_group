@@ -1,3 +1,9 @@
 .title {
   @apply h2;
 }
+.question {
+  @apply h6 flex gap-2 justify-between;
+}
+.faqAnswer {
+  @apply px-8 py-2;
+}
