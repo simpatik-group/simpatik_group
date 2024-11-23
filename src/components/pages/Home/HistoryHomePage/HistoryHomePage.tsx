@@ -20,7 +20,7 @@ const HistoryHomePage: FC = () => {
 
   return (
     <ParticlesLayout>
-      <ContainerUI className={styles.container}>
+      <ContainerUI>
         <Heading
           className={styles.title}
           heading='h2'

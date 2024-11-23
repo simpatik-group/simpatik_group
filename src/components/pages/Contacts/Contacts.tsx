@@ -1,9 +1,11 @@
 'use client';
 
+import InfoContacts from './InfoContacts/InfoContacts';
+
 const Contacts = () => {
   return (
     <>
-      <p>Contacts</p>
+      <InfoContacts />
     </>
   );
 };

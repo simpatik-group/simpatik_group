@@ -6,7 +6,7 @@ export interface IListComponent
     HTMLLIElement
   > {
   title: string;
-  description: string;
+  description: JSX.Element | string;
   url?: string;
   counter: string | number;
   withSlider?: boolean;

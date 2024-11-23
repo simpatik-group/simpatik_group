@@ -12,9 +12,6 @@
 }
 
 @include customMedia(768px) {
-  .container {
-    @apply grid-cols-12;
-  }
   .title {
     @apply col-span-6 row-start-1;
   }

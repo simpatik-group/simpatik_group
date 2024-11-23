@@ -1,0 +1,16 @@
+.title {
+  @apply h2;
+}
+
+@include customMedia(768px) {
+  .title,
+  .contactsList {
+    @apply col-span-12;
+  }
+}
+
+@include customMedia(992px) {
+  .contactsList {
+    @apply grid grid-cols-4;
+  }
+}
