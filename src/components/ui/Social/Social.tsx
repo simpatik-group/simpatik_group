@@ -7,8 +7,8 @@ import { IDivProps } from '@/interfaces/interfaces';
 
 import { useLocalization } from '@/hooks/useLocalization';
 
-import { validateService } from './../../../services/validation.service';
 import styles from './Social.module.scss';
+import { validateService } from '@/services/validation.service';
 
 const Social: FC<IDivProps> = ({ className }) => {
   const commonContent = useLocalization('COMMON');

@@ -33,7 +33,7 @@ const ListComponent: FC<IListComponent> = ({
       )}
 
       <h5 className={styles.title}>{title}</h5>
-      <p>{description}</p>
+      <div>{description}</div>
       {url && (
         <LinkUI
           href={url}

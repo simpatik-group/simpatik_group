@@ -1,28 +1,18 @@
-.white {
-  @apply text-white-400;
-  .shadowTitle {
-    @apply text-blue-300;
+.button {
+  @apply hoverTrail-full btn p-4 transition-all;
+  &.transparent {
+    @apply text-orange-400 border border-white-500;
+    &::after {
+      @apply bg-orange-400;
+    }
+    &:hover {
+      @apply text-white-400 border-transparent;
+    }
   }
-}
-.black {
-  @apply text-dark-400;
-  .shadowTitle {
-    @apply text-white-500;
-  }
-}
-.heading {
-  @apply mb-14;
-}
-.shadowTitle {
-  @apply h1 uppercase absolute left-6 top-6 -z-10;
-}
-@include customMedia(992px) {
-  .heading {
-    @apply mb-20;
-  }
-}
-@include customMedia(1322px) {
-  .heading {
-    @apply mb-[7.5rem];
+  &.solid {
+    @apply bg-orange-400 text-white-400;
+    &::after {
+      @apply bg-orange-500;
+    }
   }
 }

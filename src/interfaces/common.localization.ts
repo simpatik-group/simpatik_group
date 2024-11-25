@@ -7,6 +7,7 @@ export interface ICommonLocalization {
   email_title: string;
   email_text: string;
   locale: string;
+  social_title: string;
   social_links: SocialLink[];
   menu: Menu[];
 }

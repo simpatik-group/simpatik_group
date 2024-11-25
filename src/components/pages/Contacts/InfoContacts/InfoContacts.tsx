@@ -56,10 +56,10 @@ const InfoContacts: FC = () => {
           <ListComponent
             counter='/img/contacts/social-icon.svg'
             description={<Social className='!justify-start' />}
-            title={commonContent?.phone_title || ''}
+            title={commonContent?.social_title || ''}
           />
         </ul>
-        <ButtonUI themeColor={EColor.white} className='col-span-12'>
+        <ButtonUI design='solid' className='md:col-span-4 md:col-start-5'>
           {contactsPage?.send_button}
         </ButtonUI>
       </ContainerUI>
