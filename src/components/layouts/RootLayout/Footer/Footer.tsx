@@ -10,9 +10,13 @@ import Social from '@/components/ui/Social/Social';
 
 import { IDivProps } from '@/interfaces/interfaces';
 
+import { useLocalization } from '@/hooks/useLocalization';
+
 import styles from './Footer.module.scss';
 
 const Footer: FC<IDivProps> = () => {
+  const commonContent = useLocalization('COMMON');
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footerTop}>
@@ -27,23 +31,22 @@ const Footer: FC<IDivProps> = () => {
             />
             <div className={styles.footerContacts}>
               <div>
-                <h6 className='h6 mb-1'>Адреса:</h6>
+                <h6 className='h6 mb-1'>{commonContent?.address_title}</h6>
+                <p>{commonContent?.address_text}</p>
+              </div>
+              <div>
+                <h6 className='h6 mb-1'>{commonContent?.phone_title}</h6>
                 <p>
-                  Україна, м. Київ, вул. Ростиславська,{' '}
-                  <span className='text-nowrap'>буд. 11</span>
+                  <Link href={`tel:${commonContent?.phone_text || ''}`}>
+                    {commonContent?.phone_text}
+                  </Link>
                 </p>
               </div>
               <div>
-                <h6 className='h6 mb-1'>Телефон:</h6>
+                <h6 className='h6 mb-1'>{commonContent?.email_title}</h6>
                 <p>
-                  <Link href='tel:044-537-02-37'>(044) 537-02-37</Link>
-                </p>
-              </div>
-              <div>
-                <h6 className='h6 mb-1'>Пошта:</h6>
-                <p>
-                  <Link href='mailto:info@simpatik.com.ua'>
-                    info@simpatik.com.ua
+                  <Link href={`mailto:${commonContent?.email_text}`}>
+                    {commonContent?.email_text}
                   </Link>
                 </p>
               </div>

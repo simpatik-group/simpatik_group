@@ -1,5 +1,5 @@
 .button {
-  @apply hoverTrail-full btn p-4 transition-all;
+  @apply hoverTrail-full btn p-4 transition-all w-full;
   &.transparent {
     @apply text-orange-400 border border-white-500;
     &::after {

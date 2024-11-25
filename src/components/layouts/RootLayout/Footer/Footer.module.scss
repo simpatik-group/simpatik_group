@@ -17,7 +17,7 @@
   @apply py-4 border-t border-grey-300;
 }
 .copyright {
-  @apply text-grey-400 text-xs text-center;
+  @apply text-grey-400 smallTxt text-center;
 }
 @include customMedia(768px) {
   .wrap {

@@ -1,0 +1,37 @@
+.title {
+  @apply h2;
+}
+.form {
+  @apply bg-white-500 -mx-4 px-4 pt-6 pb-10;
+}
+.group {
+  @apply grid gap-4;
+}
+@include customMedia(768px) {
+  .title,
+  .form {
+    @apply col-span-12;
+  }
+  .group {
+    @apply col-span-6;
+  }
+}
+@include customMedia(992px) {
+  .form {
+    @apply mx-0 pt-16 pb-24 mb-3;
+  }
+}
+@include customMedia(1322px) {
+  .form {
+    @apply px-0 justify-center;
+  }
+  .group {
+    @apply col-span-4;
+    &:first-child {
+      @apply col-start-3;
+    }
+    &:last-child {
+      @apply col-start-7;
+    }
+  }
+}

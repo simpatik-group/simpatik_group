@@ -61,6 +61,7 @@ const config = {
       },
       animation: {
         glitchLine: 'glitchLine 0.4s steps(2, start) forwards',
+        shake: 'shake 0.6s both',
       },
       keyframes: {
         glitchLine: {
@@ -89,6 +90,32 @@ const config = {
           },
           '100%': {
             opacity: 1,
+          },
+        },
+        shake: {
+          '0%': {
+            transform: 'translateX(0)',
+          },
+          '15%': {
+            transform: 'translateX(-3px)',
+          },
+          '30%': {
+            transform: 'translateX(3px)',
+          },
+          '45%': {
+            transform: 'translateX(-5px)',
+          },
+          '60%': {
+            transform: 'translateX(5px)',
+          },
+          '75%': {
+            transform: 'translateX(3px)',
+          },
+          '90%': {
+            transform: 'translateX(0)',
+          },
+          '100%': {
+            transform: 'translateX(0)',
           },
         },
       },
@@ -188,6 +215,11 @@ const config = {
           lineHeight: '1.2',
           fontWeight: '700',
         },
+        '.smallTxt': {
+          fontSize: '12px',
+          lineHeight: 'initial',
+          fontWeight: '400',
+        },
         '.pageSection': {
           paddingTop: '2.5rem',
           paddingBottom: '2.5rem',
@@ -204,7 +236,6 @@ const config = {
           cursor: 'pointer',
           margin: '0 auto',
         },
-        // eslint-disable-next-line
         '.hoverTrail-full': {
           ...baseHoverTrail,
           '&::after': {

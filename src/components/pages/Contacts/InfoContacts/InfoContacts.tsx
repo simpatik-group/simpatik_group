@@ -59,9 +59,9 @@ const InfoContacts: FC = () => {
             title={commonContent?.social_title || ''}
           />
         </ul>
-        <ButtonUI design='solid' className='md:col-span-4 md:col-start-5'>
-          {contactsPage?.send_button}
-        </ButtonUI>
+        <Link href='#contactForm' className='md:col-span-4 md:col-start-5'>
+          <ButtonUI design='solid'>{contactsPage?.send_button}</ButtonUI>
+        </Link>
       </ContainerUI>
     </ParticlesLayout>
   );
