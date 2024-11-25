@@ -31,7 +31,7 @@ jobs:
             echo "Pulling latest version from Git..."
             git pull
 
-            echo "Resetting to specific commit ${GITHUB_SHA}..."
+            echo "Resetting to specific commit ${{ github.sha }}..."
             git reset --hard ${{ github.sha }}
 
             echo "Installing dependencies..."
