@@ -40,12 +40,12 @@ const HistoryHomePage: FC = () => {
           <Breaks description={homePage?.history_description || ''} />
         </p>
         <LinkUI
-          href='/history'
+          href='/about-us'
           withArrow
           themeColor={EColor.white}
           className={styles.link}
         >
-          {homePage?.history_button}
+          {homePage?.history_button}  
         </LinkUI>
       </ContainerUI>
     </ParticlesLayout>

@@ -39,7 +39,7 @@ const CharityHomePage: FC = () => {
           <Breaks description={homePage?.military_aid_description || ''} />
         </p>
         <LinkUI
-          href='/charity'
+          href='/team/charity'
           withArrow
           themeColor={EColor.white}
           className={styles.link}
