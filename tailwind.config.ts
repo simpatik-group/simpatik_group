@@ -96,6 +96,29 @@ const config = {
   },
   plugins: [
     plugin(({ addUtilities, addComponents, theme }) => {
+      const baseHoverTrail = {
+        position: 'relative',
+        zIndex: '0',
+        '&::after': {
+          content: "''",
+          position: 'absolute',
+          left: '0',
+          top: '0',
+          width: '100%',
+          zIndex: '-10',
+          transformOrigin: '100% 50%',
+          transform: 'scale3d(0, 1, 1)',
+          transitionProperty: 'transform',
+          transitionDuration: theme('transitionDuration.DEFAULT') || '0.3s',
+          transitionTimingFunction:
+            theme('transitionTimingFunction.DEFAULT') || 'ease-in-out',
+        },
+        '&:hover::after': {
+          transformOrigin: '0% 50%',
+          transform: 'scale3d(1, 1, 1)',
+        },
+      };
+
       addComponents({
         '.h1': {
           fontSize: '40px',
@@ -180,6 +203,22 @@ const config = {
           outline: 'none',
           cursor: 'pointer',
           margin: '0 auto',
+        },
+        // eslint-disable-next-line
+        '.hoverTrail-full': {
+          ...baseHoverTrail,
+          '&::after': {
+            ...baseHoverTrail['&::after'],
+            height: '100%',
+          },
+        },
+        '.hoverTrail-px': {
+          ...baseHoverTrail,
+          '&::after': {
+            ...baseHoverTrail['&::after'],
+            height: '1px',
+            top: '100%',
+          },
         },
       });
     }),
