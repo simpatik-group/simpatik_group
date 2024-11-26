@@ -18,6 +18,7 @@ class LocalizationService {
   private NEWS = `/posts?populate=*`;
   private CHARITIES = `/posts?populate=*`;
   private TEAM = `/team?populate=*`;
+  private ABOUTUS = `/about-us?populate=hero_image&populate=section.image`;
 
   private API = async ({ url, method, localization }: IAPIRequest) => {
     const resp = await fetch(

@@ -7,6 +7,7 @@ import { IContactsLocalization } from '@/interfaces/contacts.localization';
 import { IHomeLocalization } from '@/interfaces/home.localization';
 import { ILifeLocalization } from '@/interfaces/life.localization';
 import { ILocationsLocalization } from '@/interfaces/locations.localization';
+import { IAboutUsLocalization } from '@/interfaces/aboutUs.localization';
 
 export interface ILocalizationContext {
   COMMON?: ICommonLocalization;
@@ -18,6 +19,7 @@ export interface ILocalizationContext {
   NEWS?: ILifeLocalization;
   CHARITIES?: ILifeLocalization;
   TEAM?: ILifeLocalization;
+  ABOUTUS?: IAboutUsLocalization;
 }
 
 interface ILocalizationProps {
