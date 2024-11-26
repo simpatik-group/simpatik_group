@@ -10,6 +10,8 @@ export interface ICommonLocalization {
   social_title: string;
   social_links: SocialLink[];
   menu: Menu[];
+  notfound_title: string;
+  notfound_text: string;
 }
 
 interface SocialLink {
