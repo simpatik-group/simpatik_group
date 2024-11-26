@@ -1,4 +1,5 @@
-import { FC } from 'react';
+import { FC, useRef } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 import ButtonUI from '@/components/ui/ButtonUI/ButtonUI';
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
@@ -8,13 +9,46 @@ import TextareaUI from '@/components/ui/InputTextareaUI/TextareaUI';
 
 import { EColor } from '@/interfaces/enums';
 
+import { useForm } from '@/hooks/useForm';
 import { useLocalization } from '@/hooks/useLocalization';
 
 import styles from './FormContacts.module.scss';
+import { validateService } from '@/services/validation.service';
+
+interface IContactForm {
+  name: string;
+  email?: string;
+  phone: string;
+  recaptcha: string;
+  message: string;
+}
+
+const initialValues: IContactForm = {
+  name: '',
+  message: '',
+  phone: '',
+  recaptcha: '',
+};
 
 const FormContacts: FC = () => {
   const contactsPage = useLocalization('CONTACTS');
-  console.log('🚀 ~ contactsPage:', contactsPage);
+
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+
+  const { errors, register, handleSubmit, isSubmitting, values } =
+    useForm<IContactForm>({ initialValues });
+  console.log(process.env.RECAPTCHA);
+  const onSubmit = async (data: IContactForm) => {
+    const recaptchaToken = await recaptchaRef.current?.executeAsync();
+    if (!recaptchaToken) {
+      alert('ReCAPTCHA verification failed');
+      values.recaptcha = '';
+      return;
+    }
+    values.recaptcha = recaptchaToken;
+    console.log('🚀 ~ onSubmit ~ values:', values);
+    // values = initialValues; треба скинути до дефолтного стану
+  };
 
   return (
     <section className='pageSection pb-0'>
@@ -26,21 +60,38 @@ const FormContacts: FC = () => {
           shadowTitle={contactsPage?.form_title_shadow}
           textColor={EColor.dark}
         />
-        <form action='' className={styles.form}>
+        <form
+          noValidate
+          action=''
+          className={styles.form}
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <ContainerUI withoutGridSystem className='gap-y-4 md:grid-cols-12'>
             <div className={styles.group}>
               <InputUI
+                {...register('name', {
+                  required: true,
+                  pattern: validateService.name,
+                })}
+                error={errors.name}
                 labelText={contactsPage?.form_name}
                 placeholder={contactsPage?.input_name}
-                required
               />
               <InputUI
+                {...register('phone', {
+                  required: true,
+                  pattern: validateService.phone,
+                })}
+                error={errors.phone}
                 labelText={contactsPage?.form_phone}
                 placeholder={contactsPage?.input_phone}
                 type='tel'
-                required
               />
               <InputUI
+                {...register('email', {
+                  pattern: validateService.email,
+                })}
+                error={errors.email}
                 labelText={
                   <>
                     {contactsPage?.form_email.replace(/\(([^)]+)\)/, '')}{' '}
@@ -56,12 +107,25 @@ const FormContacts: FC = () => {
             </div>
             <div className={styles.group}>
               <TextareaUI
+                {...register('message', {
+                  required: true,
+                  pattern: validateService.message,
+                })}
+                error={errors.message}
                 labelText={contactsPage?.form_message}
                 placeholder={contactsPage?.input_message}
-                required
                 rows={5}
               />
-              <ButtonUI className='self-end'>
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_FRONT as string}
+                size='invisible'
+              />
+              <ButtonUI
+                className='self-end'
+                type='submit'
+                disabled={isSubmitting}
+              >
                 {contactsPage?.form_send_button}
               </ButtonUI>
             </div>

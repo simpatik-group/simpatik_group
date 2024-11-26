@@ -9,6 +9,7 @@ export interface IInputUIProps
     InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   > {
+  error?: boolean;
   labelText?: JSX.Element | string;
 }
 
@@ -17,5 +18,6 @@ export interface ITextareaUIProps
     TextareaHTMLAttributes<HTMLTextAreaElement>,
     HTMLTextAreaElement
   > {
+  error?: boolean;
   labelText?: JSX.Element | string;
 }
