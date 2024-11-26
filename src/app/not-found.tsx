@@ -1,9 +1,8 @@
 import { FC } from 'react';
 
-import NotFound from '@/components/pages/NotFound/NotFound';
 import LocalizationProvider from '@/context/localization.context';
 import localizationService from '@/services/localization.service';
-
+import NotFound from '@/components/pages/NotFound/NotFound';
 
 const Page404: FC = async() => {
   const localization = await localizationService.getLocalizations('uk', [
