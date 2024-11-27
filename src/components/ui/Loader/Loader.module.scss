@@ -1,0 +1,11 @@
+.wrap {
+  @apply fixed z-50 top-0 left-0 h-dvh w-dvw bg-blue-500 flex items-center justify-center;
+  &.transparent {
+    &.transparent {
+      @apply bg-opacity-90;
+    }
+  }
+}
+.loaderElement {
+  @apply loader animate-spin;
+}

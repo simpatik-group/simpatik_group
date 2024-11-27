@@ -1,4 +1,4 @@
-import { FC, useRef } from 'react';
+import { ChangeEvent, FC, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 import ButtonUI from '@/components/ui/ButtonUI/ButtonUI';
@@ -6,11 +6,16 @@ import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 import Heading from '@/components/ui/Heading/Heading';
 import InputUI from '@/components/ui/InputTextareaUI/InputUI';
 import TextareaUI from '@/components/ui/InputTextareaUI/TextareaUI';
+import Loader from '@/components/ui/Loader/Loader';
+import Modal from '@/components/ui/Modal/Modal';
+import { IModalContent } from '@/components/ui/Modal/Modal.props';
 
 import { EColor } from '@/interfaces/enums';
 
 import { useForm } from '@/hooks/useForm';
 import { useLocalization } from '@/hooks/useLocalization';
+
+import { formatPhoneNumber } from '@/helpers/formatInput';
 
 import styles from './FormContacts.module.scss';
 import { validateService } from '@/services/validation.service';
@@ -29,29 +34,69 @@ const initialValues: IContactForm = {
   phone: '',
   recaptcha: '',
 };
+const initialModalValues: IModalContent = {
+  title: '',
+  info: '',
+};
 
 const FormContacts: FC = () => {
   const contactsPage = useLocalization('CONTACTS');
 
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
-  const { errors, register, handleSubmit, isSubmitting, values } =
-    useForm<IContactForm>({ initialValues });
-  console.log(process.env.RECAPTCHA);
+  const [active, setActive] = useState(false);
+  const [modalContent, setModalContent] = useState(initialModalValues);
+
+  const {
+    errors,
+    register,
+    handleSubmit,
+    setValues,
+    isSubmitting,
+    setIsSubmitting,
+    values,
+    setErrors,
+  } = useForm<IContactForm>({ initialValues });
+
   const onSubmit = async (data: IContactForm) => {
     const recaptchaToken = await recaptchaRef.current?.executeAsync();
+    setIsSubmitting(true);
     if (!recaptchaToken) {
-      alert('ReCAPTCHA verification failed');
       values.recaptcha = '';
       return;
     }
     values.recaptcha = recaptchaToken;
-    console.log('🚀 ~ onSubmit ~ values:', values);
-    // values = initialValues; треба скинути до дефолтного стану
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    setIsSubmitting(false);
+    setValues({ ...initialValues });
+    setModalContent({
+      type: 'success',
+      title: 'Дякуємо!',
+      info: (
+        <p>
+          Ваше повідомлення було успішно надіслано. <br /> Ми зв’яжемося з вами
+          найближчим часом.
+        </p>
+      ),
+    });
+    setActive(true);
+  };
+
+  const test = (e: ChangeEvent<HTMLInputElement>) => {
+    const formattedValue = formatPhoneNumber(e.target.value);
+
+    setErrors((prev) => ({ ...prev, phone: false }));
+    setValues((prev) => ({ ...prev, phone: formattedValue }));
   };
 
   return (
     <section className='pageSection pb-0'>
+      <Modal
+        active={active}
+        modalContent={modalContent}
+        toggleActive={() => setActive(!active)}
+      />
+      {isSubmitting && <Loader transparent />}
       <ContainerUI className={styles.container} id='contactForm'>
         <Heading
           className={styles.title}
@@ -82,6 +127,7 @@ const FormContacts: FC = () => {
                   required: true,
                   pattern: validateService.phone,
                 })}
+                onChange={test}
                 error={errors.phone}
                 labelText={contactsPage?.form_phone}
                 placeholder={contactsPage?.input_phone}

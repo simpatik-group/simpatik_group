@@ -91,9 +91,7 @@ export function useForm<T extends Record<string, any>>({
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      setIsSubmitting(true);
       callback(values);
-      setIsSubmitting(false);
     }
   };
 
@@ -101,6 +99,9 @@ export function useForm<T extends Record<string, any>>({
     values,
     errors,
     isSubmitting,
+    setValues,
+    setErrors,
+    setIsSubmitting,
     register,
     handleSubmit,
   };
