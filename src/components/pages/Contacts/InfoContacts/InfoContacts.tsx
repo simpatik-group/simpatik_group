@@ -17,7 +17,9 @@ import styles from './InfoContacts.module.scss';
 
 const InfoContacts: FC = () => {
   const commonContent = useLocalization('COMMON');
+  console.log('🚀 ~ commonContent:', commonContent);
   const contactsPage = useLocalization('CONTACTS');
+  console.log('🚀 ~ contactsPage:', contactsPage);
 
   return (
     <ParticlesLayout>

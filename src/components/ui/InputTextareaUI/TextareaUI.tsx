@@ -9,13 +9,14 @@ const TextareaUI: FC<ITextareaUIProps> = ({
   labelText,
   children,
   className,
+  error,
   ...props
 }) => {
   return (
     <label className={clsx(styles.label, className)}>
       {labelText && <span>{labelText}</span>}
       <textarea
-        className={clsx(styles.input, styles.textarea, styles.error)}
+        className={clsx(styles.input, styles.textarea, !!error && styles.error)}
         {...props}
       />
     </label>

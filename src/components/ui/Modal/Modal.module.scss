@@ -1,0 +1,47 @@
+.holder {
+  @apply fixed -z-30 top-0 left-0 min-h-dvh w-dvw bg-blue-500 bg-opacity-90 flex items-center transition-opacity justify-center py-4 opacity-0 invisible;
+  &.active {
+    @apply opacity-100 visible z-30;
+    .modal {
+      @apply translate-y-0 opacity-100;
+    }
+  }
+  &.success .modal {
+    background-image: url(/img/modal_success_decor.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+}
+.modal {
+  @apply text-center px-4 pt-20 pb-0 m-0 w-dvw relative flex justify-center -translate-y-7 transition-all opacity-0 h-[320px];
+}
+.close {
+  @apply absolute right-4 top-4 transition-all cursor-pointer;
+  &:hover {
+    @apply rotate-90;
+  }
+}
+.title {
+  @apply h4 mt-2 mb-4 text-orange-400;
+}
+.info {
+  @apply text-xs font-medium;
+}
+
+@include customMedia(768px) {
+  .holder.success {
+    .modal {
+      background-image: url(/img/modal_success_decor--desk.png);
+    }
+  }
+  .modal {
+    @apply w-[690px] pt-14;
+  }
+  .title {
+    @apply mb-6;
+  }
+  .info {
+    @apply text-sm;
+  }
+}

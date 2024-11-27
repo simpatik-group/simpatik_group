@@ -15,4 +15,10 @@
       @apply bg-orange-500;
     }
   }
+  &:disabled {
+    @apply cursor-not-allowed bg-dark-400;
+    &:hover::after {
+      @apply scale-0;
+    }
+  }
 }
