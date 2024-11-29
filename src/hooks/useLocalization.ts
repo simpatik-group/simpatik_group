@@ -1,20 +1,15 @@
 import { useContext } from 'react';
 
-import {
-  ILocalizationContext,
-  LocalizationContext,
-} from '@/context/localization.context';
+import { MessagesContext } from '@/context/messages.context';
 
-export function useLocalization<Key extends keyof ILocalizationContext>(
-  key: Key,
-) {
-  const context = useContext(LocalizationContext);
+import { IGetMessages } from '@/interfaces/request.request';
+
+export function useMessages<Key extends keyof IGetMessages>(key: Key) {
+  const context = useContext(MessagesContext);
   const selector = context && context[key];
 
   if (!context) {
-    throw new Error(
-      'useLocalization must be used within a LocalizationProvider',
-    );
+    throw new Error('useMessages must be used within a messagesProvider');
   }
 
   return selector;

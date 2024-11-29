@@ -8,12 +8,12 @@ import SliderUI from '@/components/ui/SliderUI/SliderUI';
 import { EColor } from '@/interfaces/enums';
 import { IDivProps } from '@/interfaces/interfaces';
 
-import { useLocalization } from '@/hooks/useLocalization';
+import { useMessages } from '@/hooks/useLocalization';
 
 import styles from './FeedbacksHomePage.module.scss';
 
 const FeedbacksHomePage: FC<IDivProps> = () => {
-  const homePage = useLocalization('HOME_PAGE');
+  const homePage = useMessages('HOME_PAGE');
   const settingsFeedbacks: Settings = {
     variableWidth: true,
     adaptiveHeight: false,

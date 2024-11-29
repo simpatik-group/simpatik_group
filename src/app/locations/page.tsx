@@ -3,16 +3,16 @@ import Locations from '@/components/pages/Locations/Locations';
 
 import { EColor } from '@/interfaces/enums';
 
-import localizationService from '@/services/localization.service';
+import requestService from '@/services/request.service';
 
 export default async function LocationPage() {
-  const localization = await localizationService.getLocalizations('uk', [
-    'COMMON',
-    'LOCATIONS',
-  ]);
+  const messages = await requestService.getRequest({
+    localization: 'uk',
+    urls: ['COMMON', 'LOCATIONS'],
+  });
 
   return (
-    <RootLayout localization={localization} themeColor={EColor.dark}>
+    <RootLayout messages={messages} themeColor={EColor.dark}>
       <Locations />
     </RootLayout>
   );

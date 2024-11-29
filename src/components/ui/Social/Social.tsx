@@ -5,13 +5,13 @@ import Link from 'next/link';
 
 import { IDivProps } from '@/interfaces/interfaces';
 
-import { useLocalization } from '@/hooks/useLocalization';
+import { useMessages } from '@/hooks/useLocalization';
 
 import styles from './Social.module.scss';
 import { validateService } from '@/services/validation.service';
 
 const Social: FC<IDivProps> = ({ className }) => {
-  const commonContent = useLocalization('COMMON');
+  const commonContent = useMessages('COMMON');
   const modifyLinkType = (url: string) => {
     switch (true) {
       case validateService.email.test(url):

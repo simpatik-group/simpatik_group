@@ -1,4 +1,4 @@
-export interface ILifeLocalization {
+export interface ILifeMessage {
   id: number;
   hero_title: string;
   hero_text: string;

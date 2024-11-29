@@ -2,7 +2,7 @@
 
 import { FC, useContext } from 'react';
 
-import { LocalizationContext } from '@/context/localization.context';
+import { MessagesContext } from '@/context/messages.context';
 
 import FAQ from '@/components/ui/FAQ/FAQ';
 
@@ -15,7 +15,7 @@ import NumbersHomePage from './NumbersHomePage/NumbersHomePage';
 import PartnersHomePage from './PartnersHomePage/PartnersHomePage';
 
 const Home: FC = () => {
-  const context = useContext(LocalizationContext);
+  const context = useContext(MessagesContext);
   console.log('🚀 ~ context:', context);
 
   return (

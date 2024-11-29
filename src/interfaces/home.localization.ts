@@ -1,4 +1,4 @@
-export interface IHomeLocalization {
+export interface IHomeMessage {
   id: number;
   hero_title: string;
   hero_text: string;

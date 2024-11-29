@@ -3,16 +3,16 @@ import Contacts from '@/components/pages/Contacts/Contacts';
 
 import { EColor } from '@/interfaces/enums';
 
-import localizationService from '@/services/localization.service';
+import requestService from '@/services/request.service';
 
 export default async function ContactsPage() {
-  const localization = await localizationService.getLocalizations('uk', [
-    'COMMON',
-    'CONTACTS',
-  ]);
+  const messages = await requestService.getRequest({
+    localization: 'uk',
+    urls: ['COMMON', 'CONTACTS'],
+  });
 
   return (
-    <RootLayout localization={localization} themeColor={EColor.dark}>
+    <RootLayout messages={messages} themeColor={EColor.dark}>
       <Contacts />
     </RootLayout>
   );

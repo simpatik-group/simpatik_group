@@ -3,16 +3,16 @@ import AboutUs from '@/components/pages/AboutUs/AboutUs';
 
 import { EColor } from '@/interfaces/enums';
 
-import localizationService from '@/services/localization.service';
+import requestService from '@/services/request.service';
 
 export default async function AboutUsPage() {
-  const localization = await localizationService.getLocalizations('uk', [
-    'COMMON',
-    'ABOUTUS',
-  ]);
+  const messages = await requestService.getRequest({
+    localization: 'uk',
+    urls: ['COMMON', 'ABOUT_US'],
+  });
 
   return (
-    <RootLayout localization={localization} themeColor={EColor.dark}>
+    <RootLayout messages={messages} themeColor={EColor.dark}>
       <AboutUs />
     </RootLayout>
   );

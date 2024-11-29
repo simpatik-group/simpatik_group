@@ -8,10 +8,10 @@ import Social from '@/components/ui/Social/Social';
 
 import { EColor } from '@/interfaces/enums';
 
-import { useLocalization } from '@/hooks/useLocalization';
+import { useMessages } from '@/hooks/useLocalization';
 
 const Inspire: FC = () => {
-  const homePage = useLocalization('HOME_PAGE');
+  const homePage = useMessages('HOME_PAGE');
 
   return (
     <ParticlesLayout className='pt-8 pb-2 md:pb-14'>

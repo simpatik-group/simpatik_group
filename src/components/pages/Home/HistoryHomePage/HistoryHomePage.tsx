@@ -9,14 +9,15 @@ import LinkUI from '@/components/ui/LinkUI/LinkUI';
 
 import { EColor } from '@/interfaces/enums';
 
-import { useLocalization } from '@/hooks/useLocalization';
+import { useMessages } from '@/hooks/useLocalization';
 
 import { Breaks } from '@/helpers/breacksModification';
+import { urlPaths } from '@/helpers/urlPath';
 
 import styles from './HistoryHomePage.module.scss';
 
 const HistoryHomePage: FC = () => {
-  const homePage = useLocalization('HOME_PAGE');
+  const homePage = useMessages('HOME_PAGE');
 
   return (
     <ParticlesLayout>
@@ -40,12 +41,12 @@ const HistoryHomePage: FC = () => {
           <Breaks description={homePage?.history_description || ''} />
         </p>
         <LinkUI
-          href='/about-us'
+          href={urlPaths.ABOUT_US}
           withArrow
           themeColor={EColor.white}
           className={styles.link}
         >
-          {homePage?.history_button}  
+          {homePage?.history_button}
         </LinkUI>
       </ContainerUI>
     </ParticlesLayout>

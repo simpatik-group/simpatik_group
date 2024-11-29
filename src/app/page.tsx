@@ -3,7 +3,7 @@ import Home from '@/components/pages/Home/Home';
 
 import { EColor } from '@/interfaces/enums';
 
-import localizationService from '@/services/localization.service';
+import requestService from '@/services/request.service';
 
 // https://nextjs.org/docs/app/building-your-application/data-fetching/incremental-static-regeneration
 // генерація метаданих
@@ -28,14 +28,13 @@ import localizationService from '@/services/localization.service';
 // }
 
 export default async function HomePage() {
-  const localization = await localizationService.getLocalizations('uk', [
-    'COMMON',
-    'HOME_PAGE',
-    'LOCATIONS',
-  ]);
+  const messages = await requestService.getRequest({
+    localization: 'uk',
+    urls: ['COMMON', 'HOME_PAGE', 'LOCATIONS'],
+  });
 
   return (
-    <RootLayout localization={localization} themeColor={EColor.dark}>
+    <RootLayout messages={messages} themeColor={EColor.dark}>
       <Home />
     </RootLayout>
   );

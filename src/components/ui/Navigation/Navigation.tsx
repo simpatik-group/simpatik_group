@@ -8,15 +8,15 @@ import { usePathname } from 'next/navigation';
 
 import { EColor } from '@/interfaces/enums';
 
-import { useLocalization } from '@/hooks/useLocalization';
+import { useMessages } from '@/hooks/useLocalization';
 
 import styles from './Navigation.module.scss';
 import { INavigationProps } from './Navigation.props';
 
 const Navigation: FC<INavigationProps> = ({ themeColor, className }) => {
-  const commonContent = useLocalization('COMMON');
+  const commonContent = useMessages('COMMON');
 
-  const pathname = usePathname();
+  const pathname = usePathname().split('/')[1];
 
   return (
     <nav

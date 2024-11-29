@@ -3,16 +3,16 @@ import Life from '@/components/pages/Life/Life';
 
 import { EColor } from '@/interfaces/enums';
 
-import localizationService from '@/services/localization.service';
+import requestService from '@/services/request.service';
 
 export default async function LifePage() {
-  const localization = await localizationService.getLocalizations('uk', [
-    'COMMON',
-    'LIFE',
-  ]);
+  const messages = await requestService.getRequest({
+    localization: 'uk',
+    urls: ['COMMON', 'LIFE'],
+  });
 
   return (
-    <RootLayout localization={localization} themeColor={EColor.dark}>
+    <RootLayout messages={messages} themeColor={EColor.dark}>
       <Life />
     </RootLayout>
   );

@@ -8,16 +8,17 @@ import LinkUI from '@/components/ui/LinkUI/LinkUI';
 import { EColor } from '@/interfaces/enums';
 import { IDivProps } from '@/interfaces/interfaces';
 
-import { useLocalization } from '@/hooks/useLocalization';
+import { useMessages } from '@/hooks/useLocalization';
 
 import { Breaks } from '@/helpers/breacksModification';
+import { urlPaths } from '@/helpers/urlPath';
 
 import AccordionItem from '../AccardioneItem/AccordionItem';
 
 import styles from './FAQ.module.scss';
 
 const FAQ: FC<IDivProps> = ({ className }) => {
-  const faqContent = useLocalization('HOME_PAGE');
+  const faqContent = useMessages('HOME_PAGE');
 
   return (
     <ParticlesLayout>
@@ -33,7 +34,14 @@ const FAQ: FC<IDivProps> = ({ className }) => {
           <p className='mb-6'>
             <Breaks description={faqContent?.fag_text || ''} boldParagraphs />
           </p>
-          <LinkUI href='/contacts/' themeColor={EColor.white} withArrow>
+          <LinkUI
+            href={{
+              pathname: urlPaths.CONTACTS,
+              query: { id: urlPaths.CONTACT_FORM },
+            }}
+            themeColor={EColor.white}
+            withArrow
+          >
             {faqContent?.fag_button}
           </LinkUI>
         </div>
