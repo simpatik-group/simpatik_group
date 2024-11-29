@@ -1,4 +1,4 @@
-export interface IContactsLocalization {
+export interface IContactsMessage {
   id: number;
   title: string;
   send_button: string;
@@ -15,4 +15,8 @@ export interface IContactsLocalization {
   locale: string;
   title_shadow: string;
   form_title_shadow: string;
+  popup_success_title: string;
+  popup_success_text: string;
+  popup_problem_title: string;
+  popup_problem_text: string;
 }

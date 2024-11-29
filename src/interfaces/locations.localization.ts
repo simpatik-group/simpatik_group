@@ -1,4 +1,4 @@
-export interface ILocationsLocalization {
+export interface ILocationsMessage {
   id: number;
   title: string;
   locale: string;

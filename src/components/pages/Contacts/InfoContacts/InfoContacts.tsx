@@ -11,17 +11,15 @@ import Social from '@/components/ui/Social/Social';
 
 import { EColor } from '@/interfaces/enums';
 
-import { useLocalization } from '@/hooks/useLocalization';
+import { useMessages } from '@/hooks/useLocalization';
 
 import { scrollMe } from '@/helpers/scrollFunction';
 
 import styles from './InfoContacts.module.scss';
 
 const InfoContacts: FC = () => {
-  const commonContent = useLocalization('COMMON');
-  console.log('🚀 ~ commonContent:', commonContent);
-  const contactsPage = useLocalization('CONTACTS');
-  console.log('🚀 ~ contactsPage:', contactsPage);
+  const commonContent = useMessages('COMMON');
+  const contactsPage = useMessages('CONTACTS');
 
   return (
     <ParticlesLayout>

@@ -8,12 +8,12 @@ import Heading from '@/components/ui/Heading/Heading';
 
 import { EColor } from '@/interfaces/enums';
 
-import { useLocalization } from '@/hooks/useLocalization';
+import { useMessages } from '@/hooks/useLocalization';
 
 import styles from './HeroSectionUboutUs.module.scss';
 
 const HeroSectionUboutUs: FC = () => {
-  const aboutUsPage = useLocalization('ABOUTUS');
+  const aboutUsPage = useMessages('ABOUTUS');
   return (
     <ParticlesLayout>
       <ContainerUI className={styles.container}>
@@ -33,7 +33,6 @@ const HeroSectionUboutUs: FC = () => {
           sizes='100vw'
           // className={styles.image}
         />
-
       </ContainerUI>
     </ParticlesLayout>
   );

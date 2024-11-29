@@ -9,7 +9,7 @@ import LinkUI from '@/components/ui/LinkUI/LinkUI';
 
 import { EColor } from '@/interfaces/enums';
 
-import { useLocalization } from '@/hooks/useLocalization';
+import { useMessages } from '@/hooks/useLocalization';
 
 import { Breaks } from '@/helpers/breacksModification';
 import { urlPaths } from '@/helpers/urlPath';
@@ -17,7 +17,7 @@ import { urlPaths } from '@/helpers/urlPath';
 import styles from './HistoryHomePage.module.scss';
 
 const HistoryHomePage: FC = () => {
-  const homePage = useLocalization('HOME_PAGE');
+  const homePage = useMessages('HOME_PAGE');
 
   return (
     <ParticlesLayout>

@@ -1,9 +1,11 @@
-
 'use client';
 
-import NotFoundComponent from "./NotFoundComponent/NotFoundComponent";
-    <NotFoundComponent />
-  );
+import { FC } from 'react';
+
+import NotFoundComponent from './NotFoundComponent/NotFoundComponent';
+
+const NotFound: FC = () => {
+  return <NotFoundComponent />;
 };
 
 export default NotFound;

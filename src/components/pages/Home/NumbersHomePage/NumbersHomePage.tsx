@@ -7,12 +7,12 @@ import NumberCounter from '@/components/ui/NumberCounter/NumberCounter';
 import { EColor } from '@/interfaces/enums';
 import { IDivProps } from '@/interfaces/interfaces';
 
-import { useLocalization } from '@/hooks/useLocalization';
+import { useMessages } from '@/hooks/useLocalization';
 
 import styles from './NumbersHomePage.module.scss';
 
 const NumbersHomePage: FC<IDivProps> = () => {
-  const homePage = useLocalization('HOME_PAGE');
+  const homePage = useMessages('HOME_PAGE');
 
   return (
     <section className='pageSection'>

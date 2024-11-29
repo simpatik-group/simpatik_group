@@ -7,15 +7,15 @@ import ListComponent from '@/components/ui/ListComponent/ListComponent';
 
 import { EColor } from '@/interfaces/enums';
 
-import { useLocalization } from '@/hooks/useLocalization';
+import { useMessages } from '@/hooks/useLocalization';
 
 import { urlPaths } from '@/helpers/urlPath';
 
 import styles from './LocationsHomePage.module.scss';
 
 const LocationsHomePage: FC = () => {
-  const locationsData = useLocalization('LOCATIONS');
-  const homePage = useLocalization('HOME_PAGE');
+  const locationsData = useMessages('LOCATIONS');
+  const homePage = useMessages('HOME_PAGE');
 
   return (
     <section className='pageSection'>

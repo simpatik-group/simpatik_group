@@ -1,4 +1,4 @@
-export interface ICommonLocalization {
+export interface ICommonMessage {
   id: number;
   address_title: string;
   address_text: string;

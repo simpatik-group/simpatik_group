@@ -1,4 +1,4 @@
-export interface IAboutUsLocalization {
+export interface IAboutUsMessage {
   id: number;
   hero_title: string;
   hero_title_shadow: string;

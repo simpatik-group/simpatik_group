@@ -1,22 +1,21 @@
 import { FC } from 'react';
 
-import LocalizationProvider from '@/context/localization.context';
-import localizationService from '@/services/localization.service';
+import MessagesProvider from '@/context/messages.context';
+
 import NotFound from '@/components/pages/NotFound/NotFound';
 
-const Page404: FC = async() => {
-  const localization = await localizationService.getLocalizations('uk', [
-    'COMMON',
-  ]);
+import requestService from '@/services/request.service';
+
+const Page404: FC = async () => {
+  const messages = await requestService.getRequest({
+    localization: 'uk',
+    urls: ['COMMON'],
+  });
 
   return (
-    // <RootLayout localization={localization} themeColor={EColor.dark} hideFooter>
-    <LocalizationProvider localization={localization}>
+    <MessagesProvider messages={messages}>
       <NotFound />
-    </LocalizationProvider>
-
-    // </RootLayout>
-
+    </MessagesProvider>
   );
 };
 

@@ -10,12 +10,12 @@ import Social from '@/components/ui/Social/Social';
 
 import { IDivProps } from '@/interfaces/interfaces';
 
-import { useLocalization } from '@/hooks/useLocalization';
+import { useMessages } from '@/hooks/useLocalization';
 
 import styles from './Footer.module.scss';
 
 const Footer: FC<IDivProps> = () => {
-  const commonContent = useLocalization('COMMON');
+  const commonContent = useMessages('COMMON');
 
   return (
     <footer className={styles.footer}>

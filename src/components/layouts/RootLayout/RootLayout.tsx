@@ -4,9 +4,7 @@ import { FC, ReactNode, useEffect } from 'react';
 
 import { useSearchParams } from 'next/navigation';
 
-import LocalizationProvider, {
-  ILocalizationContext,
-} from '@/context/localization.context';
+import MessagesProvider, { IMessagesContext } from '@/context/messages.context';
 
 import type { EColor } from '@/interfaces/enums';
 
@@ -18,14 +16,10 @@ import Header from './Header/Header';
 interface IRootLayout {
   children: ReactNode;
   themeColor: EColor;
-  localization: ILocalizationContext;
+  messages: IMessagesContext;
 }
 
-const RootLayout: FC<IRootLayout> = ({
-  localization,
-  children,
-  themeColor,
-}) => {
+const RootLayout: FC<IRootLayout> = ({ messages, children, themeColor }) => {
   const query = useSearchParams().get('id');
 
   useEffect(() => {
@@ -37,13 +31,13 @@ const RootLayout: FC<IRootLayout> = ({
   }, [query]);
 
   return (
-    <LocalizationProvider localization={localization}>
+    <MessagesProvider messages={messages}>
       <div className='overflow-clip'>
         <Header themeColor={themeColor} />
         <main>{children}</main>
         <Footer />
       </div>
-    </LocalizationProvider>
+    </MessagesProvider>
   );
 };
 export default RootLayout;

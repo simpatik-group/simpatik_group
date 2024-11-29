@@ -11,26 +11,20 @@ import Modal from '@/components/ui/Modal/Modal';
 import { IModalContent } from '@/components/ui/Modal/Modal.props';
 
 import { EColor } from '@/interfaces/enums';
+import { IMessageUs } from '@/interfaces/messageUs.request';
 
 import { useForm } from '@/hooks/useForm';
-import { useLocalization } from '@/hooks/useLocalization';
+import { useMessages } from '@/hooks/useLocalization';
 
+import { Breaks } from '@/helpers/breacksModification';
 import { formatPhoneNumber } from '@/helpers/formatInput';
 import { urlPaths } from '@/helpers/urlPath';
 
 import styles from './FormContacts.module.scss';
-import localizationService from '@/services/localization.service';
+import requestService from '@/services/request.service';
 import { validateService } from '@/services/validation.service';
 
-interface IContactForm {
-  name: string;
-  email?: string;
-  phone: string;
-  recaptcha: string;
-  message: string;
-}
-
-const initialValues: IContactForm = {
+const initialValues: IMessageUs = {
   name: '',
   message: '',
   phone: '',
@@ -42,11 +36,11 @@ const initialModalValues: IModalContent = {
 };
 
 const FormContacts: FC = () => {
-  const contactsPage = useLocalization('CONTACTS');
+  const contactsPage = useMessages('CONTACTS');
 
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
-  const [active, setActive] = useState(false);
+  const [modalActive, setModalActive] = useState(false);
   const [modalContent, setModalContent] = useState(initialModalValues);
 
   const {
@@ -58,9 +52,9 @@ const FormContacts: FC = () => {
     setIsSubmitting,
     values,
     setErrors,
-  } = useForm<IContactForm>({ initialValues });
+  } = useForm<IMessageUs>({ initialValues });
 
-  const onSubmit = async (data: IContactForm) => {
+  const onSubmit = async (data: IMessageUs) => {
     const recaptchaToken = await recaptchaRef.current?.executeAsync();
     setIsSubmitting(true);
     if (!recaptchaToken) {
@@ -68,31 +62,34 @@ const FormContacts: FC = () => {
       return;
     }
     values.recaptcha = recaptchaToken;
-    localizationService
-      .getLocalizations('uk', ['CONTACT_US'], {
-        body: values,
-        method: 'POST',
+    requestService
+      .postRequest({
+        url: 'MESSAGE_US',
+        options: { method: 'POST', body: values },
       })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err))
-      .finally(() => {
-        setIsSubmitting(false);
-        setValues({ ...initialValues });
+      .then((res) => {
         setModalContent({
           type: 'success',
-          title: 'Дякуємо!',
-          info: (
-            <p>
-              Ваше повідомлення було успішно надіслано. <br /> Ми зв’яжемося з
-              вами найближчим часом.
-            </p>
-          ),
+          title: contactsPage?.popup_success_title || '',
+          info: <Breaks description={contactsPage?.popup_success_text || ''} />,
         });
-        setActive(true);
+        setValues({ ...initialValues });
+      })
+      .catch((err) => {
+        console.log(err);
+        setModalContent({
+          type: 'failed',
+          title: contactsPage?.popup_problem_title || '',
+          info: <Breaks description={contactsPage?.popup_problem_text || ''} />,
+        });
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+        setModalActive(true);
       });
   };
 
-  const test = (e: ChangeEvent<HTMLInputElement>) => {
+  const changePhoneValue = (e: ChangeEvent<HTMLInputElement>) => {
     const formattedValue = formatPhoneNumber(e.target.value);
 
     setErrors((prev) => ({ ...prev, phone: false }));
@@ -102,9 +99,9 @@ const FormContacts: FC = () => {
   return (
     <section className='pageSection pb-0'>
       <Modal
-        active={active}
+        active={modalActive}
         modalContent={modalContent}
-        toggleActive={() => setActive(!active)}
+        toggleActive={() => setModalActive(!modalActive)}
       />
       {isSubmitting && <Loader transparent />}
       <ContainerUI className={styles.container} id={urlPaths.CONTACT_FORM}>
@@ -137,7 +134,7 @@ const FormContacts: FC = () => {
                   required: true,
                   pattern: validateService.phone,
                 })}
-                onChange={test}
+                onChange={changePhoneValue}
                 error={errors.phone}
                 labelText={contactsPage?.form_phone}
                 placeholder={contactsPage?.input_phone}

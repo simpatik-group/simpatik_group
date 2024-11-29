@@ -1,9 +1,9 @@
 'use client';
 
-import { useLocalization } from '@/hooks/useLocalization';
+import { useMessages } from '@/hooks/useLocalization';
 
 const Life = () => {
-  const lifePage = useLocalization('LIFE');
+  const lifePage = useMessages('LIFE');
   return (
     <>
       <p>{lifePage?.advantages_title}</p>
