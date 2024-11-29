@@ -8,6 +8,7 @@ const ContainerUI: FC<IContainerUIProps> = ({
   withoutGridSystem,
   className,
   children,
+  ...props
 }) => {
   return (
     <div
@@ -18,6 +19,7 @@ const ContainerUI: FC<IContainerUIProps> = ({
         'gap-x-4',
         !withoutGridSystem && 'md:grid-cols-12',
       )}
+      {...props}
     >
       {children}
     </div>

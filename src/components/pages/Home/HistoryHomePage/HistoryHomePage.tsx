@@ -12,6 +12,7 @@ import { EColor } from '@/interfaces/enums';
 import { useLocalization } from '@/hooks/useLocalization';
 
 import { Breaks } from '@/helpers/breacksModification';
+import { urlPaths } from '@/helpers/urlPath';
 
 import styles from './HistoryHomePage.module.scss';
 
@@ -40,12 +41,12 @@ const HistoryHomePage: FC = () => {
           <Breaks description={homePage?.history_description || ''} />
         </p>
         <LinkUI
-          href='/about-us'
+          href={urlPaths.ABOUT_US}
           withArrow
           themeColor={EColor.white}
           className={styles.link}
         >
-          {homePage?.history_button}  
+          {homePage?.history_button}
         </LinkUI>
       </ContainerUI>
     </ParticlesLayout>
