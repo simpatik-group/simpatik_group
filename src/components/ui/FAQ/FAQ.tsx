@@ -11,7 +11,6 @@ import { IDivProps } from '@/interfaces/interfaces';
 import { useLocalization } from '@/hooks/useLocalization';
 
 import { Breaks } from '@/helpers/breacksModification';
-import { urlPaths } from '@/helpers/urlPath';
 
 import AccordionItem from '../AccardioneItem/AccordionItem';
 
@@ -34,14 +33,7 @@ const FAQ: FC<IDivProps> = ({ className }) => {
           <p className='mb-6'>
             <Breaks description={faqContent?.fag_text || ''} boldParagraphs />
           </p>
-          <LinkUI
-            href={{
-              pathname: urlPaths.CONTACTS,
-              query: { id: urlPaths.CONTACT_FORM },
-            }}
-            themeColor={EColor.white}
-            withArrow
-          >
+          <LinkUI href='/contacts/' themeColor={EColor.white} withArrow>
             {faqContent?.fag_button}
           </LinkUI>
         </div>

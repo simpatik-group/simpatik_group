@@ -12,7 +12,6 @@ import { EColor } from '@/interfaces/enums';
 import { useLocalization } from '@/hooks/useLocalization';
 
 import { Breaks } from '@/helpers/breacksModification';
-import { urlPaths } from '@/helpers/urlPath';
 
 import styles from './CharityHomePage.module.scss';
 
@@ -40,7 +39,7 @@ const CharityHomePage: FC = () => {
           <Breaks description={homePage?.military_aid_description || ''} />
         </p>
         <LinkUI
-          href={urlPaths.CHARITY}
+          href='/team/charity'
           withArrow
           themeColor={EColor.white}
           className={styles.link}

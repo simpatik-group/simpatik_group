@@ -58,7 +58,7 @@ const Footer: FC<IDivProps> = () => {
       <div className={styles.footerBottom}>
         <ContainerUI withoutGridSystem>
           <p className={styles.copyright}>
-            Copyright © {new Date().getFullYear()} Simpatik Group.
+            Copyright © {new Date().getFullYear()} Сімпатік Груп.
           </p>
         </ContainerUI>
       </div>

@@ -4,10 +4,7 @@ import { keyofELocalization } from '@/interfaces/enums';
 
 interface IAPIRequest {
   url: keyof ILocalizationContext;
-  options?: {
-    body: {};
-    method?: string;
-  };
+  method?: string;
   localization: keyofELocalization;
 }
 
@@ -21,15 +18,13 @@ class LocalizationService {
   private NEWS = `/posts?populate=*`;
   private CHARITIES = `/posts?populate=*`;
   private TEAM = `/team?populate=*`;
-  private CONTACT_US = `/emails`;
   private ABOUTUS = `/about-us?populate=hero_image&populate=section.image`;
 
-  private API = async ({ url, localization, options }: IAPIRequest) => {
+  private API = async ({ url, method, localization }: IAPIRequest) => {
     const resp = await fetch(
       `${process.env.NEXT_PUBLIC_DOMAIN}${this[url]}&locale=${localization}`,
       {
-        method: options?.method || 'GET',
-        body: JSON.stringify(options?.body),
+        method,
         next: { revalidate: Number(process.env.REVALIDATING_TIME) },
       },
     );
@@ -40,10 +35,7 @@ class LocalizationService {
   async getLocalizations(
     localization: keyofELocalization,
     namespace: (keyof ILocalizationContext)[],
-    options?: {
-      body: {};
-      method?: string;
-    },
+    method?: string,
   ): Promise<ILocalizationContext> {
     const returnedMessages: ILocalizationContext = {};
 
@@ -52,7 +44,7 @@ class LocalizationService {
         returnedMessages[url] = await this.API({
           url,
           localization,
-          options,
+          method,
         });
       }),
     );
