@@ -13,7 +13,7 @@ import { useMessages } from '@/hooks/useLocalization';
 import styles from './HeroSectionUboutUs.module.scss';
 
 const HeroSectionUboutUs: FC = () => {
-  const aboutUsPage = useMessages('ABOUTUS');
+  const aboutUsPage = useMessages('ABOUT_US');
   return (
     <ParticlesLayout>
       <ContainerUI className={styles.container}>
