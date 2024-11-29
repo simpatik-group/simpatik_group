@@ -1,0 +1,9 @@
+.title {
+  @apply h2;
+}
+
+@include customMedia(768px) {
+  .title {
+    @apply col-span-12;
+  }
+}
