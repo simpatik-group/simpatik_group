@@ -16,10 +16,8 @@ import { useForm } from '@/hooks/useForm';
 import { useLocalization } from '@/hooks/useLocalization';
 
 import { formatPhoneNumber } from '@/helpers/formatInput';
-import { urlPaths } from '@/helpers/urlPath';
 
 import styles from './FormContacts.module.scss';
-import localizationService from '@/services/localization.service';
 import { validateService } from '@/services/validation.service';
 
 interface IContactForm {
@@ -68,28 +66,20 @@ const FormContacts: FC = () => {
       return;
     }
     values.recaptcha = recaptchaToken;
-    localizationService
-      .getLocalizations('uk', ['CONTACT_US'], {
-        body: values,
-        method: 'POST',
-      })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err))
-      .finally(() => {
-        setIsSubmitting(false);
-        setValues({ ...initialValues });
-        setModalContent({
-          type: 'success',
-          title: 'Дякуємо!',
-          info: (
-            <p>
-              Ваше повідомлення було успішно надіслано. <br /> Ми зв’яжемося з
-              вами найближчим часом.
-            </p>
-          ),
-        });
-        setActive(true);
-      });
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    setIsSubmitting(false);
+    setValues({ ...initialValues });
+    setModalContent({
+      type: 'success',
+      title: 'Дякуємо!',
+      info: (
+        <p>
+          Ваше повідомлення було успішно надіслано. <br /> Ми зв’яжемося з вами
+          найближчим часом.
+        </p>
+      ),
+    });
+    setActive(true);
   };
 
   const test = (e: ChangeEvent<HTMLInputElement>) => {
@@ -107,7 +97,7 @@ const FormContacts: FC = () => {
         toggleActive={() => setActive(!active)}
       />
       {isSubmitting && <Loader transparent />}
-      <ContainerUI className={styles.container} id={urlPaths.CONTACT_FORM}>
+      <ContainerUI className={styles.container} id='contactForm'>
         <Heading
           className={styles.title}
           heading='h2'

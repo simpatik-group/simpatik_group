@@ -16,7 +16,7 @@ import { INavigationProps } from './Navigation.props';
 const Navigation: FC<INavigationProps> = ({ themeColor, className }) => {
   const commonContent = useLocalization('COMMON');
 
-  const pathname = usePathname().split('/')[1];
+  const pathname = usePathname();
 
   return (
     <nav

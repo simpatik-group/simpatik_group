@@ -19,7 +19,6 @@ const LinkUI: FC<ILinkUIProps> = ({
   return (
     <Link
       href={href}
-      scroll={true}
       {...props}
       className={clsx(
         styles.link,
