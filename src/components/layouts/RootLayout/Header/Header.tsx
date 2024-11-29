@@ -13,6 +13,8 @@ import Social from '@/components/ui/Social/Social';
 
 import { EColor } from '@/interfaces/enums';
 
+import { urlPaths } from '@/helpers/urlPath';
+
 import ParticlesLayout from '../../ParticlesLayout/ParticlesLayout';
 
 import styles from './Header.module.scss';
@@ -31,6 +33,7 @@ const Header: FC<IHeaderProps> = ({ themeColor }) => {
 
   return (
     <header
+      id='header'
       className={clsx(
         themeColor === EColor.white ? styles.white : styles.dark,
         styles.header,
@@ -40,7 +43,7 @@ const Header: FC<IHeaderProps> = ({ themeColor }) => {
       <ParticlesLayout className={styles.headerMobileBg} />
       <ContainerUI withoutGridSystem>
         <div className={styles.wrap}>
-          <Link href='/'>
+          <Link href={urlPaths.HOMEPAGE}>
             <Image
               priority
               src={

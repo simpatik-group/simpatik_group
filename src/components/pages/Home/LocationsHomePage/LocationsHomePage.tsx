@@ -9,10 +9,13 @@ import { EColor } from '@/interfaces/enums';
 
 import { useLocalization } from '@/hooks/useLocalization';
 
+import { urlPaths } from '@/helpers/urlPath';
+
 import styles from './LocationsHomePage.module.scss';
 
 const LocationsHomePage: FC = () => {
   const locationsData = useLocalization('LOCATIONS');
+  const homePage = useLocalization('HOME_PAGE');
 
   return (
     <section className='pageSection'>
@@ -50,9 +53,9 @@ const LocationsHomePage: FC = () => {
           className={styles.allLocations}
           themeColor={EColor.dark}
           withArrow
-          href='/locations/'
+          href={urlPaths.LOCATIONS}
         >
-          Всі наші локації
+          {homePage?.location_button}
         </LinkUI>
       </ContainerUI>
     </section>

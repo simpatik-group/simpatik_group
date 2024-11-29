@@ -13,6 +13,8 @@ import { EColor } from '@/interfaces/enums';
 
 import { useLocalization } from '@/hooks/useLocalization';
 
+import { scrollMe } from '@/helpers/scrollFunction';
+
 import styles from './InfoContacts.module.scss';
 
 const InfoContacts: FC = () => {
@@ -61,9 +63,16 @@ const InfoContacts: FC = () => {
             title={commonContent?.social_title || ''}
           />
         </ul>
-        <Link href='#contactForm' className='md:col-span-4 md:col-start-5'>
-          <ButtonUI design='solid'>{contactsPage?.send_button}</ButtonUI>
-        </Link>
+
+        <ButtonUI
+          className='md:col-span-4 md:col-start-5'
+          design='solid'
+          onClick={() =>
+            scrollMe({ elem: document.querySelector('#contactForm') })
+          }
+        >
+          {contactsPage?.send_button}
+        </ButtonUI>
       </ContainerUI>
     </ParticlesLayout>
   );
