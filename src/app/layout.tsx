@@ -1,5 +1,9 @@
+import { Suspense } from 'react';
+
 import type { Metadata } from 'next';
 import { Raleway } from 'next/font/google';
+
+import Loader from '@/components/ui/Loader/Loader';
 
 import '../styles/globals.scss';
 
@@ -37,7 +41,9 @@ const RootLayoutPage = ({
         <link rel='manifest' href='/favicon/site.webmanifest' />
         <link rel='icon' href='/favicon/favicon.svg' type='image/svg+xml' />
       </head>
-      <body className={`${raleway.className} `}>{children}</body>
+      <body className={`${raleway.className} `}>
+        <Suspense fallback={<Loader />}>{children}</Suspense>
+      </body>
     </html>
   );
 };
