@@ -16,7 +16,7 @@ else
 fi
 
 # Looking for the NextJS process running via nohup
-PID=$(ps aux | grep 'node' | grep '/www/wwwroot/simpatik.group' | awk '{print $2}')
+PID=$(cat /www/server/nodejs/vhost/pids/simpatik_group.pid)
 
 if [ -n "$PID" ]; then
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] Found NextJS process with PID: $PID. Stopping it..."
