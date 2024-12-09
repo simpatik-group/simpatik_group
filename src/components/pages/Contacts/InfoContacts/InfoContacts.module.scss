@@ -13,6 +13,9 @@
 }
 
 @include customMedia(992px) {
+  .wrapper {
+    @apply pt-44;
+  }
   .contactsList {
     @apply grid grid-cols-4 mb-14;
   }

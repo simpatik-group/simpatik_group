@@ -1,0 +1,8 @@
+.video {
+  @apply aspect-[1/0.75] w-full h-auto;
+}
+@include customMedia(768px) {
+  .video {
+    @apply aspect-[1/0.563];
+  }
+}
