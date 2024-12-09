@@ -1,8 +1,8 @@
 .video {
-  @apply aspect-[1/0.75] w-full h-auto;
+  @apply aspect-[1/0.564] w-dvw h-auto -ml-4;
 }
 @include customMedia(768px) {
   .video {
-    @apply aspect-[1/0.563];
+    @apply col-span-12 w-full ml-0;
   }
 }
