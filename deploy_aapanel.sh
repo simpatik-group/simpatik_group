@@ -1,18 +1,18 @@
 #!/bin/bash
 
-PATH=/www/wwwroot/simpatik.group/node_modules/.bin:/www/server/nodejs/v20.18.1/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+PATH=/www/wwwroot/simpatik_group/node_modules/.bin:/www/server/nodejs/v20.18.1/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Start deployment NextJS service..."
 
 # Checking if the project directory exists
-if [ -d "/www/wwwroot/simpatik.group" ]; then
+if [ -d "/www/wwwroot/simpatik_group" ]; then
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] Project directory already exists. Skipping git cloning."
 else
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] Go to /www/wwwroot"
   cd /www/wwwroot || exit
  
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] Cloning project from GitHub..."
-  git clone https://github.com/simpatik-group/simpatik.group.git
+  git clone https://github.com/simpatik-group/simpatik_group.git
 fi
 
 # Looking for the NextJS process running via nohup
@@ -32,10 +32,10 @@ else
 fi
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Go to the project directory..."
-cd /www/wwwroot/simpatik.group || exit
+cd /www/wwwroot/simpatik_group || exit
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Configuring git..."
-git config --global --add safe.directory /www/wwwroot/simpatik.group
+git config --global --add safe.directory /www/wwwroot/simpatik_group
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Reset local changes..."
 git reset --hard
