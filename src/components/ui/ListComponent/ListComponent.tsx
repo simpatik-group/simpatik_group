@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import { FC, createElement } from 'react';
 
 import clsx from 'clsx';
 
@@ -20,10 +20,16 @@ const ListComponent: FC<IListComponent> = ({
   counter,
   withSlider,
   className,
+  tag = 'li',
   ...props
 }) => {
-  return (
-    <li className={styles.item} {...props}>
+  return createElement(
+    tag,
+    {
+      className: clsx(styles.item, className),
+      ...props,
+    },
+    <>
       {typeof counter === 'string' ? (
         <img src={counter} alt={title} className={styles.counter} />
       ) : (
@@ -31,7 +37,6 @@ const ListComponent: FC<IListComponent> = ({
           {decimalsModification(counter)}
         </span>
       )}
-
       <h5 className={styles.title}>{title}</h5>
       <div>{description}</div>
       {url && (
@@ -42,7 +47,7 @@ const ListComponent: FC<IListComponent> = ({
           className={styles.link}
         />
       )}
-    </li>
+    </>,
   );
 };
 

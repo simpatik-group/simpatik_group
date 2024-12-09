@@ -2,12 +2,15 @@ export interface ILifeMessage {
   id: number;
   hero_title: string;
   hero_text: string;
-  advantages_title: string;
-  news_title: string;
-  loadmore_button: string;
+  hero_title_shadow: string;
   locale: string;
-  advantages_title_shadow: any;
+  advantages_title: string;
+  advantages_title_shadow: string;
   advantages: Advantage[];
+  video_url: string;
+  news_title: string;
+  news_title_shadow: string;
+  loadmore_button: string;
 }
 
 interface Advantage {
@@ -15,5 +18,3 @@ interface Advantage {
   title: string;
   text: string;
 }
-
-// TODO finish types

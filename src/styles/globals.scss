@@ -9,7 +9,7 @@ body {
   @apply bg-white-400 leading-loose w-full tracking-wide text-dark-400;
 }
 .slick-arrow {
-  @apply absolute -bottom-16 cursor-pointer transition-colors rounded-full;
+  @apply absolute z-10 -bottom-16 cursor-pointer transition-all rounded-full;
   &.slick-prev {
     @apply left-4 -scale-x-100;
   }
@@ -18,6 +18,9 @@ body {
   }
   &:hover {
     @apply bg-dark-300;
+  }
+  &.slick-disabled {
+    @apply opacity-50 bg-transparent cursor-not-allowed;
   }
 }
 .slick-dots {
@@ -42,7 +45,7 @@ body {
 
 @include customMedia(768px) {
   .slick-arrow {
-    @apply bottom-[calc(100%+32px)];
+    @apply bottom-[calc(100%+16px)];
     &.slick-prev {
       @apply left-auto right-36;
     }

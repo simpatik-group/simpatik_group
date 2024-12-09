@@ -22,8 +22,8 @@ const InfoContacts: FC = () => {
   const contactsPage = useMessages('CONTACTS');
 
   return (
-    <ParticlesLayout>
-      <ContainerUI className={styles.container}>
+    <ParticlesLayout className={styles.wrapper}>
+      <ContainerUI>
         <Heading
           className={styles.title}
           heading='h2'

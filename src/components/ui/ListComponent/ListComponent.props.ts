@@ -10,4 +10,5 @@ export interface IListComponent
   url?: string;
   counter: string | number;
   withSlider?: boolean;
+  tag?: keyof JSX.IntrinsicElements;
 }
