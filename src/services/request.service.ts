@@ -23,8 +23,8 @@ class RequestService {
   private CONTACTS = `/contact?populate=*`;
   private LIFE = `/life?populate=*`;
   private LOCATIONS = `/location?populate=*`;
-  private NEWS = `/posts?populate=*`;
-  private CHARITIES = `/posts?populate=*`;
+  private NEWS = `/posts?filters[type][$eq]=news&populate=*`;
+  private CHARITIES = `/posts?filters[type][$eq]=charity&populate=*`;
   private TEAM = `/team?populate=*`;
   private MESSAGE_US = `/messages`;
   private ABOUT_US = `/about-us?populate=hero_image&populate=section.image`;
