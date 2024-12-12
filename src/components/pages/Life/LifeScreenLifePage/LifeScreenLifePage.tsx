@@ -10,9 +10,9 @@ import { useMessages } from '@/hooks/useLocalization';
 
 import { Breaks } from '@/helpers/breacksModification';
 
-import styles from './SimpatikLifeLifePage.module.scss';
+import styles from './LifeScreenLifePage.module.scss';
 
-const SimpatikLifeLifePage: FC = () => {
+const LifeScreenLifePage: FC = () => {
   const lifePage = useMessages('LIFE');
   console.log('🚀 ~ contactsPage:', lifePage);
 
@@ -34,4 +34,4 @@ const SimpatikLifeLifePage: FC = () => {
   );
 };
 
-export default SimpatikLifeLifePage;
+export default LifeScreenLifePage;

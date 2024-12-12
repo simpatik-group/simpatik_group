@@ -5,17 +5,18 @@ import { IHomeMessage } from './home.localization';
 import { ILifeMessage } from './life.localization';
 import { ILocationsMessage } from './locations.localization';
 import { IMessageUs } from './messageUs.request';
+import { ITeamMessage } from './team.localization';
 
 export interface IGetMessages {
   COMMON?: ICommonMessage;
   HOME_PAGE?: IHomeMessage;
   LIFE?: ILifeMessage;
+  TEAM?: ITeamMessage;
   CAREER?: ILifeMessage;
   CONTACTS?: IContactsMessage;
   LOCATIONS?: ILocationsMessage;
   NEWS?: ILifeMessage;
   CHARITIES?: ILifeMessage;
-  TEAM?: ILifeMessage;
   ABOUT_US?: IAboutUsMessage;
 }
 

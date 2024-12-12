@@ -1,0 +1,62 @@
+.title {
+  @apply h2;
+}
+.wrapper {
+  @apply pageSection;
+}
+.slider {
+  @apply mt-6 mb-16 h-[256px];
+  :global(.slick-list) {
+    overflow: visible;
+  }
+}
+:global(.slick-active) {
+  .imageCover {
+    @apply grayscale-0;
+  }
+  .departmentTitle {
+    @apply translate-y-0 text-orange-400;
+  }
+  .departmentDescription {
+    @apply opacity-100 translate-y-0;
+  }
+}
+.innerSlide {
+  @apply w-[288px] h-[256px] relative z-0 m-auto cursor-pointer px-8 text-white-400 flex flex-col gap-4 items-center justify-center text-center;
+}
+.imageCover {
+  @apply h-full object-cover -z-10 transition-all grayscale duration-700;
+  @include fullsize;
+}
+.departmentTitle {
+  @apply h4 transition-all translate-y-10 duration-700;
+}
+.departmentDescription {
+  @apply h6 opacity-0 transition-all -translate-y-10 duration-700;
+}
+
+@include customMedia(768px) {
+  .title {
+    @apply col-span-12;
+  }
+  .description {
+    @apply col-span-6;
+  }
+}
+
+@include customMedia(992px) {
+  .wrapper {
+    @apply pageSection pt-44;
+  }
+  .slider {
+    @apply mt-20 mb-0 h-[280px];
+  }
+  .innerSlide {
+    @apply w-[460px] h-[280px];
+  }
+}
+@include customMedia(1200px) {
+  .innerSlide {
+    @apply w-[560px] h-[280px];
+  }
+}

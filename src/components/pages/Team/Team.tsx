@@ -1,9 +1,14 @@
 'use client';
 
+import FAQ from '@/components/ui/FAQ/FAQ';
+
+import TeamScreenTeamPage from './TeamScreenTeamPage/TeamScreenTeamPage';
+
 const Team = () => {
   return (
     <>
-      <p>Team</p>
+      <TeamScreenTeamPage />
+      <FAQ />
     </>
   );
 };

@@ -1,16 +1,13 @@
 'use client';
 
-import { useMessages } from '@/hooks/useLocalization';
-
 import AdvantagesLifePage from './Advantages/AdvantagesLifePage';
-import SimpatikLifeLifePage from './SimpatikLifeLifePage/SimpatikLifeLifePage';
+import LifeScreenLifePage from './LifeScreenLifePage/LifeScreenLifePage';
 import VideoLifePage from './VideoLifePage/VideoLifePage';
 
 const Life = () => {
-  const lifePage = useMessages('LIFE');
   return (
     <>
-      <SimpatikLifeLifePage />
+      <LifeScreenLifePage />
       <AdvantagesLifePage />
       <VideoLifePage />
     </>

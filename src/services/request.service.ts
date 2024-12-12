@@ -25,7 +25,7 @@ class RequestService {
   private LOCATIONS = `/location?populate=*`;
   private NEWS = `/posts?filters[type][$eq]=news&populate=*`;
   private CHARITIES = `/posts?filters[type][$eq]=charity&populate=*`;
-  private TEAM = `/team?populate=*`;
+  private TEAM = `/team?populate=departments.image`;
   private MESSAGE_US = `/messages`;
   private ABOUT_US = `/about-us?populate=hero_image&populate=section.image`;
 

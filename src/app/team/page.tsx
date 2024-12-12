@@ -8,11 +8,11 @@ import requestService from '@/services/request.service';
 export default async function ContactsPage() {
   const messages = await requestService.getRequest({
     localization: 'uk',
-    urls: ['COMMON', 'TEAM'],
+    urls: ['COMMON', 'TEAM', 'HOME_PAGE'],
   });
 
   return (
-    <RootLayout messages={messages} themeColor={EColor.dark}>
+    <RootLayout messages={messages} themeColor={EColor.white}>
       <Team />
     </RootLayout>
   );
