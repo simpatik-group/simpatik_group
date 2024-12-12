@@ -1,4 +1,5 @@
 import { IAboutUsMessage } from './aboutUs.localization';
+import { ICareerMessage } from './career.localization';
 import { ICommonMessage } from './common.localization';
 import { IContactsMessage } from './contacts.localization';
 import { IHomeMessage } from './home.localization';
@@ -12,7 +13,7 @@ export interface IGetMessages {
   HOME_PAGE?: IHomeMessage;
   LIFE?: ILifeMessage;
   TEAM?: ITeamMessage;
-  CAREER?: ILifeMessage;
+  CAREER?: ICareerMessage;
   CONTACTS?: IContactsMessage;
   LOCATIONS?: ILocationsMessage;
   NEWS?: ILifeMessage;

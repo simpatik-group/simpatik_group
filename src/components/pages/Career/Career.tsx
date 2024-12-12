@@ -1,9 +1,13 @@
 'use client';
 
+import CareerInfoCareerPage from './CareerInfoCareerPage/CareerInfoCareerPage';
+import VacanciesCareerPage from './VacanciesCareerPage/VacanciesCareerPage';
+
 const Career = () => {
   return (
     <>
-      <p>Career</p>
+      <CareerInfoCareerPage />
+      <VacanciesCareerPage />
     </>
   );
 };

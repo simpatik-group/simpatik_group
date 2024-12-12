@@ -8,11 +8,11 @@ import requestService from '@/services/request.service';
 export default async function CareerPage() {
   const messages = await requestService.getRequest({
     localization: 'uk',
-    urls: ['COMMON'],
+    urls: ['COMMON', 'CAREER'],
   });
 
   return (
-    <RootLayout messages={messages} themeColor={EColor.dark}>
+    <RootLayout messages={messages} themeColor={EColor.white}>
       <Career />
     </RootLayout>
   );
