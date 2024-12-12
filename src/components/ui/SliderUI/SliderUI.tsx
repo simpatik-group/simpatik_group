@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import 'slick-carousel/slick/slick.css';
 
 import styles from './SliderUI.module.scss';
-import { ISliderUI } from './SloderUI.props';
+import { ISliderUI } from './SliderUI.props';
 
 const SampleNextArrow: FC<CustomArrowProps> = (props) => {
   const { onClick, className } = props;
