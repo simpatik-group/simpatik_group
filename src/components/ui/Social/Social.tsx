@@ -17,7 +17,7 @@ const Social: FC<IDivProps> = ({ className }) => {
       case validateService.email.test(url):
         return `mailto:${url}`;
 
-      case /^\+?\d{10,}$/.test(url): // Matches phone numbers (e.g., +1234567890 or 1234567890)
+      case /^\+?\d{10,}$/.test(url):
         return `tel:${url}`;
 
       default:

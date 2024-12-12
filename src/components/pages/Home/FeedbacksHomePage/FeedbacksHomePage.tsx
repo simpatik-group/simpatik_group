@@ -75,7 +75,10 @@ const FeedbacksHomePage: FC<IDivProps> = () => {
           );
         })}
       </SliderUI>
-      <SliderUI className='mb-4' settingsProps={settingsPartners1}>
+      <SliderUI
+        className={styles.partnersSlider}
+        settingsProps={settingsPartners1}
+      >
         {homePage?.partner_logos.map((partner) => (
           <img
             src={partner.url}

@@ -19,15 +19,15 @@ interface IPostRequest extends Omit<IAPIRequest, 'localization'> {
 class RequestService {
   private COMMON = `/common?populate=social_links.image&populate=menu`;
   private HOME_PAGE = `/homepage?populate=*`;
-  private CAREER = `/career?populate=*`;
-  private CONTACTS = `/contact?populate=*`;
+  private ABOUT_US = `/about-us?populate=hero_image&populate=section.image`;
   private LIFE = `/life?populate=*`;
+  private TEAM = `/team?populate=departments.image`;
+  private CAREER = `/career?populate=*`;
   private LOCATIONS = `/location?populate=*`;
+  private CONTACTS = `/contact?populate=*`;
   private NEWS = `/posts?filters[type][$eq]=news&populate=*`;
   private CHARITIES = `/posts?filters[type][$eq]=charity&populate=*`;
-  private TEAM = `/team?populate=departments.image`;
   private MESSAGE_US = `/messages`;
-  private ABOUT_US = `/about-us?populate=hero_image&populate=section.image`;
 
   private API = async ({ url, localization, options }: IAPIRequest) => {
     if (!(url in this)) {

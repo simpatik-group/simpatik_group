@@ -12,6 +12,12 @@
   @apply h6 mb-2;
 }
 
+.partnersSlider {
+  @apply mb-4;
+  :global(.slick-list) {
+    overflow: visible;
+  }
+}
 .partnersSlide {
   @apply inline-block px-5 transition-all grayscale cursor-pointer;
   &:hover {
