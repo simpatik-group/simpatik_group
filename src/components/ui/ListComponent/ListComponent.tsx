@@ -18,17 +18,12 @@ const ListComponent: FC<IListComponent> = ({
   description,
   url,
   counter,
-  withSlider,
+  asLink,
   className,
   tag = 'li',
   ...props
 }) => {
-  return createElement(
-    tag,
-    {
-      className: clsx(styles.item, className),
-      ...props,
-    },
+  const content = (
     <>
       {typeof counter === 'string' ? (
         <img src={counter} alt={title} className={styles.counter} />
@@ -39,15 +34,28 @@ const ListComponent: FC<IListComponent> = ({
       )}
       <h5 className={styles.title}>{title}</h5>
       <div>{description}</div>
-      {url && (
-        <LinkUI
-          href={url}
-          themeColor={EColor.dark}
-          withArrow
-          className={styles.link}
-        />
-      )}
-    </>,
+    </>
+  );
+
+  return createElement(
+    tag,
+    {
+      className: clsx(styles.item, asLink && styles.asLink, className),
+      ...props,
+    },
+    url ? (
+      <LinkUI
+        href={url}
+        themeColor={EColor.dark}
+        withArrow
+        className={styles.link}
+        target='_blank'
+      >
+        {content}
+      </LinkUI>
+    ) : (
+      content
+    ),
   );
 };
 

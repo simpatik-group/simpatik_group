@@ -1,6 +1,7 @@
 import { ChangeEvent, FC, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 
+import { Breaks } from '@/components/ui/Breacks/Breacks';
 import ButtonUI from '@/components/ui/ButtonUI/ButtonUI';
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 import Heading from '@/components/ui/Heading/Heading';
@@ -16,7 +17,6 @@ import { IMessageUs } from '@/interfaces/messageUs.request';
 import { useForm } from '@/hooks/useForm';
 import { useMessages } from '@/hooks/useLocalization';
 
-import { Breaks } from '@/helpers/breacksModification';
 import { formatPhoneNumber } from '@/helpers/formatInput';
 import { urlPaths } from '@/helpers/urlPath';
 
@@ -76,7 +76,7 @@ const FormContacts: FC = () => {
         setValues({ ...initialValues });
       })
       .catch((err) => {
-        console.log(err);
+        console.log('🚀 ~ onSubmit ~ err:', err);
         setModalContent({
           type: 'failed',
           title: contactsPage?.popup_problem_title || '',

@@ -1,0 +1,14 @@
+.list {
+  @apply grid gap-10;
+}
+
+@include customMedia(768px) {
+  .list {
+    @apply grid-cols-2;
+  }
+}
+@include customMedia(992px) {
+  .list {
+    @apply gap-8 grid-cols-4;
+  }
+}

@@ -1,14 +1,13 @@
 import { FC } from 'react';
 
 import ParticlesLayout from '@/components/layouts/ParticlesLayout/ParticlesLayout';
+import { Breaks } from '@/components/ui/Breacks/Breacks';
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 import Heading from '@/components/ui/Heading/Heading';
 
 import { EColor } from '@/interfaces/enums';
 
 import { useMessages } from '@/hooks/useLocalization';
-
-import { Breaks } from '@/helpers/breacksModification';
 
 import styles from './LifeScreenLifePage.module.scss';
 

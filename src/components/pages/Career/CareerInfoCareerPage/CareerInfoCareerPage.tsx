@@ -1,5 +1,6 @@
 import { FC } from 'react';
 
+import { Breaks } from '@/components/ui/Breacks/Breacks';
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 import Heading from '@/components/ui/Heading/Heading';
 import NumberCounter from '@/components/ui/NumberCounter/NumberCounter';
@@ -7,8 +8,6 @@ import NumberCounter from '@/components/ui/NumberCounter/NumberCounter';
 import { EColor } from '@/interfaces/enums';
 
 import { useMessages } from '@/hooks/useLocalization';
-
-import { Breaks } from '@/helpers/breacksModification';
 
 import styles from './CareerInfoCareerPage.module.scss';
 

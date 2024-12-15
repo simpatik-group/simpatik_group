@@ -21,7 +21,7 @@ class RequestService {
   private HOME_PAGE = `/homepage?populate=*`;
   private ABOUT_US = `/about-us?populate=hero_image&populate=section.image`;
   private LIFE = `/life?populate=*`;
-  private TEAM = `/team?populate=departments.image`;
+  private TEAM = `/team?populate=*`;
   private CAREER = `/career?populate=*`;
   private LOCATIONS = `/location?populate=*`;
   private CONTACTS = `/contact?populate=*`;
@@ -42,14 +42,15 @@ class RequestService {
         'Content-Type': 'application/json',
       },
     };
-
     if (options?.method) fetchOptions.method = options.method;
     if (options?.body)
       fetchOptions.body = JSON.stringify({ data: options.body });
 
     const resp = await fetch(requestUrl, fetchOptions);
     if (!resp.ok) {
-      throw new Error(`API Error: ${resp.status} ${resp.statusText}`);
+      throw new Error(
+        `API Error: ${resp.status} ${resp.statusText}, url: ${requestUrl}`,
+      );
     }
 
     const data = await resp.json();
