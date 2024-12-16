@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import { Breaks } from '@/components/ui/Breacks/Breacks';
+
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 import Heading from '@/components/ui/Heading/Heading';
 import NumberCounter from '@/components/ui/NumberCounter/NumberCounter';
