@@ -11,6 +11,7 @@ import { ITeamMessage } from './team.localization';
 export interface IGetMessages {
   COMMON?: ICommonMessage;
   HOME_PAGE?: IHomeMessage;
+  ABOUT_US?: IAboutUsMessage;
   LIFE?: ILifeMessage;
   TEAM?: ITeamMessage;
   CAREER?: ICareerMessage;
@@ -18,7 +19,6 @@ export interface IGetMessages {
   LOCATIONS?: ILocationsMessage;
   NEWS?: ILifeMessage;
   CHARITIES?: ILifeMessage;
-  ABOUT_US?: IAboutUsMessage;
 }
 
 export interface IPostData {

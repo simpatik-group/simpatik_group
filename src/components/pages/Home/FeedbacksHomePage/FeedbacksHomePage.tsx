@@ -60,7 +60,7 @@ const FeedbacksHomePage: FC<IDivProps> = () => {
               className={styles.feedbackSlide}
             >
               <div>
-                <img src='img/quote-icon.svg' alt='quote' />
+                <img src='/img/quote-icon.svg' alt='quote' />
                 <p className={styles.feedbackText}>
                   {feedback.feedback_content}
                 </p>

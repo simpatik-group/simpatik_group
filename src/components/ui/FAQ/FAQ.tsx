@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import ParticlesLayout from '@/components/layouts/ParticlesLayout/ParticlesLayout';
+import { Breaks } from '@/components/ui/Breacks/Breacks';
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 import Heading from '@/components/ui/Heading/Heading';
 import LinkUI from '@/components/ui/LinkUI/LinkUI';
@@ -10,16 +11,15 @@ import { IDivProps } from '@/interfaces/interfaces';
 
 import { useMessages } from '@/hooks/useLocalization';
 
-import { Breaks } from '@/helpers/breacksModification';
 import { urlPaths } from '@/helpers/urlPath';
 
 import AccordionItem from '../AccardioneItem/AccordionItem';
 
 import styles from './FAQ.module.scss';
 
-const FAQ: FC<IDivProps> = ({ className }) => {
+const FAQ: FC<IDivProps> = () => {
   const faqContent = useMessages('HOME_PAGE');
-
+  // TODO rewrite to get message from parent
   return (
     <ParticlesLayout>
       <ContainerUI>

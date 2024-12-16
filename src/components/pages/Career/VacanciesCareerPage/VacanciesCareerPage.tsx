@@ -2,6 +2,7 @@ import { FC } from 'react';
 
 import Link from 'next/link';
 
+import { Breaks } from '@/components/ui/Breacks/Breacks';
 import ButtonUI from '@/components/ui/ButtonUI/ButtonUI';
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 
@@ -23,7 +24,7 @@ const VacanciesCareerPage: FC = () => {
                 <div className={styles.vacancyMain}>
                   <h5 className={styles.vacancyTitle}>{vacancy.title}</h5>
                   <p className={styles.vacancyDescription}>
-                    {vacancy.description}
+                    <Breaks description={vacancy?.description || ''} />
                   </p>
                 </div>
                 <Link

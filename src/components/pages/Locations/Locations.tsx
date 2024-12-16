@@ -1,9 +1,13 @@
 'use client';
 
+import LocationsScreenLocationPage from './LocationsScreenLocationPage/LocationsScreenLocationPage';
+import MapLocationsPage from './MapLocationsPage/MapLocationsPage';
+
 const Locations = () => {
   return (
     <>
-      <p>Locations</p>
+      <MapLocationsPage />
+      <LocationsScreenLocationPage />
     </>
   );
 };

@@ -8,7 +8,7 @@ export interface IListComponent
   title: string;
   description: JSX.Element | string;
   url?: string;
+  asLink?: boolean;
   counter: string | number;
-  withSlider?: boolean;
   tag?: keyof JSX.IntrinsicElements;
 }

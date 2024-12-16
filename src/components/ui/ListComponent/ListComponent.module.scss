@@ -3,6 +3,12 @@
 }
 .item {
   @apply px-2 py-4;
+  &.asLink {
+    @apply transition-shadow cursor-pointer;
+    &:hover {
+      @apply shadow-custom;
+    }
+  }
 }
 .counter {
   @apply border-b border-grey-400 pb-2 mb-6;
@@ -11,7 +17,11 @@
   }
 }
 .link {
-  @apply mt-4 block p-0;
+  @apply p-0 block;
+  font: inherit;
+  img {
+    @apply mt-4;
+  }
 }
 @include customMedia(992px) {
   .counter {
@@ -20,7 +30,7 @@
       @apply text-[18px] pl-6;
     }
   }
-  .link {
+  .link img {
     @apply mt-8;
   }
 }

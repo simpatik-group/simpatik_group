@@ -3,6 +3,7 @@ import { FC } from 'react';
 import Image from 'next/image';
 
 import ParticlesLayout from '@/components/layouts/ParticlesLayout/ParticlesLayout';
+import { Breaks } from '@/components/ui/Breacks/Breacks';
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 import Heading from '@/components/ui/Heading/Heading';
 import LinkUI from '@/components/ui/LinkUI/LinkUI';
@@ -11,7 +12,6 @@ import { EColor } from '@/interfaces/enums';
 
 import { useMessages } from '@/hooks/useLocalization';
 
-import { Breaks } from '@/helpers/breacksModification';
 import { urlPaths } from '@/helpers/urlPath';
 
 import styles from './CharityHomePage.module.scss';
