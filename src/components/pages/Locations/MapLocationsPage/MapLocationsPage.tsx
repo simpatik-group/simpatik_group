@@ -18,7 +18,7 @@ const MapLocationsPage: FC = () => {
 
   return (
     <>
-      <ParticlesLayout className={styles.wrapper}>
+      <ParticlesLayout className={styles.wrapper} id='MapLocationsPage'>
         <ContainerUI>
           <Heading
             className={styles.title}

@@ -15,7 +15,7 @@ import styles from './HeroSectionUboutUs.module.scss';
 const HeroSectionUboutUs: FC = () => {
   const aboutUsPage = useMessages('ABOUT_US');
   return (
-    <ParticlesLayout>
+    <ParticlesLayout id='HeroSectionAboutUs'>
       <ContainerUI className={styles.container}>
         <Heading
           className={styles.title}

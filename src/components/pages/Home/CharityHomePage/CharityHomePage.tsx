@@ -19,7 +19,7 @@ import styles from './CharityHomePage.module.scss';
 const CharityHomePage: FC = () => {
   const homePage = useMessages('HOME_PAGE');
   return (
-    <ParticlesLayout>
+    <ParticlesLayout id='CharityHomePage'>
       <ContainerUI className={styles.container}>
         <Heading
           className={styles.title}

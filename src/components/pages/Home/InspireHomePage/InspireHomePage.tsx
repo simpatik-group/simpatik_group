@@ -14,7 +14,7 @@ const Inspire: FC = () => {
   const homePage = useMessages('HOME_PAGE');
 
   return (
-    <ParticlesLayout className='pt-8 pb-2 md:pb-14'>
+    <ParticlesLayout id='Inspire' className='pt-8 pb-2 md:pb-14'>
       <ContainerUI withoutGridSystem className='md:grid-cols-2'>
         <div>
           <Heading
