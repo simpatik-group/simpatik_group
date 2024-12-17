@@ -3,7 +3,7 @@ import { FC } from 'react';
 import ParticlesLayout from '@/components/layouts/ParticlesLayout/ParticlesLayout';
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 import Heading from '@/components/ui/Heading/Heading';
-import ParticleImageComponent from '@/components/ui/ParticleImageComponent/ParticleImage';
+import ParticleImageComponent from '@/components/ui/ParticleImageComponent/ParticleImageComponent';
 import Social from '@/components/ui/Social/Social';
 
 import { EColor } from '@/interfaces/enums';
@@ -14,8 +14,8 @@ const Inspire: FC = () => {
   const homePage = useMessages('HOME_PAGE');
 
   return (
-    <ParticlesLayout className='pt-8 pb-2 md:pb-14'>
-      <ContainerUI withoutGridSystem className='md:grid-cols-2'>
+    <ParticlesLayout id='Inspire' className='pt-8 pb-2 md:pb-14'>
+      <ContainerUI withoutGridSystem className='md:grid-cols-2 items-center'>
         <div>
           <Heading
             className='uppercase h1 !mb-6'

@@ -20,7 +20,7 @@ const HistoryHomePage: FC = () => {
   const homePage = useMessages('HOME_PAGE');
 
   return (
-    <ParticlesLayout>
+    <ParticlesLayout id='HistoryHomePage'>
       <ContainerUI>
         <Heading
           className={styles.title}

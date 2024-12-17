@@ -21,7 +21,7 @@ const FAQ: FC<IDivProps> = () => {
   const faqContent = useMessages('HOME_PAGE');
   // TODO rewrite to get message from parent
   return (
-    <ParticlesLayout>
+    <ParticlesLayout id='FAQ'>
       <ContainerUI>
         <div className='md:col-span-6 mb-8 md:mb-0'>
           <Heading

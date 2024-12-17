@@ -3,11 +3,11 @@
 import { FC, useEffect, useState } from 'react';
 
 import clsx from 'clsx';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
-import LanguageSwitcher from '@/components/ui/LanguageSwitcher/LanguageSwitcher';
 import Navigation from '@/components/ui/Navigation/Navigation';
 import Social from '@/components/ui/Social/Social';
 
@@ -15,10 +15,12 @@ import { EColor } from '@/interfaces/enums';
 
 import { urlPaths } from '@/helpers/urlPath';
 
-import ParticlesLayout from '../../ParticlesLayout/ParticlesLayout';
-
 import styles from './Header.module.scss';
 import { IHeaderProps } from './Header.props';
+
+const HeaderLayoutDynamic = dynamic(
+  () => import('@/components/layouts/ParticlesLayout/ParticlesLayout'),
+);
 
 const Header: FC<IHeaderProps> = ({ themeColor }) => {
   const [active, setActive] = useState<boolean>(false);
@@ -40,7 +42,7 @@ const Header: FC<IHeaderProps> = ({ themeColor }) => {
         { [styles.active]: active },
       )}
     >
-      <ParticlesLayout className={styles.headerMobileBg} />
+      <HeaderLayoutDynamic className={styles.headerMobileBg} id='Header' />
       <ContainerUI withoutGridSystem>
         <div className={styles.wrap}>
           <Link href={urlPaths.HOMEPAGE}>
@@ -72,7 +74,7 @@ const Header: FC<IHeaderProps> = ({ themeColor }) => {
           </div>
           <div className={styles.menuMobile}>
             <div className={styles.menuDesktop}>
-              <LanguageSwitcher
+              {/* <LanguageSwitcher
                 className='text-center'
                 themeColor={
                   active
@@ -81,7 +83,7 @@ const Header: FC<IHeaderProps> = ({ themeColor }) => {
                       ? EColor.dark
                       : EColor.white
                 }
-              />
+              /> */}
               <Navigation
                 className={clsx(styles.nav, styles.active)}
                 themeColor={

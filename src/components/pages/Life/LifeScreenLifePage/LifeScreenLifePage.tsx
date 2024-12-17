@@ -13,10 +13,9 @@ import styles from './LifeScreenLifePage.module.scss';
 
 const LifeScreenLifePage: FC = () => {
   const lifePage = useMessages('LIFE');
-  console.log('🚀 ~ contactsPage:', lifePage);
 
   return (
-    <ParticlesLayout className={styles.wrapper}>
+    <ParticlesLayout className={styles.wrapper} id='LifeScreenLifePage'>
       <ContainerUI>
         <Heading
           className={styles.title}
