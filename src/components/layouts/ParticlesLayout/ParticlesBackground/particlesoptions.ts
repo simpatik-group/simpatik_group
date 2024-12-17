@@ -43,7 +43,7 @@ export const particlesLayoutOptions: ISourceOptions = {
         default: 'out',
       },
       random: false,
-      speed: 3,
+      speed: 2,
       straight: false,
       attract: {
         enable: false,
