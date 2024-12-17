@@ -1,0 +1,36 @@
+.section {
+  @apply bg-blue-400 text-white-400 pageSection;
+}
+.vacancy {
+  @apply py-8 border-b border-grey-400;
+}
+.vacancyTitle {
+  @apply h3 mb-4;
+}
+.vacancyLink {
+  @apply block mt-6 text-white-400;
+  button {
+    @apply text-white-400 h5;
+    border: none !important;
+    color: inherit !important;
+  }
+}
+@include customMedia(768px) {
+  .vacancy {
+    @apply grid grid-cols-12 gap-8;
+  }
+  .vacancyMain {
+    @apply col-span-8;
+  }
+  .vacancyTitle {
+    @apply h5;
+  }
+  .vacancyLink {
+    @apply col-span-4 flex -my-8;
+  }
+}
+@include customMedia(992px) {
+  .vacancyTitle {
+    @apply mb-6;
+  }
+}

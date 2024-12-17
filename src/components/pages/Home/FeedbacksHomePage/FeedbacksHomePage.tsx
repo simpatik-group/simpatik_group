@@ -60,7 +60,7 @@ const FeedbacksHomePage: FC<IDivProps> = () => {
               className={styles.feedbackSlide}
             >
               <div>
-                <img src='img/quote-icon.svg' alt='quote' />
+                <img src='/img/quote-icon.svg' alt='quote' />
                 <p className={styles.feedbackText}>
                   {feedback.feedback_content}
                 </p>
@@ -75,7 +75,10 @@ const FeedbacksHomePage: FC<IDivProps> = () => {
           );
         })}
       </SliderUI>
-      <SliderUI className='mb-4' settingsProps={settingsPartners1}>
+      <SliderUI
+        className={styles.partnersSlider}
+        settingsProps={settingsPartners1}
+      >
         {homePage?.partner_logos.map((partner) => (
           <img
             src={partner.url}

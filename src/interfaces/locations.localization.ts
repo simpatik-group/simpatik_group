@@ -1,7 +1,7 @@
 export interface ILocationsMessage {
   id: number;
-  title: string;
   locale: string;
+  title: string;
   title_shadow: string;
   location: Location[];
 }
