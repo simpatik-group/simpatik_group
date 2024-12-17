@@ -12,7 +12,7 @@ interface Section {
   title: string;
   title_shadow: string;
   text: string;
-  image?: Image[];
+  image?: Image;
 }
 
 interface Image {
