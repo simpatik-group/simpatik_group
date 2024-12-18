@@ -37,7 +37,7 @@ const FeedbacksHomePage: FC<IDivProps> = () => {
     dots: false,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 3500,
+    autoplaySpeed: 500,
     speed: 3000,
     cssEase: 'ease-in-out',
   };
