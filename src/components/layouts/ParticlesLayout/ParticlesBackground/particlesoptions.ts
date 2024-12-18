@@ -17,7 +17,7 @@ export const particlesLayoutOptions: ISourceOptions = {
     },
     modes: {
       push: {
-        quantity: 4,
+        quantity: 2,
       },
       repulse: {
         distance: 100,
@@ -54,7 +54,7 @@ export const particlesLayoutOptions: ISourceOptions = {
       density: {
         enable: true,
       },
-      value: 80,
+      value: 70,
     },
     opacity: {
       value: 0.5,

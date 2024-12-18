@@ -2,10 +2,9 @@ import { FC } from 'react';
 
 import clsx from 'clsx';
 import dynamic from 'next/dynamic';
+import { v4 as uuidv4 } from 'uuid';
 
 import { IParticlesLayout } from './ParticlesLayout.props';
-
-import { v4 as uuidv4 } from 'uuid';
 
 const ParticlesBackgroundDynamic = dynamic(
   () => import('./ParticlesBackground/ParticlesBackground'),
