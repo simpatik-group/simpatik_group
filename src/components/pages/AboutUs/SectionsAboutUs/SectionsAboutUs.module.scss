@@ -39,5 +39,10 @@
 @include customMedia(1322px) {
   .title {
     font-size: 48px;
+
+    span {
+      @apply top-[calc(100%-66px)] left-28;
+    }
   }
+
 }

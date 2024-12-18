@@ -1,13 +1,13 @@
 'use client';
 
-import HeroSectionUboutUs from "./HeroSectionUboutUs/HeroSectionUboutUs";
-import SectionOne from "./SectionOne/SectionOne";
+import HeroSectionAboutUs from "./HeroSectionAboutUs/HeroSectionAboutUs";
+import SectionsAboutUs from "./SectionsAboutUs/SectionsAboutUs";
 
 const AboutUs = () => {
   return (
     <>
-      <HeroSectionUboutUs />
-      <SectionOne />
+      <HeroSectionAboutUs />
+      <SectionsAboutUs />
     </>
   );
 };
