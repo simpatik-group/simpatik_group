@@ -5,6 +5,8 @@ import dynamic from 'next/dynamic';
 
 import { IParticlesLayout } from './ParticlesLayout.props';
 
+import { v4 as uuidv4 } from 'uuid';
+
 const ParticlesBackgroundDynamic = dynamic(
   () => import('./ParticlesBackground/ParticlesBackground'),
 );
@@ -15,6 +17,7 @@ const ParticlesLayout: FC<IParticlesLayout> = ({
   children,
   ...props
 }) => {
+  id = id ? id : uuidv4();
   return (
     <section
       className={clsx(
