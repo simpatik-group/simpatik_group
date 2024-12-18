@@ -1,20 +1,19 @@
 import { FC } from 'react';
 
 import Image from 'next/image';
+import clsx from 'clsx';
 
+import ParticlesLayout from '@/components/layouts/ParticlesLayout/ParticlesLayout';
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 import Heading from '@/components/ui/Heading/Heading';
+import { Breaks } from '@/components/ui/Breacks/Breacks';
 
 import { EColor } from '@/interfaces/enums';
-
 import { useMessages } from '@/hooks/useLocalization';
 
-import styles from './SectionOne.module.scss';
-import { Breaks } from '@/components/ui/Breacks/Breacks';
-import clsx from 'clsx';
-import ParticlesLayout from '@/components/layouts/ParticlesLayout/ParticlesLayout';
+import styles from './SectionsAboutUs.module.scss';
 
-const SectionOne: FC = () => {
+const SectionsAboutUs: FC = () => {
   const aboutUsPage = useMessages('ABOUT_US');
   const imageUrl = (aboutUsPage?.section[0]?.image?.url ? aboutUsPage?.section[0]?.image.url : '');
   return (
@@ -44,8 +43,6 @@ const SectionOne: FC = () => {
           }
         </ContainerUI>
       </section>
-
-{/* Maybe Next Component */}
 
       <ParticlesLayout>
         <ContainerUI>
@@ -245,4 +242,4 @@ const SectionOne: FC = () => {
   );
 };
 
-export default SectionOne;
+export default SectionsAboutUs;

@@ -10,9 +10,9 @@ import { EColor } from '@/interfaces/enums';
 
 import { useMessages } from '@/hooks/useLocalization';
 
-import styles from './HeroSectionUboutUs.module.scss';
+import styles from './HeroSectionAboutUs.module.scss';
 
-const HeroSectionUboutUs: FC = () => {
+const HeroSectionAboutUs: FC = () => {
   const aboutUsPage = useMessages('ABOUT_US');
   return (
     <>
@@ -40,4 +40,4 @@ const HeroSectionUboutUs: FC = () => {
   );
 };
 
-export default HeroSectionUboutUs;
+export default HeroSectionAboutUs;
