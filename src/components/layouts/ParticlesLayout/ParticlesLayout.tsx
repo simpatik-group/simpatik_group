@@ -2,6 +2,7 @@ import { FC } from 'react';
 
 import clsx from 'clsx';
 import dynamic from 'next/dynamic';
+import { v4 as uuidv4 } from 'uuid';
 
 import { IParticlesLayout } from './ParticlesLayout.props';
 
@@ -15,6 +16,7 @@ const ParticlesLayout: FC<IParticlesLayout> = ({
   children,
   ...props
 }) => {
+  id = id ? id : uuidv4();
   return (
     <section
       className={clsx(

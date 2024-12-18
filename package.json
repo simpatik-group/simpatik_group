@@ -19,7 +19,8 @@
     "react-google-recaptcha": "^3.1.0",
     "react-particle-image": "^1.0.2",
     "react-slick": "^0.30.2",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "uuid": "^11.0.3"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
