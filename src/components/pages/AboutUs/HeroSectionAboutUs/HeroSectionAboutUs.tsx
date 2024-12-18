@@ -16,7 +16,7 @@ const HeroSectionAboutUs: FC = () => {
   const aboutUsPage = useMessages('ABOUT_US');
   return (
     <>
-      <ParticlesLayout>
+      <ParticlesLayout className={styles.wrapper}>
         <ContainerUI className={styles.container}>
           <Heading
             className={styles.title}

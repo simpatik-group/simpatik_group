@@ -13,17 +13,19 @@
   }
 }
 
-// @include customMedia(992px) {
-//   .cover { 
-//     min-height: 600px;
-//   }
-// }
+@include customMedia(992px) {
+  .wrapper {
+    @apply pt-44;
+  }
+  // .cover { 
+  //   min-height: 600px;
+  // }
+}
 
 @include customMedia(1322px) {
   .title span {
     font-size: 90px;
   }
-
   // .cover { 
   //   min-height: 713px;
   // 
