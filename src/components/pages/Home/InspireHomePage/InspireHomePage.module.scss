@@ -1,0 +1,11 @@
+.textWrap {
+  @apply flex gap-4 items-center;
+}
+.pointer {
+  @apply animate-pointer;
+}
+@include customMedia(768px) {
+  .pointer {
+    @apply hidden;
+  }
+}

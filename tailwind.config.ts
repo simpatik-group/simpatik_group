@@ -60,36 +60,17 @@ const config = {
         header: 'auto min-content',
       },
       animation: {
-        glitchLine: 'glitchLine 0.4s steps(2, start) forwards',
+        pointer: 'pointer 2s ease-out infinite reverse',
         shake: 'shake 0.6s both',
       },
       keyframes: {
-        glitchLine: {
-          '0%': { transform: 'scale3d(1, 1, 1)' },
-          '10%': { transform: 'translate3d(10px, 0, 0)' },
-          '20%': { transform: 'translate3d(0, 4px, 0)' },
-          '30%': {
-            transform: 'scale3d(0.1, 1.4, 1) translate3d(0, -25px, 0)',
-            transformOrigin: '100% 0%',
-          },
-          '40%': { transform: 'scale3d(1, 0.3, 1) translate3d(0, 25px, 0)' },
-          '50%': {
-            transform: 'scale3d(0.5, 0.3, 1) translate3d(-100px, -80px, 0)',
-          },
-          '60%': {
-            transform: 'scale3d(1, 1.25, 1) translate3d(10px, -5px, 0)',
-          },
-          '70%': {
-            transform: 'scale3d(0.5, 0.5, 1) translate3d(0, 20px, 0)',
-          },
-          '80%': {
-            transform: 'translate3d(-30px, 10px, 0) scale3d(1, 0.4, 1)',
-          },
-          '90%': {
-            transform: 'scale3d(1, 0.5, 1) translate3d(0, -15px, 0)',
+        pointer: {
+          '0%': {
+            transform: 'translateY(-150%)',
+            // opacity: '0.1',
           },
           '100%': {
-            opacity: 1,
+            transform: 'translateY(0)',
           },
         },
         shake: {
