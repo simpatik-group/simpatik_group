@@ -17,16 +17,16 @@
   .wrapper {
     @apply pt-44;
   }
-  // .cover { 
-  //   min-height: 600px;
-  // }
+  .cover { 
+    max-height: 600px;
+  }
 }
 
 @include customMedia(1322px) {
   .title span {
     font-size: 90px;
   }
-  // .cover { 
-  //   min-height: 713px;
-  // 
+  .cover { 
+    max-height: 713px;
+  }
 }

@@ -15,7 +15,6 @@ import styles from './SectionsAboutUs.module.scss';
 
 const SectionsAboutUs: FC = () => {
   const aboutUsPage = useMessages('ABOUT_US');
-  const imageUrl = (aboutUsPage?.section[0]?.image?.url ? aboutUsPage?.section[0]?.image.url : '');
   return (
     <>
       <section className={'pageSection'}>
@@ -32,15 +31,13 @@ const SectionsAboutUs: FC = () => {
             <Breaks description={aboutUsPage?.section[0].text || ''} />
           </p>
 
-          {imageUrl &&
-            <Image
-              src={imageUrl}
-              alt={aboutUsPage?.hero_title || ''}
-              width={944}
-              height={560}
-              className={styles.description}
-            />
-          }
+          <Image
+            src={aboutUsPage?.section[0]?.image?.url || ''}
+            alt={aboutUsPage?.section[0].title || ''}
+            width={944}
+            height={560}
+            className={styles.description}
+          />
         </ContainerUI>
       </section>
 
@@ -60,7 +57,7 @@ const SectionsAboutUs: FC = () => {
 
         <Image
           src={aboutUsPage?.section[1]?.image?.url || ''}
-          alt={aboutUsPage?.hero_title || ''}
+          alt={aboutUsPage?.section[1].title || ''}
           width={418}
           height={240}
           sizes='100vw'
@@ -81,7 +78,7 @@ const SectionsAboutUs: FC = () => {
             </p>
             <Image
               src={aboutUsPage?.section[2]?.image?.url || ''}
-              alt={aboutUsPage?.hero_title || ''}
+              alt={aboutUsPage?.section[2].title || ''}
               width={944}
               height={560}
               className={styles.description}
@@ -101,7 +98,7 @@ const SectionsAboutUs: FC = () => {
           />
           <Image
             src={aboutUsPage?.section[3]?.image?.url || ''}
-            alt={aboutUsPage?.hero_title || ''}
+            alt={aboutUsPage?.section[3].title || ''}
             width={944}
             height={560}
             className={styles.description}
@@ -141,7 +138,7 @@ const SectionsAboutUs: FC = () => {
           </p>
           <Image
             src={aboutUsPage?.section[5]?.image?.url || ''}
-            alt={aboutUsPage?.hero_title || ''}
+            alt={aboutUsPage?.section[5].title || ''}
             width={944}
             height={560}
             className={styles.description}
@@ -207,7 +204,7 @@ const SectionsAboutUs: FC = () => {
           </p>
           <Image
             src={aboutUsPage?.section[8]?.image?.url || ''}
-            alt={aboutUsPage?.hero_title || ''}
+            alt={aboutUsPage?.section[8].title || ''}
             width={944}
             height={560}
             className={styles.description}
