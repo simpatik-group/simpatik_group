@@ -44,5 +44,7 @@
       @apply top-[calc(100%-66px)] left-28;
     }
   }
-
+  .cover { 
+    max-height: 720px;
+  }
 }
