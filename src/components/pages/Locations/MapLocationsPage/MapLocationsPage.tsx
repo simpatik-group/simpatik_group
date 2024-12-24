@@ -39,6 +39,7 @@ const MapLocationsPage: FC = () => {
           loading='lazy'
           height={718}
           width={1920}
+          style={{ width: '100%', height: 'auto' }}
         />
       </picture>
     </>
