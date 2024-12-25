@@ -30,7 +30,7 @@ const Inspire: FC = () => {
           <div className={styles.textWrap}>
             <p className='uppercase h6'>{homePage?.hero_text}</p>
             <Image
-              src='./img/pointer-icon.svg'
+              src='/img/pointer-icon.svg'
               alt='pointer'
               width={64}
               height={64}
