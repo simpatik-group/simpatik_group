@@ -169,11 +169,6 @@ const FormContacts: FC = () => {
                 placeholder={contactsPage?.input_message}
                 rows={5}
               />
-              <ReCAPTCHA
-                ref={recaptchaRef}
-                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_FRONT as string}
-                size='invisible'
-              />
               <ButtonUI
                 className='self-end'
                 type='submit'
@@ -181,6 +176,11 @@ const FormContacts: FC = () => {
               >
                 {contactsPage?.form_send_button}
               </ButtonUI>
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_FRONT as string}
+                size='invisible'
+              />
             </div>
           </ContainerUI>
         </form>
