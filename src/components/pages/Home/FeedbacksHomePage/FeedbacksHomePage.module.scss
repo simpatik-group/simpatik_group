@@ -19,7 +19,7 @@
   }
 }
 .partnersSlide {
-  @apply inline-block px-5 transition-all grayscale cursor-pointer;
+  @apply inline-block px-5 transition-all grayscale cursor-default;
   &:hover {
     @apply grayscale-0;
   }
