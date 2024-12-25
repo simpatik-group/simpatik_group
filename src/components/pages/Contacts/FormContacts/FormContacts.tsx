@@ -142,18 +142,20 @@ const FormContacts: FC = () => {
               />
               <InputUI
                 {...register('email', {
+                  required: true,
                   pattern: validateService.email,
                 })}
                 error={errors.email}
-                labelText={
-                  <>
-                    {contactsPage?.form_email.replace(/\(([^)]+)\)/, '')}{' '}
-                    <span className='smallTxt'>
-                      {' '}
-                      {contactsPage?.form_email.replace(/^[^(]*\(/, '(')}
-                    </span>
-                  </>
-                }
+                labelText={contactsPage?.form_email}
+                // {
+                //   <>
+                //     {contactsPage?.form_email.replace(/\(([^)]+)\)/, '')}{' '}
+                //     <span className='smallTxt'>
+                //       {' '}
+                //       {contactsPage?.form_email.replace(/^[^(]*\(/, '(')}
+                //     </span>
+                //   </>
+                // }
                 placeholder={contactsPage?.input_email}
                 type='email'
               />
