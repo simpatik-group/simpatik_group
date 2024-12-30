@@ -26,17 +26,17 @@ const RootLayoutPage = ({
   return (
     <html lang='uk'>
       <head>
-        <meta property='og:title' content='Simpatik Group | Надихати людей' />
+        <meta property='og:title' content='Simpatik Group' />
         <meta
           property='og:description'
           content='Здатність надихати інших - це та сила, що робить неможливе можливим і втілює мрії в життя.'
         />
         <meta
           property='og:image'
-          content='https://simpatik.group/favicon/apple-touch-icon.png'
+          content='https://simpatik.group/favicon/preview_banner.png'
         />
-        <meta property='og:image:width' content='180' />
-        <meta property='og:image:height' content='180' />
+        <meta property='og:image:width' content='582' />
+        <meta property='og:image:height' content='582' />
         <meta property='og:url' content='https://simpatik.group' />
         <meta property='og:type' content='website' />
 
