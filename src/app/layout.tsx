@@ -1,11 +1,9 @@
-import { Suspense } from 'react';
-
 import type { Metadata } from 'next';
 import { Raleway } from 'next/font/google';
 
-import Loader from '@/components/ui/Loader/Loader';
-
 import '../styles/globals.scss';
+
+type SearchParams = { [key: string]: string | string[] | undefined };
 
 const raleway = Raleway({
   subsets: ['cyrillic', 'latin'],
@@ -20,9 +18,12 @@ export const metadata: Metadata = {
 
 const RootLayoutPage = ({
   children,
-}: Readonly<{
+  searchParams,
+}: {
   children: React.ReactNode;
-}>) => {
+  searchParams: SearchParams;
+}) => {
+  console.log('🚀 ~ searchParams:', searchParams);
   return (
     <html lang='uk'>
       <head>
@@ -57,7 +58,8 @@ const RootLayoutPage = ({
         <link rel='icon' href='/favicon/favicon.svg' type='image/svg+xml' />
       </head>
       <body className={`${raleway.className} `}>
-        <Suspense fallback={<Loader />}>{children}</Suspense>
+        {/* <Suspense fallback={<Loader />}>{children}</Suspense> */}
+        {children}
       </body>
     </html>
   );
