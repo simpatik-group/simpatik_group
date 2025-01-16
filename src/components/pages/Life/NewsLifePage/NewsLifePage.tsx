@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 
 import ButtonUI from '@/components/ui/ButtonUI/ButtonUI';
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
@@ -30,10 +30,6 @@ const NewsLifePage: FC = () => {
     month: 'long',
     year: 'numeric',
   };
-
-  useEffect(() => {
-    console.log(paginationState);
-  }, [paginationState]);
 
   const loadMore = async () => {
     const articles = await requestService.getRequest({
