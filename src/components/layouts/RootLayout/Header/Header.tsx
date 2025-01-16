@@ -20,6 +20,7 @@ import { IHeaderProps } from './Header.props';
 
 const HeaderLayoutDynamic = dynamic(
   () => import('@/components/layouts/ParticlesLayout/ParticlesLayout'),
+  { ssr: false },
 );
 
 const Header: FC<IHeaderProps> = ({ themeColor }) => {

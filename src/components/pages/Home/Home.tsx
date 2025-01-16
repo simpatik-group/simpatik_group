@@ -1,8 +1,6 @@
 'use client';
 
-import { FC, useContext } from 'react';
-
-import { MessagesContext } from '@/context/messages.context';
+import { FC } from 'react';
 
 import FAQ from '@/components/ui/FAQ/FAQ';
 
@@ -15,9 +13,6 @@ import NumbersHomePage from './NumbersHomePage/NumbersHomePage';
 import PartnersHomePage from './PartnersHomePage/PartnersHomePage';
 
 const Home: FC = () => {
-  const context = useContext(MessagesContext);
-  console.log('🚀 ~ context:', context);
-
   return (
     <>
       <InspireHomePage />

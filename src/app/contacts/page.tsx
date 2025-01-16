@@ -5,7 +5,7 @@ import { EColor } from '@/interfaces/enums';
 
 import requestService from '@/services/request.service';
 
-type SearchParams = { [key: string]: string | string[] | undefined };
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
 export default async function ContactsPage({
   searchParams,
@@ -16,12 +16,13 @@ export default async function ContactsPage({
     localization: 'uk',
     urls: ['COMMON', 'CONTACTS'],
   });
+  const searchParamsProp = await searchParams;
 
   return (
     <RootLayout
       messages={messages}
       themeColor={EColor.dark}
-      searchParams={searchParams}
+      searchParams={searchParamsProp}
     >
       <Contacts />
     </RootLayout>

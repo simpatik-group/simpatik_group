@@ -24,7 +24,7 @@ const nextConfig = {
   trailingSlash: true,
   sassOptions: {
     includePaths: [path.join(process.cwd(), 'src/styles')],
-    prependData: `@import "base.scss";`,
+    prependData: `@use "base" as *;`,
   },
 };
 

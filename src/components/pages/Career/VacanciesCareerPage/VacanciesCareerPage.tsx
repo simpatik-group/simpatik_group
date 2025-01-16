@@ -12,7 +12,6 @@ import styles from './VacanciesCareerPage.module.scss';
 
 const VacanciesCareerPage: FC = () => {
   const careerPage = useMessages('CAREER');
-  console.log('🚀 ~ careerPage:', careerPage);
 
   return (
     <section className={styles.section}>

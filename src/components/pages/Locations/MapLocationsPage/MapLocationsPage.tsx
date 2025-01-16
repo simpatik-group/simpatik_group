@@ -14,7 +14,6 @@ import styles from './MapLocationsPage.module.scss';
 
 const MapLocationsPage: FC = () => {
   const locationsPage = useMessages('LOCATIONS');
-  console.log('🚀 ~ contactsPage:', locationsPage);
 
   return (
     <>
