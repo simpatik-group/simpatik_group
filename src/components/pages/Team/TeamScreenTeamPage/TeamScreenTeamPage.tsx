@@ -16,7 +16,6 @@ import styles from './TeamScreenTeamPage.module.scss';
 
 const TeamScreenTeamPage: FC = () => {
   const teamPage = useMessages('TEAM');
-  console.log('🚀 ~ teamPage:', teamPage);
 
   const [slideWidth, setSlideWidth] = useState(320);
   useEffect(() => {

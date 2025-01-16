@@ -18,12 +18,10 @@ export const metadata: Metadata = {
 
 const RootLayoutPage = ({
   children,
-  searchParams,
 }: {
   children: React.ReactNode;
   searchParams: SearchParams;
 }) => {
-  console.log('🚀 ~ searchParams:', searchParams);
   return (
     <html lang='uk'>
       <head>

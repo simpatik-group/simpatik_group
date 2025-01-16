@@ -8,6 +8,7 @@ import { IParticlesLayout } from './ParticlesLayout.props';
 
 const ParticlesBackgroundDynamic = dynamic(
   () => import('./ParticlesBackground/ParticlesBackground'),
+  { ssr: false },
 );
 
 const ParticlesLayout: FC<IParticlesLayout> = ({
