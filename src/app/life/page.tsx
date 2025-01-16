@@ -6,10 +6,16 @@ import { EColor } from '@/interfaces/enums';
 import requestService from '@/services/request.service';
 
 export default async function LifePage() {
-  const messages = await requestService.getRequest({
+  const common = await requestService.getRequest({
     localization: 'uk',
     urls: ['COMMON', 'LIFE'],
   });
+  const news = await requestService.getRequest({
+    localization: 'uk',
+    urls: ['ALL_NEWS'],
+    pagination: '&pagination[start]=0',
+  });
+  const messages = { ...common, ...news };
 
   return (
     <RootLayout messages={messages} themeColor={EColor.dark}>

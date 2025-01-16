@@ -15,7 +15,7 @@ const VideoLifePage: FC = () => {
           id='ytplayer'
           width='720'
           height='405'
-          src={`${lifePage?.video_url}?color=white&showinfo=0&rel=0&modestbranding=0`}
+          src={`${lifePage?.video_url.replace('https://www.youtube.com', 'https://www.youtube-nocookie.com')}?color=white&showinfo=0&rel=0&modestbranding=0`}
           frameBorder='0'
           allowFullScreen
           className={styles.video}
