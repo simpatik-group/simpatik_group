@@ -1,4 +1,4 @@
-import { AnchorHTMLAttributes, DetailedHTMLProps } from 'react';
+import { AnchorHTMLAttributes, DetailedHTMLProps, JSX } from 'react';
 
 export interface IListComponent
   extends DetailedHTMLProps<

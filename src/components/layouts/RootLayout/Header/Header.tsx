@@ -3,7 +3,6 @@
 import { FC, useEffect, useState } from 'react';
 
 import clsx from 'clsx';
-import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -15,13 +14,10 @@ import { EColor } from '@/interfaces/enums';
 
 import { urlPaths } from '@/helpers/urlPath';
 
+import ParticlesLayout from '../../ParticlesLayout/ParticlesLayout';
+
 import styles from './Header.module.scss';
 import { IHeaderProps } from './Header.props';
-
-const HeaderLayoutDynamic = dynamic(
-  () => import('@/components/layouts/ParticlesLayout/ParticlesLayout'),
-  { ssr: false },
-);
 
 const Header: FC<IHeaderProps> = ({ themeColor }) => {
   const [active, setActive] = useState<boolean>(false);
@@ -43,7 +39,7 @@ const Header: FC<IHeaderProps> = ({ themeColor }) => {
         { [styles.active]: active },
       )}
     >
-      <HeaderLayoutDynamic className={styles.headerMobileBg} id='Header' />
+      <ParticlesLayout className={styles.headerMobileBg} id='Header' />
       <ContainerUI withoutGridSystem>
         <div className={styles.wrap}>
           <Link href={urlPaths.HOMEPAGE}>

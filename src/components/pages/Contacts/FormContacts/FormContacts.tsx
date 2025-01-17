@@ -76,7 +76,7 @@ const FormContacts: FC = () => {
         setValues({ ...initialValues });
       })
       .catch((err) => {
-        console.log('🚀 ~ onSubmit ~ err:', err);
+        console.error('🚀 ~ onSubmit ~ err:', err);
         setModalContent({
           type: 'failed',
           title: contactsPage?.popup_problem_title || '',
