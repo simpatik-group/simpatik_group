@@ -1,15 +1,10 @@
 import { FC } from 'react';
 
 import clsx from 'clsx';
-import dynamic from 'next/dynamic';
 import { v4 as uuidv4 } from 'uuid';
 
+import ParticlesBackground from './ParticlesBackground/ParticlesBackground';
 import { IParticlesLayout } from './ParticlesLayout.props';
-
-const ParticlesBackgroundDynamic = dynamic(
-  () => import('./ParticlesBackground/ParticlesBackground'),
-  { ssr: false },
-);
 
 const ParticlesLayout: FC<IParticlesLayout> = ({
   id,
@@ -28,7 +23,7 @@ const ParticlesLayout: FC<IParticlesLayout> = ({
       )}
       {...props}
     >
-      <ParticlesBackgroundDynamic id={id} />
+      <ParticlesBackground id={id} />
       {children}
     </section>
   );
