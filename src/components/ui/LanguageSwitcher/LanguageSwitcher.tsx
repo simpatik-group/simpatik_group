@@ -23,6 +23,7 @@ const LanguageSwitcher: FC<ILanguageSwitcher> = ({ themeColor, className }) => {
 
   const changeLocale = (event: React.MouseEvent<HTMLSpanElement>) => {
     const newLocale = event.currentTarget?.dataset.lang as Locale;
+    console.log('🚀 ~ changeLocale ~ newLocale:', newLocale);
 
     router.replace(pathname, { locale: newLocale });
   };

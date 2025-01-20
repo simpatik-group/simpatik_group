@@ -1,7 +1,6 @@
 import { FC } from 'react';
 
 import Image from 'next/image';
-import Link from 'next/link';
 
 import Header from '@/components/layouts/RootLayout/Header/Header';
 
@@ -12,6 +11,7 @@ import { useMessages } from '@/hooks/useLocalization';
 import { urlPaths } from '@/helpers/urlPath';
 
 import styles from './NotFoundComponent.module.scss';
+import { Link } from '@/i18n/i18n.config';
 
 const NotFoundComponent: FC = () => {
   const commonContent = useMessages('COMMON');

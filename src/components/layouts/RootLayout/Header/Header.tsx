@@ -4,7 +4,6 @@ import { FC, useEffect, useState } from 'react';
 
 import clsx from 'clsx';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher/LanguageSwitcher';
@@ -19,6 +18,7 @@ import ParticlesLayout from '../../ParticlesLayout/ParticlesLayout';
 
 import styles from './Header.module.scss';
 import { IHeaderProps } from './Header.props';
+import { Link } from '@/i18n/i18n.config';
 
 const Header: FC<IHeaderProps> = ({ themeColor }) => {
   const [active, setActive] = useState<boolean>(false);

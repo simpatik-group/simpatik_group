@@ -1,9 +1,13 @@
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
-import { getLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import { Raleway } from 'next/font/google';
 
-import '../styles/globals.scss';
+import { PageParams } from '@/interfaces/localozation';
+
+import '../../styles/globals.scss';
+
+import { locales, routing } from '@/i18n/i18n.config';
 
 const raleway = Raleway({
   subsets: ['cyrillic', 'latin'],
@@ -15,11 +19,23 @@ export const metadata: Metadata = {
   description:
     'Здатність надихати інших - це та сила, що робить неможливе можливим і втілює мрії в життя.',
 };
+export function generateStaticParams() {
+  return locales
+    .filter((locale) => locale !== routing.defaultLocale)
+    .map((locale) => ({ lang: locale }));
+}
 
-const RootLayoutPage = async ({ children }: { children: React.ReactNode }) => {
-  const locale = await getLocale();
+const RootLayoutPage = async ({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: PageParams;
+}) => {
+  const { lang } = (await params) as { lang: string };
+  setRequestLocale(lang || routing.defaultLocale);
   return (
-    <html lang={locale}>
+    <html lang={lang}>
       <head>
         <meta property='og:title' content='Simpatik Group' />
         <meta
@@ -52,7 +68,7 @@ const RootLayoutPage = async ({ children }: { children: React.ReactNode }) => {
         <link rel='icon' href='/favicon/favicon.svg' type='image/svg+xml' />
       </head>
       <body className={`${raleway.className} `}>
-        <NextIntlClientProvider locale={locale}>
+        <NextIntlClientProvider locale={lang}>
           {children}
         </NextIntlClientProvider>
         {/* <Suspense fallback={<Loader />}>{children}</Suspense> */}

@@ -1,25 +1,29 @@
-import { getLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 
 import RootLayout from '@/components/layouts/RootLayout/RootLayout';
 import Contacts from '@/components/pages/Contacts/Contacts';
 
 import { EColor } from '@/interfaces/enums';
+import { PageParams } from '@/interfaces/localozation';
 
+import { routing } from '@/i18n/i18n.config';
 import requestService from '@/services/request.service';
-
-type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
 export default async function ContactsPage({
   searchParams,
+  params,
 }: {
-  searchParams: SearchParams;
+  searchParams: PageParams;
+  params: PageParams;
 }) {
-  const locale = await getLocale();
+  const { lang } = (await params) as { lang: string };
+  setRequestLocale(lang || routing.defaultLocale);
 
   const messages = await requestService.getRequest({
-    localization: locale,
+    localization: lang || routing.defaultLocale,
     urls: ['COMMON', 'CONTACTS'],
   });
+
   const searchParamsProp = await searchParams;
 
   return (
