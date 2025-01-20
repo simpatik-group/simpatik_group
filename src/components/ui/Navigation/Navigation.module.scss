@@ -41,7 +41,7 @@
     }
   }
   .link {
-    @apply pl-2;
+    @apply pl-2 text-[14px];
     &::before {
       content: none;
     }
@@ -53,5 +53,8 @@
     ul {
       @apply gap-6;
     }
+  }
+  .link {
+    @apply text-[16px];
   }
 }

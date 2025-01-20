@@ -1,3 +1,5 @@
+import { getLocale } from 'next-intl/server';
+
 import RootLayout from '@/components/layouts/RootLayout/RootLayout';
 import Contacts from '@/components/pages/Contacts/Contacts';
 
@@ -12,8 +14,10 @@ export default async function ContactsPage({
 }: {
   searchParams: SearchParams;
 }) {
+  const locale = await getLocale();
+
   const messages = await requestService.getRequest({
-    localization: 'uk',
+    localization: locale,
     urls: ['COMMON', 'CONTACTS'],
   });
   const searchParamsProp = await searchParams;

@@ -1,4 +1,4 @@
-import { keyofEAPIRequest, keyofELocalization } from '@/interfaces/enums';
+import { keyofEAPIRequest } from '@/interfaces/enums';
 import { IGetMessages, IPostData } from '@/interfaces/request.request';
 
 import { staticValues } from '@/helpers/staticValues';
@@ -9,7 +9,7 @@ interface IAPIRequest {
     body: IPostData[keyof IPostData];
     method?: string;
   };
-  localization?: keyofELocalization;
+  localization?: string;
   pagination?: string;
 }
 interface IGetRequest extends Omit<IAPIRequest, 'url'> {

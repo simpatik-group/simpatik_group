@@ -1,16 +1,13 @@
-// @ts-check
+import createNextIntlPlugin from 'next-intl/plugin';
+import path from 'path';
 
 /** @type {import('next').NextConfig} */
-import path from 'path';
+
+const withNextIntl = createNextIntlPlugin();
 
 const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
-  },
-  i18n: {
-    locales: ['en', 'uk'],
-    defaultLocale: 'uk',
-    localeDetection: false,
   },
   images: {
     remotePatterns: [
@@ -28,4 +25,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

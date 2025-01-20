@@ -1,3 +1,5 @@
+import { getLocale } from 'next-intl/server';
+
 import RootLayout from '@/components/layouts/RootLayout/RootLayout';
 import Home from '@/components/pages/Home/Home';
 
@@ -28,8 +30,10 @@ import requestService from '@/services/request.service';
 // }
 
 export default async function HomePage() {
+  const locale = await getLocale();
+
   const messages = await requestService.getRequest({
-    localization: 'uk',
+    localization: locale,
     urls: ['COMMON', 'HOME_PAGE', 'LOCATIONS'],
   });
 

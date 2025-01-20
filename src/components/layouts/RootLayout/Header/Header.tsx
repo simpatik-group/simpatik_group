@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher/LanguageSwitcher';
 import Navigation from '@/components/ui/Navigation/Navigation';
 import Social from '@/components/ui/Social/Social';
 
@@ -71,7 +72,7 @@ const Header: FC<IHeaderProps> = ({ themeColor }) => {
           </div>
           <div className={styles.menuMobile}>
             <div className={styles.menuDesktop}>
-              {/* <LanguageSwitcher
+              <LanguageSwitcher
                 className='text-center'
                 themeColor={
                   active
@@ -80,7 +81,7 @@ const Header: FC<IHeaderProps> = ({ themeColor }) => {
                       ? EColor.dark
                       : EColor.white
                 }
-              /> */}
+              />
               <Navigation
                 className={clsx(styles.nav, styles.active)}
                 themeColor={
