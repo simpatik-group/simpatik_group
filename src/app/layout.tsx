@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
+import { NextIntlClientProvider } from 'next-intl';
+import { getLocale } from 'next-intl/server';
 import { Raleway } from 'next/font/google';
 
 import '../styles/globals.scss';
-
-type SearchParams = { [key: string]: string | string[] | undefined };
 
 const raleway = Raleway({
   subsets: ['cyrillic', 'latin'],
@@ -16,14 +16,10 @@ export const metadata: Metadata = {
     'Здатність надихати інших - це та сила, що робить неможливе можливим і втілює мрії в життя.',
 };
 
-const RootLayoutPage = ({
-  children,
-}: {
-  children: React.ReactNode;
-  searchParams: SearchParams;
-}) => {
+const RootLayoutPage = async ({ children }: { children: React.ReactNode }) => {
+  const locale = await getLocale();
   return (
-    <html lang='uk'>
+    <html lang={locale}>
       <head>
         <meta property='og:title' content='Simpatik Group' />
         <meta
@@ -56,8 +52,10 @@ const RootLayoutPage = ({
         <link rel='icon' href='/favicon/favicon.svg' type='image/svg+xml' />
       </head>
       <body className={`${raleway.className} `}>
+        <NextIntlClientProvider locale={locale}>
+          {children}
+        </NextIntlClientProvider>
         {/* <Suspense fallback={<Loader />}>{children}</Suspense> */}
-        {children}
       </body>
     </html>
   );

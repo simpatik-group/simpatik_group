@@ -1,25 +1,29 @@
+import { getLocale } from 'next-intl/server';
+
 import RootLayout from '@/components/layouts/RootLayout/RootLayout';
-import Charity from '@/components/pages/Charity/Charity';
+import Life from '@/components/pages/Life/Life';
 
 import { EColor } from '@/interfaces/enums';
 
 import requestService from '@/services/request.service';
 
-export default async function ContactsPage() {
+export default async function LifePage() {
+  const locale = await getLocale();
+
   const common = await requestService.getRequest({
-    localization: 'uk',
-    urls: ['COMMON', 'CHARITY_PAGE'],
+    localization: locale,
+    urls: ['COMMON', 'LIFE'],
   });
   const news = await requestService.getRequest({
-    localization: 'uk',
-    urls: ['ALL_CHARITIES'],
+    localization: locale,
+    urls: ['ALL_NEWS'],
     pagination: '&pagination[start]=0',
   });
   const messages = { ...common, ...news };
 
   return (
     <RootLayout messages={messages} themeColor={EColor.dark}>
-      <Charity />
+      <Life />
     </RootLayout>
   );
 }
