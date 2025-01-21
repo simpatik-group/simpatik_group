@@ -23,7 +23,6 @@ const LanguageSwitcher: FC<ILanguageSwitcher> = ({ themeColor, className }) => {
 
   const changeLocale = (event: React.MouseEvent<HTMLSpanElement>) => {
     const newLocale = event.currentTarget?.dataset.lang as Locale;
-    console.log('🚀 ~ changeLocale ~ newLocale:', newLocale);
 
     router.replace(pathname, { locale: newLocale });
   };
@@ -48,12 +47,6 @@ const LanguageSwitcher: FC<ILanguageSwitcher> = ({ themeColor, className }) => {
           {locale.toUpperCase()}
         </span>
       ))}
-      {/* <Link className={clsx(styles.language, styles.active)} href='/'>
-        UA
-      </Link>
-      <Link className={clsx(styles.language)} href='/'>
-        EN
-      </Link> */}
     </div>
   );
 };
