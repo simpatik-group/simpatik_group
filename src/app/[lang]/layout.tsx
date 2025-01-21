@@ -1,30 +1,44 @@
-import { FC } from 'react';
-
+import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
-import { getLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import { Raleway } from 'next/font/google';
+import { notFound } from 'next/navigation';
 
-import MessagesProvider from '@/context/messages.context';
+import { PageParams } from '@/interfaces/localozation';
 
-import NotFound from '@/components/pages/NotFound/NotFound';
-
-import { routing } from '@/i18n/i18n.config';
-import requestService from '@/services/request.service';
+import { locales, routing } from '@/i18n/i18n.config';
 
 const raleway = Raleway({
   subsets: ['cyrillic', 'latin'],
   weight: ['400', '500', '700', '800', '900'],
 });
 
-const Page404: FC = async () => {
-  const locale = await getLocale();
-  const messages = await requestService.getRequest({
-    localization: locale || routing.defaultLocale,
-    urls: ['COMMON'],
-  });
+export const metadata: Metadata = {
+  title: 'Simpatik Group | Надихати людей',
+  description:
+    'Здатність надихати інших - це та сила, що робить неможливе можливим і втілює мрії в життя.',
+};
+export function generateStaticParams() {
+  return locales
+    .filter((locale) => locale !== routing.defaultLocale)
+    .map((locale) => ({ lang: locale }));
+}
 
+const RootLayoutPage = async ({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: PageParams;
+}) => {
+  const { lang } = (await params) as { lang: string };
+  if (!routing.locales.includes(lang as any)) {
+    console.log('object');
+    notFound();
+  }
+  setRequestLocale(lang || routing.defaultLocale);
   return (
-    <html lang='en'>
+    <html lang={lang}>
       <head>
         <meta property='og:title' content='Simpatik Group' />
         <meta
@@ -57,14 +71,13 @@ const Page404: FC = async () => {
         <link rel='icon' href='/favicon/favicon.svg' type='image/svg+xml' />
       </head>
       <body className={`${raleway.className} `}>
-        <NextIntlClientProvider locale={'en'}>
-          <MessagesProvider messages={messages}>
-            <NotFound />
-          </MessagesProvider>
+        <NextIntlClientProvider locale={lang}>
+          {children}
         </NextIntlClientProvider>
+        {/* <Suspense fallback={<Loader />}>{children}</Suspense> */}
       </body>
     </html>
   );
 };
 
-export default Page404;
+export default RootLayoutPage;
