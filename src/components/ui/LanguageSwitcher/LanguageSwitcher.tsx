@@ -47,6 +47,12 @@ const LanguageSwitcher: FC<ILanguageSwitcher> = ({ themeColor, className }) => {
           {locale.toUpperCase()}
         </span>
       ))}
+      {/* <Link className={clsx(styles.language, styles.active)} href='/'>
+        UA
+      </Link>
+      <Link className={clsx(styles.language)} href='/'>
+        EN
+      </Link> */}
     </div>
   );
 };
