@@ -16,6 +16,7 @@ const Navigation: FC<INavigationProps> = ({ themeColor, className }) => {
   const commonContent = useMessages('COMMON');
 
   const pathname = usePathname().split('/')[1];
+  console.log('🚀 ~ pathname:', usePathname());
 
   return (
     <nav

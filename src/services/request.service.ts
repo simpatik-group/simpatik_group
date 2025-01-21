@@ -42,7 +42,9 @@ class RequestService {
     pagination,
   }: IAPIRequest) => {
     if (!(url in this)) {
+      console.log(`Invalid URL key: ${url}`);
       throw new Error(`Invalid URL key: ${url}`);
+      return false;
     }
 
     const requestUrl = `${process.env.NEXT_PUBLIC_DOMAIN}${this[url]}${
@@ -61,9 +63,13 @@ class RequestService {
 
     const resp = await fetch(requestUrl, fetchOptions);
     if (!resp.ok) {
+      console.log(
+        `API Error: ${resp.status} ${resp.statusText}, url: ${requestUrl}`,
+      );
       throw new Error(
         `API Error: ${resp.status} ${resp.statusText}, url: ${requestUrl}`,
       );
+      return false;
     }
 
     const data = await resp.json();
