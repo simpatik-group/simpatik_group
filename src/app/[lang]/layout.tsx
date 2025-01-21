@@ -33,7 +33,6 @@ const RootLayoutPage = async ({
 }) => {
   const { lang } = (await params) as { lang: string };
   if (!routing.locales.includes(lang as any)) {
-    console.log('object');
     notFound();
   }
   setRequestLocale(lang || routing.defaultLocale);

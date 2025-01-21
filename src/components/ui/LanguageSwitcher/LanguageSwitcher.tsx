@@ -3,7 +3,7 @@
 import { FC } from 'react';
 
 import clsx from 'clsx';
-import { useParams } from 'next/navigation';
+import { useParams, useSearchParams } from 'next/navigation';
 
 import { EColor } from '@/interfaces/enums';
 
@@ -20,11 +20,16 @@ const LanguageSwitcher: FC<ILanguageSwitcher> = ({ themeColor, className }) => {
   const pathname = usePathname();
   const router = useRouter();
   const params = useParams();
+  const searchParams = useSearchParams();
 
   const changeLocale = (event: React.MouseEvent<HTMLSpanElement>) => {
+    const query: Record<string, string> = {};
+    searchParams.forEach((value, key) => {
+      query[key] = value;
+    });
     const newLocale = event.currentTarget?.dataset.lang as Locale;
 
-    router.replace(pathname, { locale: newLocale });
+    router.replace({ pathname, query: { ...query } }, { locale: newLocale });
   };
 
   return (
