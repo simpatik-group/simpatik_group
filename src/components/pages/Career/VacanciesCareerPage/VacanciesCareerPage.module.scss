@@ -2,7 +2,7 @@
   @apply bg-blue-400 text-white-400 pageSection;
 }
 .vacancy {
-  @apply py-8 border-b border-grey-400;
+  @apply py-8 border-b border-grey-400 text-center;
 }
 .vacancyTitle {
   @apply h3 mb-4;
@@ -17,20 +17,12 @@
 }
 @include customMedia(768px) {
   .vacancy {
-    @apply grid grid-cols-12 gap-8;
-  }
-  .vacancyMain {
-    @apply col-span-8;
+    @apply grid grid-cols-12 gap-8 text-left;
   }
   .vacancyTitle {
-    @apply h5;
+    @apply h5 col-span-8 mb-0;
   }
   .vacancyLink {
     @apply col-span-4 flex -my-8;
-  }
-}
-@include customMedia(992px) {
-  .vacancyTitle {
-    @apply mb-6;
   }
 }

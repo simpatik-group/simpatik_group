@@ -2,7 +2,6 @@ import { FC } from 'react';
 
 import Link from 'next/link';
 
-import { Breaks } from '@/components/ui/Breacks/Breacks';
 import ButtonUI from '@/components/ui/ButtonUI/ButtonUI';
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 
@@ -20,12 +19,7 @@ const VacanciesCareerPage: FC = () => {
           {careerPage?.vacancy.map((vacancy) => {
             return (
               <li key={vacancy.id} className={styles.vacancy}>
-                <div className={styles.vacancyMain}>
-                  <h5 className={styles.vacancyTitle}>{vacancy.title}</h5>
-                  <p className={styles.vacancyDescription}>
-                    <Breaks description={vacancy?.description || ''} />
-                  </p>
-                </div>
+                <h5 className={styles.vacancyTitle}>{vacancy.title}</h5>
                 <Link
                   href={vacancy.url}
                   target='_blank'
