@@ -1,6 +1,7 @@
 import { ChangeEvent, FC, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 
+import { Breaks } from '@/components/ui/Breacks/Breacks';
 import ButtonUI from '@/components/ui/ButtonUI/ButtonUI';
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 import Heading from '@/components/ui/Heading/Heading';
@@ -16,7 +17,6 @@ import { IMessageUs } from '@/interfaces/messageUs.request';
 import { useForm } from '@/hooks/useForm';
 import { useMessages } from '@/hooks/useLocalization';
 
-import { Breaks } from '@/helpers/breacksModification';
 import { formatPhoneNumber } from '@/helpers/formatInput';
 import { urlPaths } from '@/helpers/urlPath';
 
@@ -76,7 +76,7 @@ const FormContacts: FC = () => {
         setValues({ ...initialValues });
       })
       .catch((err) => {
-        console.log(err);
+        console.error('🚀 ~ onSubmit ~ err:', err);
         setModalContent({
           type: 'failed',
           title: contactsPage?.popup_problem_title || '',
@@ -142,18 +142,20 @@ const FormContacts: FC = () => {
               />
               <InputUI
                 {...register('email', {
+                  required: true,
                   pattern: validateService.email,
                 })}
                 error={errors.email}
-                labelText={
-                  <>
-                    {contactsPage?.form_email.replace(/\(([^)]+)\)/, '')}{' '}
-                    <span className='smallTxt'>
-                      {' '}
-                      {contactsPage?.form_email.replace(/^[^(]*\(/, '(')}
-                    </span>
-                  </>
-                }
+                labelText={contactsPage?.form_email}
+                // {
+                //   <>
+                //     {contactsPage?.form_email.replace(/\(([^)]+)\)/, '')}{' '}
+                //     <span className='smallTxt'>
+                //       {' '}
+                //       {contactsPage?.form_email.replace(/^[^(]*\(/, '(')}
+                //     </span>
+                //   </>
+                // }
                 placeholder={contactsPage?.input_email}
                 type='email'
               />
@@ -169,11 +171,6 @@ const FormContacts: FC = () => {
                 placeholder={contactsPage?.input_message}
                 rows={5}
               />
-              <ReCAPTCHA
-                ref={recaptchaRef}
-                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_FRONT as string}
-                size='invisible'
-              />
               <ButtonUI
                 className='self-end'
                 type='submit'
@@ -181,6 +178,11 @@ const FormContacts: FC = () => {
               >
                 {contactsPage?.form_send_button}
               </ButtonUI>
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_FRONT as string}
+                size='invisible'
+              />
             </div>
           </ContainerUI>
         </form>

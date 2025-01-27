@@ -1,12 +1,12 @@
 import { FC } from 'react';
 
 import clsx from 'clsx';
-import Link from 'next/link';
 
 import { EColor } from '@/interfaces/enums';
 
 import styles from './LinkUI.module.scss';
 import { ILinkUIProps } from './LinkUI.props';
+import { Link } from '@/i18n/i18n.config';
 
 const LinkUI: FC<ILinkUIProps> = ({
   withArrow,
@@ -14,13 +14,13 @@ const LinkUI: FC<ILinkUIProps> = ({
   themeColor,
   children,
   className,
-  ...props
+  target,
 }) => {
   return (
     <Link
       href={href}
       scroll={true}
-      {...props}
+      target={target}
       className={clsx(
         styles.link,
         themeColor === EColor.white ? styles.white : styles.dark,

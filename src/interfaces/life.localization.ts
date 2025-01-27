@@ -11,6 +11,7 @@ export interface ILifeMessage {
   news_title: string;
   news_title_shadow: string;
   loadmore_button: string;
+  readmore_button: string;
 }
 
 interface Advantage {

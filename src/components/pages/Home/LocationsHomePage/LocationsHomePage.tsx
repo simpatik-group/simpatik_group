@@ -14,7 +14,7 @@ import { urlPaths } from '@/helpers/urlPath';
 import styles from './LocationsHomePage.module.scss';
 
 const LocationsHomePage: FC = () => {
-  const locationsData = useMessages('LOCATIONS');
+  const locationsPage = useMessages('LOCATIONS');
   const homePage = useMessages('HOME_PAGE');
 
   return (
@@ -23,12 +23,12 @@ const LocationsHomePage: FC = () => {
         <Heading
           className={styles.title}
           heading='h2'
-          title={locationsData?.title || ''}
-          shadowTitle={locationsData?.title_shadow}
+          title={locationsPage?.title || ''}
+          shadowTitle={locationsPage?.title_shadow}
           textColor={EColor.dark}
         />
         <ol className={styles.list}>
-          {locationsData?.location
+          {locationsPage?.location
             .filter((location) => location.position_homepage)
             .sort((a, b) => {
               if (Number(a.position_homepage) < Number(b.position_homepage)) {
@@ -44,6 +44,7 @@ const LocationsHomePage: FC = () => {
                   title={location.title}
                   description={location.text}
                   url={location.url}
+                  asLink
                   counter={index + 1}
                 />
               );

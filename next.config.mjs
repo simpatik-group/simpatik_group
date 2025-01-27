@@ -1,13 +1,13 @@
-// @ts-check
-
-/** @type {import('next').NextConfig} */
+import createNextIntlPlugin from 'next-intl/plugin';
 import path from 'path';
 
+/** @type {import('next').NextConfig} */
+
+const withNextIntl = createNextIntlPlugin();
+
 const nextConfig = {
-  i18n: {
-    locales: ['en', 'uk'],
-    defaultLocale: 'uk',
-    localeDetection: false,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
   },
   images: {
     remotePatterns: [
@@ -21,8 +21,8 @@ const nextConfig = {
   trailingSlash: true,
   sassOptions: {
     includePaths: [path.join(process.cwd(), 'src/styles')],
-    prependData: `@import "base.scss";`,
+    prependData: `@use "base" as *;`,
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

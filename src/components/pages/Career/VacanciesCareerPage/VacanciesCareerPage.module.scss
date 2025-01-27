@@ -7,9 +7,6 @@
 .vacancyTitle {
   @apply h3 mb-4;
 }
-.vacancyDescription {
-  @apply line-clamp-2;
-}
 .vacancyLink {
   @apply block mt-6 text-white-400;
   button {
@@ -20,19 +17,16 @@
 }
 @include customMedia(768px) {
   .vacancy {
-    @apply grid grid-cols-12;
+    @apply grid grid-cols-12 gap-8;
   }
   .vacancyMain {
-    @apply col-span-5;
+    @apply col-span-8;
   }
   .vacancyTitle {
     @apply h5;
   }
-  .vacancyDescription {
-    @apply line-clamp-1;
-  }
   .vacancyLink {
-    @apply col-span-4 col-start-9 flex -my-8;
+    @apply col-span-4 flex -my-8;
   }
 }
 @include customMedia(992px) {

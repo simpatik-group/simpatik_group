@@ -1,3 +1,5 @@
+import { JSX } from 'react';
+
 import { IDivProps } from '@/interfaces/interfaces';
 
 export interface IModalProps extends IDivProps {

@@ -8,7 +8,7 @@
   &.dark {
     @apply text-dark-400;
     .link:not(.active)::after {
-      @apply border-dark-400;
+      @apply bg-dark-400;
     }
   }
   ul {
@@ -41,7 +41,7 @@
     }
   }
   .link {
-    @apply pl-2;
+    @apply pl-2 text-[14px];
     &::before {
       content: none;
     }
@@ -53,5 +53,8 @@
     ul {
       @apply gap-6;
     }
+  }
+  .link {
+    @apply text-[16px];
   }
 }

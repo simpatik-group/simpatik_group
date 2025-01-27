@@ -16,11 +16,14 @@ export enum EAPIRequest {
   CONTACTS,
   LIFE,
   LOCATIONS,
-  NEWS,
-  CHARITIES,
+  ALL_NEWS,
+  NEWS_INSTANCE,
+  CHARITY_PAGE,
+  ALL_CHARITIES,
   TEAM,
   ABOUT_US,
   MESSAGE_US,
+  CHARITY_INSTANCE,
 }
 
 export type keyofEAPIRequest = keyof typeof EAPIRequest;

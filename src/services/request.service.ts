@@ -1,5 +1,7 @@
-import { keyofEAPIRequest, keyofELocalization } from '@/interfaces/enums';
+import { keyofEAPIRequest } from '@/interfaces/enums';
 import { IGetMessages, IPostData } from '@/interfaces/request.request';
+
+import { staticValues } from '@/helpers/staticValues';
 
 interface IAPIRequest {
   url: keyofEAPIRequest;
@@ -7,7 +9,8 @@ interface IAPIRequest {
     body: IPostData[keyof IPostData];
     method?: string;
   };
-  localization?: keyofELocalization;
+  localization?: string;
+  pagination?: string;
 }
 interface IGetRequest extends Omit<IAPIRequest, 'url'> {
   urls: (keyof IGetMessages)[];
@@ -21,20 +24,32 @@ class RequestService {
   private HOME_PAGE = `/homepage?populate=*`;
   private ABOUT_US = `/about-us?populate=hero_image&populate=section.image`;
   private LIFE = `/life?populate=*`;
-  private TEAM = `/team?populate=departments.image`;
+  private TEAM = `/team?populate=*`;
   private CAREER = `/career?populate=*`;
   private LOCATIONS = `/location?populate=*`;
   private CONTACTS = `/contact?populate=*`;
-  private NEWS = `/posts?filters[type][$eq]=news&populate=*`;
-  private CHARITIES = `/posts?filters[type][$eq]=charity&populate=*`;
+  private ALL_NEWS = `/posts?fields=title&fields=description&fields=date&fields=url&sort=date:desc&pagination[limit]=${staticValues.PAGINATION_VALUE}`;
+  private NEWS_INSTANCE = `{{server}}/api/posts?filters[url][$eq]=najkreativnishi-garbuzi-na-halloween-2024&populate=*&locale=uk`;
+  private CHARITY_PAGE = `/charity-page?populate=*`;
+  private ALL_CHARITIES = `/charities?fields=title&fields=description&fields=date&fields=url&populate[cover][fields]=url&sort=date:desc&pagination[limit]=${staticValues.PAGINATION_VALUE}`;
+  private CHARITY_INSTANCE = `/charities?fields=title&fields=description&fields=date&fields=url&populate[cover][fields]=url`;
   private MESSAGE_US = `/messages`;
 
-  private API = async ({ url, localization, options }: IAPIRequest) => {
+  private API = async ({
+    url,
+    localization,
+    options,
+    pagination,
+  }: IAPIRequest) => {
     if (!(url in this)) {
+      console.log(`Invalid URL key: ${url}`);
       throw new Error(`Invalid URL key: ${url}`);
+      return false;
     }
 
-    const requestUrl = `${process.env.NEXT_PUBLIC_DOMAIN}${this[url]}${localization ? `&locale=${localization}` : ''}`;
+    const requestUrl = `${process.env.NEXT_PUBLIC_DOMAIN}${this[url]}${
+      localization ? `&locale=${localization}` : ''
+    }${pagination ? pagination : ''}`;
 
     const fetchOptions: RequestInit = {
       next: { revalidate: Number(process.env.REVALIDATING_TIME) },
@@ -42,17 +57,25 @@ class RequestService {
         'Content-Type': 'application/json',
       },
     };
-
     if (options?.method) fetchOptions.method = options.method;
     if (options?.body)
       fetchOptions.body = JSON.stringify({ data: options.body });
 
     const resp = await fetch(requestUrl, fetchOptions);
     if (!resp.ok) {
-      throw new Error(`API Error: ${resp.status} ${resp.statusText}`);
+      console.log(
+        `API Error: ${resp.status} ${resp.statusText}, url: ${requestUrl}`,
+      );
+      throw new Error(
+        `API Error: ${resp.status} ${resp.statusText}, url: ${requestUrl}`,
+      );
+      return false;
     }
 
     const data = await resp.json();
+
+    if (pagination) return data;
+
     return data.data;
   };
 
@@ -60,6 +83,7 @@ class RequestService {
     localization,
     urls,
     options,
+    pagination,
   }: IGetRequest): Promise<IGetMessages> {
     const returnedMessages: IGetMessages = {};
 
@@ -69,6 +93,7 @@ class RequestService {
           url,
           localization,
           options,
+          pagination,
         });
       }),
     );

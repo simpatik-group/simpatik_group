@@ -3,6 +3,7 @@ import { Settings } from 'react-slick';
 
 import Image from 'next/image';
 
+import { Breaks } from '@/components/ui/Breacks/Breacks';
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 import Heading from '@/components/ui/Heading/Heading';
 import SliderUI from '@/components/ui/SliderUI/SliderUI';
@@ -11,13 +12,10 @@ import { EColor } from '@/interfaces/enums';
 
 import { useMessages } from '@/hooks/useLocalization';
 
-import { Breaks } from '@/helpers/breacksModification';
-
 import styles from './TeamScreenTeamPage.module.scss';
 
 const TeamScreenTeamPage: FC = () => {
   const teamPage = useMessages('TEAM');
-  console.log('🚀 ~ teamPage:', teamPage);
 
   const [slideWidth, setSlideWidth] = useState(320);
   useEffect(() => {

@@ -1,5 +1,5 @@
 .headingWrap {
-  @apply relative z-10 mb-14;
+  @apply relative mb-14;
 }
 .white {
   @apply text-white-400;
@@ -27,8 +27,5 @@
 @include customMedia(1322px) {
   .headingWrap {
     @apply mb-[7.5rem];
-  }
-  .shadowTitle {
-    @apply top-[calc(100%-36px)] left-28;
   }
 }

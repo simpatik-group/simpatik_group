@@ -25,6 +25,6 @@
 
 @include customMedia(992px) {
   .list {
-    @apply grid-cols-4;
+    @apply grid-cols-4 gap-8;
   }
 }

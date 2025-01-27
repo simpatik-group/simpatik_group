@@ -35,7 +35,7 @@ const Modal: FC<IModalProps> = ({
             : '',
       )}
     >
-      <ParticlesLayout className={styles.modal}>
+      <ParticlesLayout id='Modal' className={styles.modal}>
         <img
           alt='close'
           src='/img/close-icon.svg'

@@ -1,0 +1,32 @@
+.title {
+  @apply h2;
+}
+.cover { 
+  min-height: 240px;
+  width: 100vw;
+  object-fit: cover;
+}
+
+@include customMedia(768px) {
+  .title {
+    @apply col-span-12;
+  }
+}
+
+@include customMedia(992px) {
+  .wrapper {
+    @apply pt-44;
+  }
+  .cover { 
+    max-height: 600px;
+  }
+}
+
+@include customMedia(1322px) {
+  .title span {
+    font-size: 90px;
+  }
+  .cover { 
+    max-height: 713px;
+  }
+}

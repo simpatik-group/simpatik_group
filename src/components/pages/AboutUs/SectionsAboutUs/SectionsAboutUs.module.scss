@@ -1,0 +1,50 @@
+.title {
+  @apply h2;
+  font-size: 24px;
+}
+.description {
+  z-index: 10;
+}
+.titlecenter {
+  text-align: center;
+}
+.cover { 
+  min-height: 200px;
+  width: 100vw;
+  object-fit: cover;
+  margin-top: 40px;
+}
+
+@include customMedia(768px) {
+  .title {
+    @apply col-span-12;
+  }
+  .description {
+    @apply col-span-12;
+  }
+}
+
+@include customMedia(992px) {
+  .title {
+    font-size: 36px;
+  }
+  .description {
+    @apply col-span-6;
+  }
+  .colStart4 {
+    grid-column-start: 4;
+  }
+}
+
+@include customMedia(1322px) {
+  .title {
+    font-size: 48px;
+
+    span {
+      @apply top-[calc(100%-66px)] left-28;
+    }
+  }
+  .cover { 
+    max-height: 720px;
+  }
+}
