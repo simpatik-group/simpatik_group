@@ -15,8 +15,7 @@ import { Link, usePathname } from '@/i18n/i18n.config';
 const Navigation: FC<INavigationProps> = ({ themeColor, className }) => {
   const commonContent = useMessages('COMMON');
 
-  const pathname = usePathname().split('/')[1];
-  console.log('🚀 ~ pathname:', usePathname());
+  const pathname = usePathname().split('/').at(-2);
 
   return (
     <nav

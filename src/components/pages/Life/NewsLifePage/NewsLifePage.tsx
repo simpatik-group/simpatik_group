@@ -1,5 +1,7 @@
 import { FC } from 'react';
 
+import { useLocale } from 'next-intl';
+
 import ButtonUI from '@/components/ui/ButtonUI/ButtonUI';
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 import Heading from '@/components/ui/Heading/Heading';
@@ -21,6 +23,8 @@ const NewsLifePage: FC = () => {
   const lifePage = useMessages('LIFE');
   const { data: news } = useMessages('ALL_NEWS') as INewsMessage;
   const { meta } = useMessages('ALL_NEWS') as INewsMessage;
+  const locale = useLocale();
+  console.log('🚀 ~ locale:', locale);
 
   const { articlesList, paginationState, setArticlesList, setPaginationState } =
     usePagination<INewsMessage['data']>(news);
@@ -33,7 +37,7 @@ const NewsLifePage: FC = () => {
 
   const loadMore = async () => {
     const articles = await requestService.getRequest({
-      localization: 'uk',
+      localization: locale,
       urls: ['ALL_NEWS'],
       pagination: `&pagination[start]=${paginationState}`,
     });
