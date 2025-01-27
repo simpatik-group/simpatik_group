@@ -55,6 +55,7 @@ class RequestService {
       next: { revalidate: Number(process.env.REVALIDATING_TIME) },
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.NEXT_BEARER_TOKEN}`,
       },
     };
     if (options?.method) fetchOptions.method = options.method;
