@@ -24,7 +24,6 @@ const NewsLifePage: FC = () => {
   const { data: news } = useMessages('ALL_NEWS') as INewsMessage;
   const { meta } = useMessages('ALL_NEWS') as INewsMessage;
   const locale = useLocale();
-  console.log('🚀 ~ locale:', locale);
 
   const { articlesList, paginationState, setArticlesList, setPaginationState } =
     usePagination<INewsMessage['data']>(news);

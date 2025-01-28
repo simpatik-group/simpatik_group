@@ -72,7 +72,6 @@ class RequestService {
         `API Error: ${resp.status} ${resp.statusText}, url: ${requestUrl}`,
       );
     }
-    console.log('🚀 ~ RequestService ~ requestUrl:', requestUrl);
 
     const data = await resp.json();
 
