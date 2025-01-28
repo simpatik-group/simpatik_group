@@ -19,9 +19,7 @@ export const metadata: Metadata = {
     'Здатність надихати інших - це та сила, що робить неможливе можливим і втілює мрії в життя.',
 };
 export function generateStaticParams() {
-  return locales
-    .filter((locale) => locale !== routing.defaultLocale)
-    .map((locale) => ({ lang: locale }));
+  return locales.map((locale) => ({ lang: locale }));
 }
 
 const RootLayoutPage = async ({

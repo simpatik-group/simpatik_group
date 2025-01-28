@@ -15,7 +15,7 @@ export async function generateStaticParams() {
     locales.map((locale) =>
       requestService.getRequest({
         localization: locale,
-        urls: ['ALL_NEWS'],
+        urls: ['ALL_CHARITIES'],
         pagination: '&pagination[start]=0',
       }),
     ),
@@ -24,7 +24,7 @@ export async function generateStaticParams() {
 
   const staticParams = allMessages.flatMap(
     (resp, index) =>
-      resp.ALL_NEWS?.data.map((item) => ({
+      resp.ALL_CHARITIES?.data.map((item) => ({
         lang: locales[index],
         slug: item.url,
       })) || [],
@@ -45,21 +45,21 @@ export default async function LifePage({ params }: { params: PageParams }) {
   });
   const news = await requestService.getRequest({
     localization: lang || routing.defaultLocale,
-    urls: ['NEWS_INSTANCE'],
+    urls: ['CHARITY_INSTANCE'],
     restQueryParams: `&filters[url][$eq]=${slug}`,
   });
   const messages = { ...common, ...news };
 
   if (
-    typeof news.NEWS_INSTANCE === 'undefined' ||
-    news.NEWS_INSTANCE.length < 1
+    typeof news.CHARITY_INSTANCE === 'undefined' ||
+    news.CHARITY_INSTANCE.length < 1
   ) {
     notFound();
   }
 
   return (
     <RootLayout messages={messages} themeColor={EColor.dark}>
-      <NewsPage messageKey='NEWS_INSTANCE' />
+      <NewsPage messageKey='CHARITY_INSTANCE' />
     </RootLayout>
   );
 }

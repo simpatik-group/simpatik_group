@@ -33,7 +33,7 @@ class RequestService {
   private NEWS_INSTANCE = `/posts?populate=*`;
   private CHARITY_PAGE = `/charity-page?populate=*`;
   private ALL_CHARITIES = `/charities?fields=title&fields=description&fields=date&fields=url&populate[cover][fields]=url&sort=date:desc&pagination[limit]=${staticValues.PAGINATION_VALUE}`;
-  private CHARITY_INSTANCE = `/charities?fields=title&fields=description&fields=date&fields=url&populate[cover][fields]=url`;
+  private CHARITY_INSTANCE = `/charities?populate=*`;
   private MESSAGE_US = `/messages`;
 
   private API = async ({
@@ -64,6 +64,7 @@ class RequestService {
       fetchOptions.body = JSON.stringify({ data: options.body });
 
     const resp = await fetch(requestUrl, fetchOptions);
+    console.log('🚀 ~ RequestService ~ requestUrl:', requestUrl);
     if (!resp.ok) {
       console.log(
         `API Error: ${resp.status} ${resp.statusText}, url: ${requestUrl}`,

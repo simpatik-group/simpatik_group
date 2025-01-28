@@ -34,18 +34,21 @@ const LanguageSwitcher: FC<ILanguageSwitcher> = ({ themeColor, className }) => {
     const cookies = getCookie(staticValues.COOKIE_LOCALIZATION_NEWS);
     if (typeof cookies !== 'undefined') {
       const pathnameArr = pathname.replace(/\/$/, '').split('/');
-      let newPathname: string | undefined;
 
+      let newPathname: string | undefined;
       let localizationsCookie;
+
       try {
         localizationsCookie = JSON.parse(cookies);
       } catch (error) {}
+
       if (localizationsCookie && localizationsCookie[newLocale]) {
         pathnameArr.splice(2, 1, localizationsCookie[newLocale]);
       } else {
         pathnameArr.splice(2, 1);
       }
       newPathname = pathnameArr.join('/');
+
       deleteCookie(staticValues.COOKIE_LOCALIZATION_NEWS);
       router.replace(
         { pathname: newPathname, query: { ...query } },
@@ -55,6 +58,7 @@ const LanguageSwitcher: FC<ILanguageSwitcher> = ({ themeColor, className }) => {
       router.replace({ pathname, query: { ...query } }, { locale: newLocale });
     }
   };
+
   useEffect(() => {
     deleteCookie(staticValues.COOKIE_LOCALIZATION_NEWS);
   }, [pathname]);
