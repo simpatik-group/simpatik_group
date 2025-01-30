@@ -2,7 +2,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 
 import RootLayout from '@/components/layouts/RootLayout/RootLayout';
-import NewsPage from '@/components/ui/NewsPage';
+import NewsPage from '@/components/ui/NewsPage/NewsPage';
 
 import { EColor } from '@/interfaces/enums';
 import { PageParams } from '@/interfaces/localozation';
@@ -20,7 +20,6 @@ export async function generateStaticParams() {
       }),
     ),
   );
-  console.log('🚀 ~ generateStaticParams ~ allMessages:', allMessages);
 
   const staticParams = allMessages.flatMap(
     (resp, index) =>

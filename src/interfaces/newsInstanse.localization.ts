@@ -3,49 +3,28 @@ export type INewsInstantMessage = Root[];
 interface Root {
   id: number;
   title: string;
-  content: Content[];
+  content: IRichTextContent[];
   photos_title: string;
   locale: string;
   photos_title_shadow: string;
   url: string;
   date: string;
   description: string;
-  cover: Cover;
-  photos: Photo[];
+  cover?: Photo;
+  photos?: Photo[];
   localizations: Localization[];
 }
 
-interface Content {
-  type: string;
-  children: NestedNode[];
-  level?: number;
-  format?: string;
-}
-
-interface NestedNode {
+export interface IRichTextContent {
   type: string;
   text?: string;
-  children?: NestedNode[];
+  children?: IRichTextContent[];
   bold?: boolean;
+  italic?: boolean;
+  underline?: boolean;
+  strikethrough?: boolean;
   format?: string;
-}
-
-interface Cover {
-  id: number;
-  url: string;
-}
-
-interface Thumbnail {
-  ext: string;
-  url: string;
-  hash: string;
-  mime: string;
-  name: string;
-  path: any;
-  size: number;
-  width: number;
-  height: number;
-  sizeInBytes: number;
+  level?: number;
 }
 
 interface Photo {

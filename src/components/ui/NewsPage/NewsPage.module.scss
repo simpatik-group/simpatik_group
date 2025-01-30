@@ -1,0 +1,49 @@
+.title {
+  @apply h3 mb-14 text-center;
+}
+.news_img {
+  @apply relative h-[28vh] w-full;
+  img {
+    @apply object-cover object-bottom opacity-60;
+  }
+}
+.news_date {
+  @apply h6 text-grey-400 my-2;
+}
+.slider {
+  @apply mb-16;
+  :global(.slick-track) {
+    @apply m-0;
+  }
+}
+.slide div {
+  @apply mx-4 h-[50vh] relative;
+  img {
+    @apply object-cover;
+  }
+}
+
+@include customMedia(768px) {
+  .news_img {
+    @apply h-80;
+    img {
+      @apply object-contain;
+    }
+  }
+  .slider {
+    @apply mt-16 mb-0;
+  }
+  .slide div {
+    @apply mx-1;
+  }
+}
+@include customMedia(992px) {
+  .news_img {
+    @apply h-[512px];
+  }
+}
+@include customMedia(1322px) {
+  .news_img {
+    @apply h-[760px];
+  }
+}

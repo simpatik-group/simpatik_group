@@ -64,7 +64,6 @@ class RequestService {
       fetchOptions.body = JSON.stringify({ data: options.body });
 
     const resp = await fetch(requestUrl, fetchOptions);
-    console.log('🚀 ~ RequestService ~ requestUrl:', requestUrl);
     if (!resp.ok) {
       console.log(
         `API Error: ${resp.status} ${resp.statusText}, url: ${requestUrl}`,

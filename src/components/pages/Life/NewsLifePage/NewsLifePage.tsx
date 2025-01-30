@@ -7,7 +7,7 @@ import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 import Heading from '@/components/ui/Heading/Heading';
 import LinkUI from '@/components/ui/LinkUI/LinkUI';
 
-import { EColor } from '@/interfaces/enums';
+import { EColor, keyofELocalization } from '@/interfaces/enums';
 import { INewsMessage } from '@/interfaces/news.localizatio';
 
 import { useMessages } from '@/hooks/useLocalization';
@@ -23,7 +23,7 @@ const NewsLifePage: FC = () => {
   const lifePage = useMessages('LIFE');
   const { data: news } = useMessages('ALL_NEWS') as INewsMessage;
   const { meta } = useMessages('ALL_NEWS') as INewsMessage;
-  const locale = useLocale();
+  const locale = useLocale() as keyofELocalization;
 
   const { articlesList, paginationState, setArticlesList, setPaginationState } =
     usePagination<INewsMessage['data']>(news);
@@ -62,7 +62,7 @@ const NewsLifePage: FC = () => {
               return (
                 <div key={item.id} className={styles.news_item}>
                   <p className={styles.news_date}>
-                    {formatDate(item.date, dateOption) || item.date}
+                    {formatDate(item.date, dateOption, locale)}
                   </p>
                   <h5 className={styles.news_item_title}>{item.title}</h5>
                   <p className={styles.news_description}>{item.description}</p>
