@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 
 import RootLayout from '@/components/layouts/RootLayout/RootLayout';
@@ -8,6 +9,25 @@ import { PageParams } from '@/interfaces/localozation';
 
 import { routing } from '@/i18n/i18n.config';
 import requestService from '@/services/request.service';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: PageParams;
+}): Promise<Metadata> {
+  const { lang } = (await params) as { lang: string };
+  const messages = await requestService.getRequest({
+    localization: lang || routing.defaultLocale,
+    urls: ['CONTACTS'],
+  });
+
+  return {
+    title: messages.CONTACTS?.title,
+    openGraph: {
+      title: messages.CONTACTS?.title,
+    },
+  };
+}
 
 export default async function ContactsPage({
   searchParams,

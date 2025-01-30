@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 
 import RootLayout from '@/components/layouts/RootLayout/RootLayout';
@@ -9,8 +10,26 @@ import { PageParams } from '@/interfaces/localozation';
 import { routing } from '@/i18n/i18n.config';
 import requestService from '@/services/request.service';
 
+export async function generateMetadata({
+  params,
+}: {
+  params: PageParams;
+}): Promise<Metadata> {
+  const { lang } = (await params) as { lang: string };
+  const messages = await requestService.getRequest({
+    localization: lang || routing.defaultLocale,
+    urls: ['CHARITY_PAGE'],
+  });
+
+  return {
+    title: messages.CHARITY_PAGE?.hero_title,
+    openGraph: {
+      title: messages.CHARITY_PAGE?.hero_title,
+    },
+  };
+}
+
 export default async function CharityPage({ params }: { params: PageParams }) {
-  // const locale = await getLocale();
   const { lang } = (await params) as { lang: string };
   setRequestLocale(lang || routing.defaultLocale);
 

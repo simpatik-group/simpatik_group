@@ -6,6 +6,8 @@ import { notFound } from 'next/navigation';
 
 import { PageParams } from '@/interfaces/localozation';
 
+import { staticValues } from '@/helpers/staticValues';
+
 import { locales, routing } from '@/i18n/i18n.config';
 
 const raleway = Raleway({
@@ -13,11 +15,60 @@ const raleway = Raleway({
   weight: ['400', '500', '700', '800', '900'],
 });
 
-export const metadata: Metadata = {
-  title: 'Simpatik Group | Надихати людей',
-  description:
-    'Здатність надихати інших - це та сила, що робить неможливе можливим і втілює мрії в життя.',
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: PageParams;
+}): Promise<Metadata> {
+  // read route params
+  const { lang } = (await params) as { lang: string };
+  const { description, title } =
+    staticValues.METADATA_DESCRIPTION[
+      lang as keyof typeof staticValues.METADATA_DESCRIPTION
+    ];
+  return {
+    title: {
+      template: '%s | Simpatik Group',
+      default: title,
+    },
+    description,
+    openGraph: {
+      title: {
+        template: '%s | Simpatik Group',
+        default: title,
+      },
+      description,
+      url: 'https://simpatik.group',
+      type: 'website',
+      images: [
+        {
+          url: 'https://simpatik.group/favicon/preview_banner.png',
+          width: 582,
+          height: 582,
+        },
+      ],
+    },
+    icons: {
+      icon: [
+        {
+          url: '/favicon/favicon-96x96.png',
+          sizes: '96x96',
+          type: 'image/png',
+        },
+        { url: '/favicon/favicon.svg', type: 'image/svg+xml' },
+        { url: '/favicon/favicon.ico', rel: 'shortcut icon' },
+      ],
+      apple: [{ url: '/favicon/apple-touch-icon.png', sizes: '180x180' }],
+      other: [{ rel: 'manifest', url: '/favicon/site.webmanifest' }],
+    },
+  };
+}
+
+// export const metadata: Metadata = {
+//   title: 'Simpatik Group',
+//   description:
+//     'Здатність надихати інших - це та сила, що робить неможливе можливим і втілює мрії в життя.',
+// };
 export function generateStaticParams() {
   return locales.map((locale) => ({ lang: locale }));
 }
@@ -36,7 +87,7 @@ const RootLayoutPage = async ({
   setRequestLocale(lang || routing.defaultLocale);
   return (
     <html lang={lang}>
-      <head>
+      {/* <head>
         <meta property='og:title' content='Simpatik Group' />
         <meta
           property='og:description'
@@ -66,7 +117,7 @@ const RootLayoutPage = async ({
         />
         <link rel='manifest' href='/favicon/site.webmanifest' />
         <link rel='icon' href='/favicon/favicon.svg' type='image/svg+xml' />
-      </head>
+      </head> */}
       <body className={`${raleway.className} `}>
         <NextIntlClientProvider locale={lang}>
           {children}
