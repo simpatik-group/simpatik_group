@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 
@@ -9,6 +10,26 @@ import { PageParams } from '@/interfaces/localozation';
 
 import { locales, routing } from '@/i18n/i18n.config';
 import requestService from '@/services/request.service';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: PageParams;
+}): Promise<Metadata> {
+  const { lang, slug } = (await params) as { lang: string; slug: string };
+  const messages = await requestService.getRequest({
+    localization: lang || routing.defaultLocale,
+    urls: ['CHARITY_INSTANCE'],
+    restQueryParams: `&filters[url][$eq]=${slug}`,
+  });
+
+  return {
+    title: messages.CHARITY_INSTANCE?.[0].title,
+    openGraph: {
+      title: messages.CHARITY_INSTANCE?.[0].title,
+    },
+  };
+}
 
 export async function generateStaticParams() {
   const allMessages = await Promise.all(
@@ -33,11 +54,9 @@ export async function generateStaticParams() {
 }
 
 export default async function LifePage({ params }: { params: PageParams }) {
-  // const locale = await getLocale();
-
   const { lang, slug } = (await params) as { lang: string; slug: string };
   setRequestLocale(lang || routing.defaultLocale);
-  // const searchParams = useSearchParams();
+
   const common = await requestService.getRequest({
     localization: lang || routing.defaultLocale,
     urls: ['COMMON'],
