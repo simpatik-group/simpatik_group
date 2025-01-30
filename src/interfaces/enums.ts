@@ -15,15 +15,15 @@ export enum EAPIRequest {
   CAREER,
   CONTACTS,
   LIFE,
-  LOCATIONS,
   ALL_NEWS,
   NEWS_INSTANCE,
+  LOCATIONS,
   CHARITY_PAGE,
   ALL_CHARITIES,
+  CHARITY_INSTANCE,
   TEAM,
   ABOUT_US,
   MESSAGE_US,
-  CHARITY_INSTANCE,
 }
 
 export type keyofEAPIRequest = keyof typeof EAPIRequest;

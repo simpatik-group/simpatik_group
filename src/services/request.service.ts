@@ -11,6 +11,7 @@ interface IAPIRequest {
   };
   localization?: string;
   pagination?: string;
+  restQueryParams?: string;
 }
 interface IGetRequest extends Omit<IAPIRequest, 'url'> {
   urls: (keyof IGetMessages)[];
@@ -29,10 +30,10 @@ class RequestService {
   private LOCATIONS = `/location?populate=*`;
   private CONTACTS = `/contact?populate=*`;
   private ALL_NEWS = `/posts?fields=title&fields=description&fields=date&fields=url&sort=date:desc&pagination[limit]=${staticValues.PAGINATION_VALUE}`;
-  private NEWS_INSTANCE = `{{server}}/api/posts?filters[url][$eq]=najkreativnishi-garbuzi-na-halloween-2024&populate=*&locale=uk`;
+  private NEWS_INSTANCE = `/posts?populate=*`;
   private CHARITY_PAGE = `/charity-page?populate=*`;
   private ALL_CHARITIES = `/charities?fields=title&fields=description&fields=date&fields=url&populate[cover][fields]=url&sort=date:desc&pagination[limit]=${staticValues.PAGINATION_VALUE}`;
-  private CHARITY_INSTANCE = `/charities?fields=title&fields=description&fields=date&fields=url&populate[cover][fields]=url`;
+  private CHARITY_INSTANCE = `/charities?populate=*`;
   private MESSAGE_US = `/messages`;
 
   private API = async ({
@@ -40,16 +41,16 @@ class RequestService {
     localization,
     options,
     pagination,
+    restQueryParams,
   }: IAPIRequest) => {
     if (!(url in this)) {
       console.log(`Invalid URL key: ${url}`);
       throw new Error(`Invalid URL key: ${url}`);
-      return false;
     }
 
     const requestUrl = `${process.env.NEXT_PUBLIC_DOMAIN}${this[url]}${
       localization ? `&locale=${localization}` : ''
-    }${pagination ? pagination : ''}`;
+    }${pagination ? pagination : ''}${restQueryParams ? restQueryParams : ''}`;
 
     const fetchOptions: RequestInit = {
       next: { revalidate: Number(process.env.REVALIDATING_TIME) },
@@ -70,7 +71,6 @@ class RequestService {
       throw new Error(
         `API Error: ${resp.status} ${resp.statusText}, url: ${requestUrl}`,
       );
-      return false;
     }
 
     const data = await resp.json();
@@ -85,6 +85,7 @@ class RequestService {
     urls,
     options,
     pagination,
+    restQueryParams,
   }: IGetRequest): Promise<IGetMessages> {
     const returnedMessages: IGetMessages = {};
 
@@ -95,6 +96,7 @@ class RequestService {
           localization,
           options,
           pagination,
+          restQueryParams,
         });
       }),
     );

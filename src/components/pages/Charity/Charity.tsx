@@ -1,5 +1,6 @@
 'use client';
 
+import { useLocale } from 'next-intl';
 import Image from 'next/image';
 
 import ButtonUI from '@/components/ui/ButtonUI/ButtonUI';
@@ -7,7 +8,7 @@ import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 import Heading from '@/components/ui/Heading/Heading';
 import LinkUI from '@/components/ui/LinkUI/LinkUI';
 
-import { EColor } from '@/interfaces/enums';
+import { EColor, keyofELocalization } from '@/interfaces/enums';
 import { INewsMessage } from '@/interfaces/news.localizatio';
 
 import { useMessages } from '@/hooks/useLocalization';
@@ -23,18 +24,20 @@ const Charity = () => {
   const charityPage = useMessages('CHARITY_PAGE');
   const { data: news } = useMessages('ALL_CHARITIES') as INewsMessage;
   const { meta } = useMessages('ALL_CHARITIES') as INewsMessage;
+  const locale = useLocale() as keyofELocalization;
 
   const { articlesList, paginationState, setArticlesList, setPaginationState } =
     usePagination<INewsMessage['data']>(news);
 
   const dateOption: Intl.DateTimeFormatOptions = {
     month: 'long',
+    day: 'numeric',
     year: 'numeric',
   };
 
   const loadMore = async () => {
     const articles = await requestService.getRequest({
-      localization: 'uk',
+      localization: locale,
       urls: ['ALL_NEWS'],
       pagination: `&pagination[start]=${paginationState}`,
     });
@@ -76,7 +79,7 @@ const Charity = () => {
                     )}
                     <div className={styles.news_text}>
                       <p className={styles.news_date}>
-                        {formatDate(item.date, dateOption) || item.date}
+                        {formatDate(item.date, dateOption, locale)}
                       </p>
                       <h5 className={styles.news_item_title}>{item.title}</h5>
                       <p className={styles.news_description}>

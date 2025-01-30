@@ -8,20 +8,23 @@ import { ILifeMessage } from './life.localization';
 import { ILocationsMessage } from './locations.localization';
 import { IMessageUs } from './messageUs.request';
 import { INewsMessage } from './news.localizatio';
+import { INewsInstantMessage } from './newsInstanse.localization';
 import { ITeamMessage } from './team.localization';
 
 export interface IGetMessages {
   COMMON?: ICommonMessage;
   HOME_PAGE?: IHomeMessage;
-  ABOUT_US?: IAboutUsMessage;
-  LIFE?: ILifeMessage;
-  TEAM?: ITeamMessage;
   CAREER?: ICareerMessage;
   CONTACTS?: IContactsMessage;
-  LOCATIONS?: ILocationsMessage;
+  LIFE?: ILifeMessage;
   ALL_NEWS?: INewsMessage;
+  NEWS_INSTANCE?: INewsInstantMessage;
+  LOCATIONS?: ILocationsMessage;
   CHARITY_PAGE?: ICharityMessage;
   ALL_CHARITIES?: INewsMessage;
+  CHARITY_INSTANCE?: INewsInstantMessage;
+  TEAM?: ITeamMessage;
+  ABOUT_US?: IAboutUsMessage;
 }
 
 export interface IPostData {
