@@ -34,7 +34,6 @@ const NewsPage = <Key extends 'CHARITY_INSTANCE' | 'NEWS_INSTANCE'>({
 }: NewsPageProps<Key>) => {
   const messages = useMessages(messageKey) as INewsInstantMessage;
   const newsMessage = messages[0];
-  console.log('🚀 ~ newsMessage:', newsMessage);
 
   const locale = useLocale() as keyofELocalization;
   const dateOption: Intl.DateTimeFormatOptions = {

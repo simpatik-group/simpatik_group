@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale } from 'next-intl/server';
@@ -26,11 +26,6 @@ const Page404: FC = async () => {
   return (
     <html lang='en'>
       <head>
-        <meta property='og:title' content='Simpatik Group' />
-        <meta
-          property='og:description'
-          content='Здатність надихати інших - це та сила, що робить неможливе можливим і втілює мрії в життя.'
-        />
         <meta
           property='og:image'
           content='https://simpatik.group/favicon/preview_banner.png'

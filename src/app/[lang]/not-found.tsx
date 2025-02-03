@@ -1,6 +1,5 @@
-import { FC } from 'react';
-
-import { Metadata } from 'next';
+import type { FC } from 'react';
+import type { Metadata } from 'next';
 import { getLocale } from 'next-intl/server';
 
 import MessagesProvider from '@/context/messages.context';

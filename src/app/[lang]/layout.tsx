@@ -38,37 +38,10 @@ export async function generateMetadata({
         default: title,
       },
       description,
-      url: 'https://simpatik.group',
-      type: 'website',
-      images: [
-        {
-          url: 'https://simpatik.group/favicon/preview_banner.png',
-          width: 582,
-          height: 582,
-        },
-      ],
-    },
-    icons: {
-      icon: [
-        {
-          url: '/favicon/favicon-96x96.png',
-          sizes: '96x96',
-          type: 'image/png',
-        },
-        { url: '/favicon/favicon.svg', type: 'image/svg+xml' },
-        { url: '/favicon/favicon.ico', rel: 'shortcut icon' },
-      ],
-      apple: [{ url: '/favicon/apple-touch-icon.png', sizes: '180x180' }],
-      other: [{ rel: 'manifest', url: '/favicon/site.webmanifest' }],
     },
   };
 }
 
-// export const metadata: Metadata = {
-//   title: 'Simpatik Group',
-//   description:
-//     'Здатність надихати інших - це та сила, що робить неможливе можливим і втілює мрії в життя.',
-// };
 export function generateStaticParams() {
   return locales.map((locale) => ({ lang: locale }));
 }
@@ -87,12 +60,7 @@ const RootLayoutPage = async ({
   setRequestLocale(lang || routing.defaultLocale);
   return (
     <html lang={lang}>
-      {/* <head>
-        <meta property='og:title' content='Simpatik Group' />
-        <meta
-          property='og:description'
-          content='Здатність надихати інших - це та сила, що робить неможливе можливим і втілює мрії в життя.'
-        />
+      <head>
         <meta
           property='og:image'
           content='https://simpatik.group/favicon/preview_banner.png'
@@ -117,12 +85,11 @@ const RootLayoutPage = async ({
         />
         <link rel='manifest' href='/favicon/site.webmanifest' />
         <link rel='icon' href='/favicon/favicon.svg' type='image/svg+xml' />
-      </head> */}
+      </head>
       <body className={`${raleway.className} `}>
         <NextIntlClientProvider locale={lang}>
           {children}
         </NextIntlClientProvider>
-        {/* <Suspense fallback={<Loader />}>{children}</Suspense> */}
       </body>
     </html>
   );
