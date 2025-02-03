@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale } from 'next-intl/server';
