@@ -1,5 +1,6 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 
+import { useLocale } from 'next-intl';
 import Image from 'next/image';
 
 import Header from '@/components/layouts/RootLayout/Header/Header';
@@ -8,6 +9,7 @@ import { EColor } from '@/interfaces/enums';
 
 import { useMessages } from '@/hooks/useLocalization';
 
+import { staticValues } from '@/helpers/staticValues';
 import { urlPaths } from '@/helpers/urlPath';
 
 import styles from './NotFoundComponent.module.scss';
@@ -15,6 +17,15 @@ import { Link } from '@/i18n/i18n.config';
 
 const NotFoundComponent: FC = () => {
   const commonContent = useMessages('COMMON');
+  const lang = useLocale();
+  const { page404 } =
+    staticValues.METADATA_DESCRIPTION[
+      lang as keyof typeof staticValues.METADATA_DESCRIPTION
+    ];
+
+  useEffect(() => {
+    document.title = page404 + ' | Simpatik Group';
+  }, []);
 
   return (
     <div className={styles.bg}>
