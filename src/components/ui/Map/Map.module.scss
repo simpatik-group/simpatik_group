@@ -1,0 +1,12 @@
+.wrapper {
+  @apply h-[37.5vh] relative z-0;
+  & > div {
+    @apply bg-[#262626];
+  }
+}
+
+@include customMedia(992px) {
+  .wrapper {
+    @apply h-[650px];
+  }
+}

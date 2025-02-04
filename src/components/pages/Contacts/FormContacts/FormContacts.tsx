@@ -103,7 +103,7 @@ const FormContacts: FC = () => {
         modalContent={modalContent}
         toggleActive={() => setModalActive(!modalActive)}
       />
-      {isSubmitting && <Loader transparent />}
+      {isSubmitting && <Loader fullScreen transparent />}
       <ContainerUI className={styles.container} id={urlPaths.CONTACT_FORM}>
         <Heading
           className={styles.title}
