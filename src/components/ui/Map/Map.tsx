@@ -18,7 +18,7 @@ const Map: FC = () => {
 
   const mapMarker = new Icon({
     iconUrl: '/img/logoOnly.svg',
-    iconSize: [39, 38],
+    iconSize: [31, 30],
   });
 
   return (
