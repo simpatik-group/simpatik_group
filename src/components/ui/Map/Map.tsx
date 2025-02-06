@@ -17,7 +17,7 @@ const Map: FC = () => {
     useState<LatLngExpression>(initialCenter);
 
   const mapMarker = new Icon({
-    iconUrl: '/favicon/favicon.svg',
+    iconUrl: '/img/logoOnly.svg',
     iconSize: [39, 38],
   });
 
