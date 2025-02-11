@@ -23,6 +23,7 @@ const LifeScreenLifePage: FC = () => {
           title={lifePage?.hero_title || ''}
           shadowTitle={lifePage?.hero_title_shadow}
           textColor={EColor.white}
+          withTyping
         />
         <p className={styles.description}>
           <Breaks description={lifePage?.hero_text || ''} />

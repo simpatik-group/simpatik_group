@@ -1,12 +1,16 @@
 'use client';
 
-import HeroSectionAboutUs from "./HeroSectionAboutUs/HeroSectionAboutUs";
-import SectionsAboutUs from "./SectionsAboutUs/SectionsAboutUs";
+import AnimateLayout from '@/components/layouts/AnimateLayout/AnimateLayout';
+
+import HeroSectionAboutUs from './HeroSectionAboutUs/HeroSectionAboutUs';
+import SectionsAboutUs from './SectionsAboutUs/SectionsAboutUs';
 
 const AboutUs = () => {
   return (
     <>
-      <HeroSectionAboutUs />
+      <AnimateLayout>
+        <HeroSectionAboutUs />
+      </AnimateLayout>
       <SectionsAboutUs />
     </>
   );

@@ -3,6 +3,7 @@
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
 
+import AnimateLayout from '@/components/layouts/AnimateLayout/AnimateLayout';
 import ButtonUI from '@/components/ui/ButtonUI/ButtonUI';
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 import Heading from '@/components/ui/Heading/Heading';
@@ -57,59 +58,62 @@ const Charity = () => {
             title={charityPage?.hero_title || ''}
             shadowTitle={charityPage?.hero_title_shadow}
             textColor={EColor.white}
+            withTyping
           />
         </ContainerUI>
       </section>
-      <section className='pageSection'>
-        <ContainerUI>
-          <div className={styles.news_wrap}>
-            {articlesList &&
-              articlesList.map((item) => {
-                return (
-                  <div key={item.id} className={styles.news_item}>
-                    {item.cover && (
-                      <div className={styles.news_img}>
-                        <Image
-                          src={item.cover.url}
-                          alt={item.title}
-                          sizes='(min-width: 768px) 33vw, 100vw'
-                          fill
-                        />
+      <AnimateLayout>
+        <section className='pageSection'>
+          <ContainerUI>
+            <div className={styles.news_wrap}>
+              {articlesList &&
+                articlesList.map((item) => {
+                  return (
+                    <div key={item.id} className={styles.news_item}>
+                      {item.cover && (
+                        <div className={styles.news_img}>
+                          <Image
+                            src={item.cover.url}
+                            alt={item.title}
+                            sizes='(min-width: 768px) 33vw, 100vw'
+                            fill
+                          />
+                        </div>
+                      )}
+                      <div className={styles.news_text}>
+                        <p className={styles.news_date}>
+                          {formatDate(item.date, dateOption, locale)}
+                        </p>
+                        <h5 className={styles.news_item_title}>{item.title}</h5>
+                        <p className={styles.news_description}>
+                          {item.description}
+                        </p>
+                        <LinkUI
+                          href={item.url}
+                          themeColor={EColor.white}
+                          className={styles.news_btn}
+                        >
+                          <ButtonUI design='transparent'>
+                            {charityPage?.readmore_button}
+                          </ButtonUI>
+                        </LinkUI>
                       </div>
-                    )}
-                    <div className={styles.news_text}>
-                      <p className={styles.news_date}>
-                        {formatDate(item.date, dateOption, locale)}
-                      </p>
-                      <h5 className={styles.news_item_title}>{item.title}</h5>
-                      <p className={styles.news_description}>
-                        {item.description}
-                      </p>
-                      <LinkUI
-                        href={item.url}
-                        themeColor={EColor.white}
-                        className={styles.news_btn}
-                      >
-                        <ButtonUI design='transparent'>
-                          {charityPage?.readmore_button}
-                        </ButtonUI>
-                      </LinkUI>
                     </div>
-                  </div>
-                );
-              })}
-          </div>
-          {paginationState < meta.pagination.total && (
-            <ButtonUI
-              className={styles.more_news_btn}
-              design='solid'
-              onClick={loadMore}
-            >
-              {charityPage?.loadmore_button}
-            </ButtonUI>
-          )}
-        </ContainerUI>
-      </section>
+                  );
+                })}
+            </div>
+            {paginationState < meta.pagination.total && (
+              <ButtonUI
+                className={styles.more_news_btn}
+                design='solid'
+                onClick={loadMore}
+              >
+                {charityPage?.loadmore_button}
+              </ButtonUI>
+            )}
+          </ContainerUI>
+        </section>
+      </AnimateLayout>
     </>
   );
 };

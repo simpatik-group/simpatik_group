@@ -52,6 +52,7 @@ const TeamScreenTeamPage: FC = () => {
           title={teamPage?.hero_title || ''}
           shadowTitle={teamPage?.hero_title_shadow}
           textColor={EColor.dark}
+          withTyping
         />
         <p className={styles.description}>
           <Breaks description={teamPage?.hero_text || ''} />

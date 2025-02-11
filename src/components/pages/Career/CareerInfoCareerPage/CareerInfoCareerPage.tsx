@@ -24,6 +24,7 @@ const CareerInfoCareerPage: FC = () => {
             title={careerPage?.hero_title || ''}
             shadowTitle={careerPage?.hero_title_shadow}
             textColor={EColor.dark}
+            withTyping
           />
           <p className={styles.description}>
             <Breaks description={careerPage?.hero_text || ''} boldParagraphs />

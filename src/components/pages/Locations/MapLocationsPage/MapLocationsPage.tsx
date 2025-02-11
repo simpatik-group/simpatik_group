@@ -31,6 +31,7 @@ const MapLocationsPage: FC = () => {
             title={locationsPage?.title || ''}
             shadowTitle={locationsPage?.title_shadow}
             textColor={EColor.white}
+            withTyping
           />
         </ContainerUI>
       </ParticlesLayout>

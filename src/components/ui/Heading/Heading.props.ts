@@ -12,4 +12,5 @@ export interface IHeadingProps
   title?: string;
   shadowTitle?: string;
   textColor: EColor;
+  withTyping?: boolean;
 }

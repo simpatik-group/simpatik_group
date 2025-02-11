@@ -7,6 +7,7 @@ import clsx from 'clsx';
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
 
+import AnimateLayout from '@/components/layouts/AnimateLayout/AnimateLayout';
 import SliderUI from '@/components/ui/SliderUI/SliderUI';
 
 import { EColor, keyofELocalization } from '@/interfaces/enums';
@@ -95,6 +96,7 @@ const NewsPage = <Key extends 'CHARITY_INSTANCE' | 'NEWS_INSTANCE'>({
             heading='h3'
             title={newsMessage.title || ''}
             textColor={EColor.white}
+            withTyping
           />
           <p className={styles.news_date}>
             {formatDate(newsMessage.date, dateOption, locale)}
@@ -111,43 +113,50 @@ const NewsPage = <Key extends 'CHARITY_INSTANCE' | 'NEWS_INSTANCE'>({
           </div>
         )}
       </section>
-      <section className='pageSection pt-4 md:pt-12'>
-        <ContainerUI withoutGridSystem className='md:grid-cols-1'>
-          {newsMessage.content.map((item, i) => (
-            <RichTextParser key={i} node={item} />
-          ))}
-        </ContainerUI>
-      </section>
-      {newsMessage.photos && (
-        <section className='pageSection'>
+      <AnimateLayout>
+        <section className='pageSection pt-4 md:pt-12'>
           <ContainerUI withoutGridSystem className='md:grid-cols-1'>
-            <Heading
-              heading='h3'
-              title={newsMessage.photos_title}
-              shadowTitle={newsMessage.photos_title_shadow}
-              textColor={EColor.dark}
-              className={clsx(styles.title, '!text-left')}
-            />
-            <SliderUI className={styles.slider} settingsProps={sliderSettings}>
-              {newsMessage.photos.map((photo) => (
-                <div
-                  className={styles.slide}
-                  key={photo.id}
-                  style={{ width: 400 }}
-                >
-                  <div>
-                    <Image
-                      src={photo.url}
-                      alt={'photo ' + photo.id}
-                      fill
-                      sizes='(min-width: 768px) 33vw, 100vw'
-                    />
-                  </div>
-                </div>
-              ))}
-            </SliderUI>
+            {newsMessage.content.map((item, i) => (
+              <RichTextParser key={i} node={item} />
+            ))}
           </ContainerUI>
         </section>
+      </AnimateLayout>
+      {newsMessage.photos && (
+        <AnimateLayout>
+          <section className='pageSection'>
+            <ContainerUI withoutGridSystem className='md:grid-cols-1'>
+              <Heading
+                heading='h3'
+                title={newsMessage.photos_title}
+                shadowTitle={newsMessage.photos_title_shadow}
+                textColor={EColor.dark}
+                className={clsx(styles.title, '!text-left')}
+              />
+              <SliderUI
+                className={styles.slider}
+                settingsProps={sliderSettings}
+              >
+                {newsMessage.photos.map((photo) => (
+                  <div
+                    className={styles.slide}
+                    key={photo.id}
+                    style={{ width: 400 }}
+                  >
+                    <div>
+                      <Image
+                        src={photo.url}
+                        alt={'photo ' + photo.id}
+                        fill
+                        sizes='(min-width: 768px) 33vw, 100vw'
+                      />
+                    </div>
+                  </div>
+                ))}
+              </SliderUI>
+            </ContainerUI>
+          </section>
+        </AnimateLayout>
       )}
     </>
   );

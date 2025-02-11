@@ -9,7 +9,7 @@
   }
 }
 .language {
-  @apply interaction p-2 first:border-r;
+  @apply interaction p-2 select-none first:border-r;
   &.active {
     @apply text-orange-400;
   }

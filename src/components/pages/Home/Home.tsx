@@ -2,6 +2,7 @@
 
 import { FC } from 'react';
 
+import AnimateLayout from '@/components/layouts/AnimateLayout/AnimateLayout';
 import FAQ from '@/components/ui/FAQ/FAQ';
 
 import CharityHomePage from './CharityHomePage/CharityHomePage';
@@ -15,16 +16,32 @@ import PartnersHomePage from './PartnersHomePage/PartnersHomePage';
 const Home: FC = () => {
   return (
     <>
-      <InspireHomePage />
-      <LocationsHomePage />
-      <HistoryHomePage />
-      <NumbersHomePage />
-      <CharityHomePage />
+      <AnimateLayout>
+        <InspireHomePage />
+      </AnimateLayout>
+      <AnimateLayout>
+        <LocationsHomePage />
+      </AnimateLayout>
+      <AnimateLayout>
+        <HistoryHomePage />
+      </AnimateLayout>
+      <AnimateLayout>
+        <NumbersHomePage />
+      </AnimateLayout>
+      <AnimateLayout>
+        <CharityHomePage />
+      </AnimateLayout>
       <section className='pageSection'>
-        <PartnersHomePage />
-        <FeedbacksHomePage />
+        <AnimateLayout>
+          <PartnersHomePage />
+        </AnimateLayout>
+        <AnimateLayout>
+          <FeedbacksHomePage />
+        </AnimateLayout>
       </section>
-      <FAQ />
+      <AnimateLayout>
+        <FAQ />
+      </AnimateLayout>
     </>
   );
 };

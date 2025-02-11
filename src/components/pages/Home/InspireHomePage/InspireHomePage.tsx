@@ -3,6 +3,7 @@ import { FC } from 'react';
 import Image from 'next/image';
 
 import ParticlesLayout from '@/components/layouts/ParticlesLayout/ParticlesLayout';
+import AnimateTyping from '@/components/ui/AnimateTyping/AnimateTyping';
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 import Heading from '@/components/ui/Heading/Heading';
 import ParticleImageComponent from '@/components/ui/ParticleImageComponent/ParticleImageComponent';
@@ -26,9 +27,16 @@ const Inspire: FC = () => {
             heading='h1'
             title={homePage?.hero_title || ''}
             textColor={EColor.white}
+            withTyping
           />
           <div className={styles.textWrap}>
-            <p className='uppercase h6'>{homePage?.hero_text}</p>
+            <p className='uppercase h6'>
+              <AnimateTyping
+                delay={4}
+                text={homePage?.hero_text || ''}
+                textColor={EColor.white}
+              />
+            </p>
             <Image
               src='/img/pointer-icon.svg'
               alt='pointer'
