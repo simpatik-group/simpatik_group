@@ -4,6 +4,8 @@ import clsx from 'clsx';
 
 import { EColor } from '@/interfaces/enums';
 
+import AnimateTyping from '../AnimateTyping/AnimateTyping';
+
 import styles from './Heading.module.scss';
 import { IHeadingProps } from './Heading.props';
 
@@ -14,6 +16,7 @@ const Heading: FC<IHeadingProps> = ({
   shadowTitle,
   children,
   className,
+  withTyping,
   ...props
 }) => {
   return (
@@ -30,7 +33,16 @@ const Heading: FC<IHeadingProps> = ({
           className: styles.heading,
           ...props,
         },
-        title || children,
+        withTyping ? (
+          <AnimateTyping
+            delay={1}
+            text={title || ''}
+            duration={2}
+            textColor={textColor}
+          />
+        ) : (
+          title || children
+        ),
       )}
       {shadowTitle && <span className={styles.shadowTitle}>{shadowTitle}</span>}
     </div>

@@ -1,13 +1,7 @@
 import { FC, useEffect, useRef, useState } from 'react';
 
 import clsx from 'clsx';
-import {
-  animate,
-  motion,
-  useAnimationControls,
-  useInView,
-  useMotionValue,
-} from 'motion/react';
+import { animate, m, useInView, useMotionValue } from 'motion/react';
 
 import styles from './NumberCounter.module.scss';
 import { INumberCounterProps } from './NumberCounter.props';
@@ -19,7 +13,6 @@ const NumberCounter: FC<INumberCounterProps> = ({
   className,
   children,
 }) => {
-  const controls = useAnimationControls();
   const count = useMotionValue(from);
   const [displayCount, setDisplayCount] = useState(from);
   const ref = useRef(null);
@@ -43,7 +36,7 @@ const NumberCounter: FC<INumberCounterProps> = ({
 
   return (
     <div ref={ref} className={clsx(className)}>
-      <motion.span className={styles.number}>{displayCount}</motion.span>
+      <m.span className={styles.number}>{displayCount}</m.span>
       {suffix && <span className={styles.suffix}>{suffix}</span>}
       <p className={styles.text}>{children}</p>
     </div>

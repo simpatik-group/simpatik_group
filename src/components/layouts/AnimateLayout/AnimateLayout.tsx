@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 
 import { m } from 'motion/react';
 
@@ -9,13 +9,15 @@ const AnimateLayout: FC<IAnimateLayout> = ({
   children,
   ...props
 }) => {
+  const [animate, setAnimate] = useState(false);
   return (
     <m.section
       initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
+      animate={animate ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      viewport={{ once: true, amount: 0 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
       className={className}
+      onViewportEnter={() => setAnimate(true)}
       {...props}
     >
       {children}
