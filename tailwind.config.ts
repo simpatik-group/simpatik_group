@@ -130,57 +130,72 @@ const config = {
       addComponents({
         '.h1': {
           fontSize: '40px',
+          minHeight: '48px',
           fontWeight: '900',
           lineHeight: '1.2',
           '@media (min-width: 992px)': {
             fontSize: '64px',
+            minHeight: '77px',
           },
           '@media (min-width: 1322px)': {
             fontSize: '96px',
+            minHeight: '116px',
           },
         },
         '.h2': {
           fontSize: '32px',
           fontWeight: '900',
           lineHeight: '1.2',
+          minHeight: '39px',
           '@media (min-width: 992px)': {
             fontSize: '48px',
+            minHeight: '58px',
           },
           '@media (min-width: 1322px)': {
             fontSize: '64px',
+            minHeight: '77px',
           },
         },
         '.h3': {
           fontSize: '24px',
           fontWeight: '900',
           lineHeight: '1.2',
+          minHeight: '29px',
           '@media (min-width: 992px)': {
             fontSize: '36px',
+            minHeight: '44px',
           },
           '@media (min-width: 1322px)': {
             fontSize: '48px',
+            minHeight: '58px',
           },
         },
         '.h4': {
           fontSize: '20px',
           fontWeight: '900',
           lineHeight: '1.3',
+          minHeight: '26px',
           '@media (min-width: 992px)': {
             fontSize: '28px',
+            minHeight: '37px',
           },
           '@media (min-width: 1322px)': {
             fontSize: '36px',
+            minHeight: '47px',
           },
         },
         '.h5': {
           fontSize: '18px',
           fontWeight: '800',
           lineHeight: '1.3',
+          minHeight: '24px',
           '@media (min-width: 992px)': {
             fontSize: '20px',
+            minHeight: '26px',
           },
           '@media (min-width: 1322px)': {
             fontSize: '24px',
+            minHeight: '32px',
           },
         },
         '.h6': {

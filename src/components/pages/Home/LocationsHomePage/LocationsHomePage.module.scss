@@ -16,7 +16,7 @@
     @apply col-span-7;
   }
   .allLocations {
-    @apply col-span-4 row-start-1 col-start-9;
+    @apply col-span-4 row-start-1 col-start-9 justify-self-end pr-6;
   }
   .list {
     @apply col-span-full grid grid-cols-2;
