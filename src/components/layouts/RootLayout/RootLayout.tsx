@@ -2,6 +2,8 @@
 
 import { FC, ReactNode, useEffect } from 'react';
 
+import { LazyMotion, domAnimation } from 'motion/react';
+
 import MessagesProvider, { IMessagesContext } from '@/context/messages.context';
 
 import type { EColor } from '@/interfaces/enums';
@@ -37,11 +39,13 @@ const RootLayout: FC<IRootLayout> = ({
 
   return (
     <MessagesProvider messages={messages}>
-      <div className='overflow-clip'>
-        <Header themeColor={themeColor} />
-        <main>{children}</main>
-        <Footer />
-      </div>
+      <LazyMotion features={domAnimation}>
+        <div className='overflow-clip'>
+          <Header themeColor={themeColor} />
+          <main>{children}</main>
+          <Footer />
+        </div>
+      </LazyMotion>
     </MessagesProvider>
   );
 };

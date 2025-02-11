@@ -1,5 +1,7 @@
 import { FC } from 'react';
 
+import { motion } from 'motion/react';
+
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 import Heading from '@/components/ui/Heading/Heading';
 import NumberCounter from '@/components/ui/NumberCounter/NumberCounter';
@@ -24,7 +26,13 @@ const NumbersHomePage: FC<IDivProps> = () => {
           shadowTitle={homePage?.numbers_title_shadow}
           textColor={EColor.dark}
         />
-        <div className={styles.numbers}>
+        <motion.div
+          className={styles.numbers}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8 }}
+        >
           {homePage?.numbers.map((number) => {
             return (
               <NumberCounter
@@ -36,7 +44,7 @@ const NumbersHomePage: FC<IDivProps> = () => {
               </NumberCounter>
             );
           })}
-        </div>
+        </motion.div>
       </ContainerUI>
     </section>
   );
