@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+
 import type { Metadata } from 'next';
 import { getLocale } from 'next-intl/server';
 

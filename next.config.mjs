@@ -6,9 +6,9 @@ import path from 'path';
 const withNextIntl = createNextIntlPlugin();
 
 const nextConfig = {
-  compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
-  },
+  // compiler: {
+  //   removeConsole: process.env.NODE_ENV === 'production',
+  // },
   images: {
     remotePatterns: [
       {

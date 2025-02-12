@@ -22,24 +22,28 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   // read route params
   const { lang } = (await params) as { lang: string };
-  const { description, title } =
-    staticValues.METADATA_DESCRIPTION[
-      lang as keyof typeof staticValues.METADATA_DESCRIPTION
-    ];
-  return {
-    title: {
-      template: '%s | Simpatik Group',
-      default: title,
-    },
-    description,
-    openGraph: {
+  if (locales.some((locale) => locale.includes(lang))) {
+    const { description, title } =
+      staticValues.METADATA_DESCRIPTION[
+        lang as keyof typeof staticValues.METADATA_DESCRIPTION
+      ];
+    return {
       title: {
         template: '%s | Simpatik Group',
         default: title,
       },
       description,
-    },
-  };
+      openGraph: {
+        title: {
+          template: '%s | Simpatik Group',
+          default: title,
+        },
+        description,
+      },
+    };
+  } else {
+    return {};
+  }
 }
 
 export function generateStaticParams() {
