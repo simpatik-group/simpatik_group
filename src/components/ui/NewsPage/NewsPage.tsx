@@ -37,7 +37,11 @@ const NewsPage = <Key extends 'CHARITY_INSTANCE' | 'NEWS_INSTANCE'>({
   const newsMessage = messages[0];
 
   let videoUrl: string | undefined;
-  if (newsMessage?.video_url.includes('youtu.be')) {
+  if (
+    newsMessage &&
+    newsMessage.video_url &&
+    newsMessage.video_url.includes('youtu.be')
+  ) {
     videoUrl = new URL(newsMessage.video_url).pathname;
   }
 
