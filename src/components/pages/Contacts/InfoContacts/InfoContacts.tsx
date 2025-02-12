@@ -30,7 +30,6 @@ const InfoContacts: FC = () => {
           title={contactsPage?.title || ''}
           shadowTitle={contactsPage?.title_shadow}
           textColor={EColor.white}
-          withTyping
         />
         <ul className={styles.contactsList}>
           <ListComponent

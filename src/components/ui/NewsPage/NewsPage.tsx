@@ -101,7 +101,6 @@ const NewsPage = <Key extends 'CHARITY_INSTANCE' | 'NEWS_INSTANCE'>({
             heading='h3'
             title={newsMessage.title || ''}
             textColor={EColor.white}
-            withTyping
           />
           <p className={styles.news_date}>
             {formatDate(newsMessage.date, dateOption, locale)}

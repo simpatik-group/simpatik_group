@@ -24,7 +24,6 @@ const HeroSectionAboutUs: FC = () => {
             title={aboutUsPage?.hero_title || ''}
             shadowTitle={aboutUsPage?.hero_title_shadow}
             textColor={EColor.white}
-            withTyping
           />
         </ContainerUI>
       </ParticlesLayout>
