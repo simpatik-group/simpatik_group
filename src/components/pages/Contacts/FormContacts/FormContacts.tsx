@@ -111,6 +111,7 @@ const FormContacts: FC = () => {
           title={contactsPage?.form_title || ''}
           shadowTitle={contactsPage?.form_title_shadow}
           textColor={EColor.dark}
+          withTyping
         />
         <form
           noValidate
