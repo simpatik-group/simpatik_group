@@ -10,6 +10,9 @@
 .news_date {
   @apply h6 text-grey-400 my-2;
 }
+.video {
+  @apply aspect-[1/0.564] w-dvw h-auto -ml-4;
+}
 .slider {
   @apply mb-16;
   :global(.slick-track) {
@@ -29,6 +32,9 @@
     img {
       @apply object-contain;
     }
+  }
+  .video {
+    @apply col-span-12 w-full ml-0;
   }
   .slider {
     @apply mt-16 mb-0;

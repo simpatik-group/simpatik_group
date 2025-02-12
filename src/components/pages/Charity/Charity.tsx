@@ -58,7 +58,6 @@ const Charity = () => {
             title={charityPage?.hero_title || ''}
             shadowTitle={charityPage?.hero_title_shadow}
             textColor={EColor.white}
-            withTyping
           />
         </ContainerUI>
       </section>
