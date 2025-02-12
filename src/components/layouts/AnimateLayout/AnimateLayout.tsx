@@ -11,7 +11,7 @@ const AnimateLayout: FC<IAnimateLayout> = ({
 }) => {
   const [animate, setAnimate] = useState(false);
   return (
-    <m.section
+    <m.div
       initial={{ opacity: 0, y: 50 }}
       animate={animate ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       viewport={{ once: true, amount: 0 }}
@@ -21,7 +21,7 @@ const AnimateLayout: FC<IAnimateLayout> = ({
       {...props}
     >
       {children}
-    </m.section>
+    </m.div>
   );
 };
 export default AnimateLayout;

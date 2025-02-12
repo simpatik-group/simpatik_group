@@ -67,7 +67,6 @@ const config = {
         pointer: {
           '0%': {
             transform: 'translateY(-150%)',
-            // opacity: '0.1',
           },
           '100%': {
             transform: 'translateY(0)',

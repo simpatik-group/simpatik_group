@@ -36,6 +36,11 @@ const NewsPage = <Key extends 'CHARITY_INSTANCE' | 'NEWS_INSTANCE'>({
   const messages = useMessages(messageKey) as INewsInstantMessage;
   const newsMessage = messages[0];
 
+  let videoUrl: string | undefined;
+  if (newsMessage?.video_url.includes('youtu.be')) {
+    videoUrl = new URL(newsMessage.video_url).pathname;
+  }
+
   const locale = useLocale() as keyofELocalization;
   const dateOption: Intl.DateTimeFormatOptions = {
     month: 'long',
@@ -122,6 +127,21 @@ const NewsPage = <Key extends 'CHARITY_INSTANCE' | 'NEWS_INSTANCE'>({
           </ContainerUI>
         </section>
       </AnimateLayout>
+      {videoUrl && (
+        <AnimateLayout>
+          <ContainerUI>
+            <iframe
+              id='ytplayer'
+              width='720'
+              height='405'
+              src={`https://www.youtube-nocookie.com/embed/${videoUrl}?color=white&showinfo=0&rel=0&modestbranding=0`}
+              frameBorder='0'
+              allowFullScreen
+              className={styles.video}
+            />
+          </ContainerUI>
+        </AnimateLayout>
+      )}
       {newsMessage.photos && (
         <AnimateLayout>
           <section className='pageSection'>

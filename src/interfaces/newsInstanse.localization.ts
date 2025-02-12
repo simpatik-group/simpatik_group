@@ -8,6 +8,7 @@ interface Root {
   locale: string;
   photos_title_shadow: string;
   url: string;
+  video_url: string;
   date: string;
   description: string;
   cover?: Photo;
