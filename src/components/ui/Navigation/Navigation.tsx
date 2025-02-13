@@ -3,8 +3,6 @@
 import { FC } from 'react';
 
 import clsx from 'clsx';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
 import { EColor } from '@/interfaces/enums';
 
@@ -12,11 +10,12 @@ import { useMessages } from '@/hooks/useLocalization';
 
 import styles from './Navigation.module.scss';
 import { INavigationProps } from './Navigation.props';
+import { Link, usePathname } from '@/i18n/i18n.config';
 
 const Navigation: FC<INavigationProps> = ({ themeColor, className }) => {
   const commonContent = useMessages('COMMON');
 
-  const pathname = usePathname().split('/')[1];
+  const pathname = usePathname().split('/').at(-2);
 
   return (
     <nav

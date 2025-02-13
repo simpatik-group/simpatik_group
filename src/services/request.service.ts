@@ -1,5 +1,7 @@
-import { keyofEAPIRequest, keyofELocalization } from '@/interfaces/enums';
+import { keyofEAPIRequest } from '@/interfaces/enums';
 import { IGetMessages, IPostData } from '@/interfaces/request.request';
+
+import { staticValues } from '@/helpers/staticValues';
 
 interface IAPIRequest {
   url: keyofEAPIRequest;
@@ -7,7 +9,9 @@ interface IAPIRequest {
     body: IPostData[keyof IPostData];
     method?: string;
   };
-  localization?: keyofELocalization;
+  localization?: string;
+  pagination?: string;
+  restQueryParams?: string;
 }
 interface IGetRequest extends Omit<IAPIRequest, 'url'> {
   urls: (keyof IGetMessages)[];
@@ -25,21 +29,34 @@ class RequestService {
   private CAREER = `/career?populate=*`;
   private LOCATIONS = `/location?populate=*`;
   private CONTACTS = `/contact?populate=*`;
-  private NEWS = `/posts?filters[type][$eq]=news&populate=*`;
-  private CHARITIES = `/posts?filters[type][$eq]=charity&populate=*`;
+  private ALL_NEWS = `/posts?fields=title&fields=description&fields=date&fields=url&sort=date:desc&pagination[limit]=${staticValues.PAGINATION_VALUE}`;
+  private NEWS_INSTANCE = `/posts?populate=*`;
+  private CHARITY_PAGE = `/charity-page?populate=*`;
+  private ALL_CHARITIES = `/charities?fields=title&fields=description&fields=date&fields=url&populate[cover][fields]=url&sort=date:desc&pagination[limit]=${staticValues.PAGINATION_VALUE}`;
+  private CHARITY_INSTANCE = `/charities?populate=*`;
   private MESSAGE_US = `/messages`;
 
-  private API = async ({ url, localization, options }: IAPIRequest) => {
+  private API = async ({
+    url,
+    localization,
+    options,
+    pagination,
+    restQueryParams,
+  }: IAPIRequest) => {
     if (!(url in this)) {
+      console.log(`Invalid URL key: ${url}`);
       throw new Error(`Invalid URL key: ${url}`);
     }
 
-    const requestUrl = `${process.env.NEXT_PUBLIC_DOMAIN}${this[url]}${localization ? `&locale=${localization}` : ''}`;
+    const requestUrl = `${process.env.NEXT_PUBLIC_DOMAIN}${this[url]}${
+      localization ? `&locale=${localization}` : ''
+    }${pagination ? pagination : ''}${restQueryParams ? restQueryParams : ''}`;
 
     const fetchOptions: RequestInit = {
       next: { revalidate: Number(process.env.REVALIDATING_TIME) },
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_BEARER_TOKEN}`,
       },
     };
     if (options?.method) fetchOptions.method = options.method;
@@ -48,12 +65,18 @@ class RequestService {
 
     const resp = await fetch(requestUrl, fetchOptions);
     if (!resp.ok) {
+      console.log(
+        `API Error: ${resp.status} ${resp.statusText}, url: ${requestUrl}`,
+      );
       throw new Error(
         `API Error: ${resp.status} ${resp.statusText}, url: ${requestUrl}`,
       );
     }
 
     const data = await resp.json();
+
+    if (pagination) return data;
+
     return data.data;
   };
 
@@ -61,6 +84,8 @@ class RequestService {
     localization,
     urls,
     options,
+    pagination,
+    restQueryParams,
   }: IGetRequest): Promise<IGetMessages> {
     const returnedMessages: IGetMessages = {};
 
@@ -70,6 +95,8 @@ class RequestService {
           url,
           localization,
           options,
+          pagination,
+          restQueryParams,
         });
       }),
     );

@@ -2,7 +2,7 @@
   @apply h2;
 }
 .form {
-  @apply bg-white-500 -mx-4 px-4 pt-6 pb-10;
+  @apply bg-white-500 -mx-4 pt-6 pb-10;
 }
 .group {
   @apply grid gap-4;
@@ -23,7 +23,7 @@
 }
 @include customMedia(1322px) {
   .form {
-    @apply px-0 justify-center;
+    @apply px-0 justify-center mb-16;
   }
   .group {
     @apply col-span-4;

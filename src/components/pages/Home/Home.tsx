@@ -1,9 +1,8 @@
 'use client';
 
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
-import { MessagesContext } from '@/context/messages.context';
-
+import AnimateLayout from '@/components/layouts/AnimateLayout/AnimateLayout';
 import FAQ from '@/components/ui/FAQ/FAQ';
 
 import CharityHomePage from './CharityHomePage/CharityHomePage';
@@ -15,21 +14,34 @@ import NumbersHomePage from './NumbersHomePage/NumbersHomePage';
 import PartnersHomePage from './PartnersHomePage/PartnersHomePage';
 
 const Home: FC = () => {
-  const context = useContext(MessagesContext);
-  console.log('🚀 ~ context:', context);
-
   return (
     <>
-      <InspireHomePage />
-      <LocationsHomePage />
-      <HistoryHomePage />
-      <NumbersHomePage />
-      <CharityHomePage />
+      <AnimateLayout>
+        <InspireHomePage />
+      </AnimateLayout>
+      <AnimateLayout>
+        <LocationsHomePage />
+      </AnimateLayout>
+      <AnimateLayout>
+        <HistoryHomePage />
+      </AnimateLayout>
+      <AnimateLayout>
+        <NumbersHomePage />
+      </AnimateLayout>
+      <AnimateLayout>
+        <CharityHomePage />
+      </AnimateLayout>
       <section className='pageSection'>
-        <PartnersHomePage />
-        <FeedbacksHomePage />
+        <AnimateLayout>
+          <PartnersHomePage />
+        </AnimateLayout>
+        <AnimateLayout>
+          <FeedbacksHomePage />
+        </AnimateLayout>
       </section>
-      <FAQ />
+      <AnimateLayout>
+        <FAQ />
+      </AnimateLayout>
     </>
   );
 };

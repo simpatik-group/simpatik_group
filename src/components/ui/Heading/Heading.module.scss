@@ -14,7 +14,7 @@
   }
 }
 .shadowTitle {
-  @apply h1 uppercase absolute left-6 top-[calc(100%-14px)] -z-10;
+  @apply h1 uppercase absolute left-6 top-[calc(100%-18px)] -z-10;
 }
 @include customMedia(992px) {
   .headingWrap {
@@ -27,5 +27,8 @@
 @include customMedia(1322px) {
   .headingWrap {
     @apply mb-[7.5rem];
+  }
+  .shadowTitle {
+    @apply top-[calc(100%-38px)];
   }
 }

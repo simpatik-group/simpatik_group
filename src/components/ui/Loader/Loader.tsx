@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import styles from './Loader.module.scss';
 import { ILoaderProps } from './Loader.props';
 
-const Loader: FC<ILoaderProps> = ({ transparent }) => {
+const Loader: FC<ILoaderProps> = ({ transparent, fullScreen }) => {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => {
@@ -16,7 +16,13 @@ const Loader: FC<ILoaderProps> = ({ transparent }) => {
   }, []);
 
   return (
-    <div className={clsx(styles.wrap, transparent && styles.transparent)}>
+    <div
+      className={clsx(
+        styles.wrap,
+        transparent && styles.transparent,
+        fullScreen && styles.fullScreen,
+      )}
+    >
       <span className={styles.loaderElement}></span>
     </div>
   );

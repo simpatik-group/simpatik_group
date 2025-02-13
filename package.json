@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -13,28 +13,37 @@
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.7.1",
     "clsx": "^2.1.1",
-    "next": "^14.2.6",
-    "react": "^18",
-    "react-dom": "^18",
+    "motion": "^12.3.1",
+    "next": "15.1.4",
+    "next-intl": "^3.26.3",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "react-google-recaptcha": "^3.1.0",
+    "react-leaflet": "^5.0.0",
+    "react-leaflet-drift-marker": "^4.0.0",
     "react-particle-image": "^1.0.2",
-    "react-slick": "^0.30.2",
+    "react-slick": "^0.30.3",
     "sharp": "^0.33.5",
     "slick-carousel": "^1.8.1",
-    "uuid": "^11.0.3"
+    "uuid": "^11.0.5"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@types/leaflet": "^1.9.16",
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "19.0.7",
+    "@types/react-dom": "19.0.3",
     "@types/react-google-recaptcha": "^2.1.9",
     "@types/react-slick": "^0.23.13",
     "@typescript-eslint/eslint-plugin": "^8.2.0",
     "@typescript-eslint/parser": "^8.2.0",
     "postcss": "^8",
-    "sass": "^1.77.8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "sass": "^1.83.4",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3"
+  },
+  "overrides": {
+    "@types/react": "19.0.7",
+    "@types/react-dom": "19.0.3"
   }
 }

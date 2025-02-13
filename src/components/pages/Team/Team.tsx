@@ -1,5 +1,6 @@
 'use client';
 
+import AnimateLayout from '@/components/layouts/AnimateLayout/AnimateLayout';
 import FAQ from '@/components/ui/FAQ/FAQ';
 
 import TeamScreenTeamPage from './TeamScreenTeamPage/TeamScreenTeamPage';
@@ -7,8 +8,12 @@ import TeamScreenTeamPage from './TeamScreenTeamPage/TeamScreenTeamPage';
 const Team = () => {
   return (
     <>
-      <TeamScreenTeamPage />
-      <FAQ />
+      <AnimateLayout>
+        <TeamScreenTeamPage />
+      </AnimateLayout>
+      <AnimateLayout>
+        <FAQ />
+      </AnimateLayout>
     </>
   );
 };

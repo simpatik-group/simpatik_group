@@ -76,7 +76,7 @@ const FormContacts: FC = () => {
         setValues({ ...initialValues });
       })
       .catch((err) => {
-        console.log('🚀 ~ onSubmit ~ err:', err);
+        console.error('🚀 ~ onSubmit ~ err:', err);
         setModalContent({
           type: 'failed',
           title: contactsPage?.popup_problem_title || '',
@@ -103,7 +103,7 @@ const FormContacts: FC = () => {
         modalContent={modalContent}
         toggleActive={() => setModalActive(!modalActive)}
       />
-      {isSubmitting && <Loader transparent />}
+      {isSubmitting && <Loader fullScreen transparent />}
       <ContainerUI className={styles.container} id={urlPaths.CONTACT_FORM}>
         <Heading
           className={styles.title}

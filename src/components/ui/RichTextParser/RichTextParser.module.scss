@@ -1,0 +1,35 @@
+.title {
+  margin-bottom: 1rem !important;
+}
+.titleH1 {
+  @apply h1;
+}
+.titleH2 {
+  @apply h2;
+}
+.titleH3 {
+  @apply h3;
+}
+.titleH4 {
+  @apply h4;
+}
+.titleH5 {
+  @apply h5;
+}
+.titleH6 {
+  @apply h6;
+}
+.paragraph {
+  @apply min-h-8;
+}
+.list {
+  @apply pl-5;
+}
+.link {
+  @apply underline italic;
+}
+@include customMedia(992px) {
+  .list {
+    @apply pl-6;
+  }
+}

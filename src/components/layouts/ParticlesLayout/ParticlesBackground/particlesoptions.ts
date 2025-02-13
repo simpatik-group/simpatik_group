@@ -4,6 +4,7 @@ export const particlesLayoutOptions: ISourceOptions = {
   fullScreen: { enable: false, zIndex: -1 },
   fpsLimit: 120,
   interactivity: {
+    detectsOn: 'window',
     events: {
       onClick: {
         enable: true,

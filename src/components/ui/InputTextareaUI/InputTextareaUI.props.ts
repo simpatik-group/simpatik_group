@@ -1,6 +1,7 @@
 import {
   DetailedHTMLProps,
   InputHTMLAttributes,
+  JSX,
   TextareaHTMLAttributes,
 } from 'react';
 

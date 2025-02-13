@@ -1,9 +1,10 @@
 .wrap {
-  @apply fixed z-50 top-0 left-0 h-dvh w-dvw bg-blue-500 flex items-center justify-center;
+  @apply w-full  flex items-center justify-center;
+  &.fullScreen {
+    @apply fixed z-50 top-0 left-0 h-dvh w-dvw bg-blue-500;
+  }
   &.transparent {
-    &.transparent {
-      @apply bg-opacity-90;
-    }
+    @apply bg-opacity-90;
   }
 }
 .loaderElement {

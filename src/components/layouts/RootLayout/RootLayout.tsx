@@ -2,7 +2,7 @@
 
 import { FC, ReactNode, useEffect } from 'react';
 
-import { useSearchParams } from 'next/navigation';
+import { LazyMotion, domAnimation } from 'motion/react';
 
 import MessagesProvider, { IMessagesContext } from '@/context/messages.context';
 
@@ -13,14 +13,21 @@ import { scrollMe } from '@/helpers/scrollFunction';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
 
+type SearchParams = { [key: string]: string | string[] | undefined };
 interface IRootLayout {
   children: ReactNode;
   themeColor: EColor;
   messages: IMessagesContext;
+  searchParams?: SearchParams;
 }
 
-const RootLayout: FC<IRootLayout> = ({ messages, children, themeColor }) => {
-  const query = useSearchParams().get('id');
+const RootLayout: FC<IRootLayout> = ({
+  messages,
+  children,
+  themeColor,
+  searchParams,
+}) => {
+  const query = searchParams?.id;
 
   useEffect(() => {
     if (query) {
@@ -32,11 +39,13 @@ const RootLayout: FC<IRootLayout> = ({ messages, children, themeColor }) => {
 
   return (
     <MessagesProvider messages={messages}>
-      <div className='overflow-clip'>
-        <Header themeColor={themeColor} />
-        <main>{children}</main>
-        <Footer />
-      </div>
+      <LazyMotion features={domAnimation}>
+        <div className='overflow-clip'>
+          <Header themeColor={themeColor} />
+          <main>{children}</main>
+          <Footer />
+        </div>
+      </LazyMotion>
     </MessagesProvider>
   );
 };

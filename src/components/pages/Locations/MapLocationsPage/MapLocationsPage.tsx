@@ -1,10 +1,11 @@
 import { FC } from 'react';
 
-import Image from 'next/image';
+import dynamic from 'next/dynamic';
 
 import ParticlesLayout from '@/components/layouts/ParticlesLayout/ParticlesLayout';
 import ContainerUI from '@/components/ui/ContainerUI/ContainerUI';
 import Heading from '@/components/ui/Heading/Heading';
+import Loader from '@/components/ui/Loader/Loader';
 
 import { EColor } from '@/interfaces/enums';
 
@@ -12,9 +13,13 @@ import { useMessages } from '@/hooks/useLocalization';
 
 import styles from './MapLocationsPage.module.scss';
 
+const MapDynamic = dynamic(() => import('@/components/ui/Map/Map'), {
+  ssr: false,
+  loading: () => <Loader />,
+});
+
 const MapLocationsPage: FC = () => {
   const locationsPage = useMessages('LOCATIONS');
-  console.log('🚀 ~ contactsPage:', locationsPage);
 
   return (
     <>
@@ -29,19 +34,7 @@ const MapLocationsPage: FC = () => {
           />
         </ContainerUI>
       </ParticlesLayout>
-      <picture>
-        <source srcSet='/img/map--desk.jpg' media='(min-width: 768px)' />
-        <source srcSet='/img/map.jpg' media='(max-width: 767.99px)' />
-        <Image
-          src='/img/map--desk.jpg' // Fallback image
-          alt='Simpatik locations'
-          sizes='100vw'
-          loading='lazy'
-          height={718}
-          width={1920}
-          style={{ width: '100%', height: 'auto' }}
-        />
-      </picture>
+      <MapDynamic />
     </>
   );
 };
