@@ -4,7 +4,12 @@
 .news_img {
   @apply relative h-[28vh] w-full;
   img {
-    @apply object-cover object-bottom opacity-60;
+    @apply object-contain object-bottom;
+    mask-image: linear-gradient(
+      0,
+      rgba(28, 30, 36, 0.6) 0%,
+      rgba(28, 30, 36, 1) 100%
+    );
   }
 }
 .news_date {
@@ -29,9 +34,6 @@
 @include customMedia(768px) {
   .news_img {
     @apply h-80;
-    img {
-      @apply object-contain;
-    }
   }
   .video {
     @apply col-span-12 w-full ml-0;
