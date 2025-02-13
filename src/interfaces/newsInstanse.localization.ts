@@ -26,6 +26,7 @@ export interface IRichTextContent {
   strikethrough?: boolean;
   format?: string;
   level?: number;
+  url?: string;
 }
 
 interface Photo {

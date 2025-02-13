@@ -25,6 +25,9 @@
 .list {
   @apply pl-5;
 }
+.link {
+  @apply underline italic;
+}
 @include customMedia(992px) {
   .list {
     @apply pl-6;
