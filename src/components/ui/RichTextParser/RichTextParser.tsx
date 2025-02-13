@@ -62,6 +62,15 @@ const RichTextParser = ({ node }: { node: IRichTextContent }): JSX.Element => {
         </p>
       );
     }
+    case 'link': {
+      return (
+        <a href={node.url} target='_blank' className={styles.link}>
+          {node.children?.map((child, i) => (
+            <RichTextParser key={i} node={child} />
+          ))}
+        </a>
+      );
+    }
     case 'list': {
       // Render a list
       return (
