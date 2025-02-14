@@ -1,9 +1,11 @@
 import { createNavigation } from 'next-intl/navigation';
 import { defineRouting } from 'next-intl/routing';
 
-export const locales = ['en', 'uk'] as const;
+import { ELocalization } from '@/interfaces/enums';
+
+export const locales = Object.values(ELocalization);
 export const routing = defineRouting({
-  defaultLocale: 'en',
+  defaultLocale: ELocalization.en,
   locales,
   localeDetection: true,
   localePrefix: 'as-needed',
