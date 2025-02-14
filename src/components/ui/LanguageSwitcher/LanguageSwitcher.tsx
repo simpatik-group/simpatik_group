@@ -5,7 +5,7 @@ import { FC, useEffect } from 'react';
 import clsx from 'clsx';
 import { useParams, useSearchParams } from 'next/navigation';
 
-import { EColor } from '@/interfaces/enums';
+import { EColor, ELocalizationText } from '@/interfaces/enums';
 
 import { deleteCookie, getCookie } from '@/helpers/helperCookie';
 import { staticValues } from '@/helpers/staticValues';
@@ -80,7 +80,7 @@ const LanguageSwitcher: FC<ILanguageSwitcher> = ({ themeColor, className }) => {
           )}
           onClick={changeLocale}
         >
-          {locale.toUpperCase()}
+          {ELocalizationText[locale].toUpperCase()}
         </span>
       ))}
     </div>
