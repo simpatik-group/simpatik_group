@@ -9,6 +9,11 @@ export enum ELocalization {
 
 export type keyofELocalization = keyof typeof ELocalization;
 
+export const ELocalizationText: Record<ELocalization, string> = {
+  uk: 'УКР',
+  en: 'ENG',
+};
+
 export enum EAPIRequest {
   COMMON,
   HOME_PAGE,
