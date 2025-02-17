@@ -1,3 +1,5 @@
+import { JSX } from 'react';
+
 export interface ICareerMessage {
   id: number;
   hero_title: string;
@@ -7,6 +9,7 @@ export interface ICareerMessage {
   vacancy: Vacancy[];
   vacancy_button: string;
   numbers: Number[];
+  workua_link: JSX.Element;
 }
 
 interface Number {
