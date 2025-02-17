@@ -34,6 +34,12 @@ const VacanciesCareerPage: FC = () => {
             );
           })}
         </ul>
+        {careerPage && (
+          <div
+            className={styles.allVacancies}
+            dangerouslySetInnerHTML={{ __html: careerPage.workua_link }}
+          ></div>
+        )}
       </ContainerUI>
     </section>
   );

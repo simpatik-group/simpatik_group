@@ -39,11 +39,11 @@ const Charity = () => {
   const loadMore = async () => {
     const articles = await requestService.getRequest({
       localization: locale,
-      urls: ['ALL_NEWS'],
+      urls: ['ALL_CHARITIES'],
       pagination: `&pagination[start]=${paginationState}`,
     });
-    if (articles.ALL_NEWS) {
-      setArticlesList([...articlesList, ...articles.ALL_NEWS.data]);
+    if (articles.ALL_CHARITIES) {
+      setArticlesList([...articlesList, ...articles.ALL_CHARITIES.data]);
       setPaginationState(paginationState + staticValues.PAGINATION_VALUE);
     }
   };
