@@ -1,31 +1,25 @@
 'use client';
 
+import dayjs from 'dayjs';
+import 'dayjs/locale/uk';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
+
 import { keyofELocalization } from '@/interfaces/enums';
+
+const modifyUkrainianLocale = () => {
+  const ukLocale = dayjs.Ls['uk'];
+  if (ukLocale && ukLocale.formats) {
+    ukLocale.formats.LL = 'D MMMM YYYY';
+  }
+};
+
+modifyUkrainianLocale();
 
 export const formatDate = (
   date: string,
   option: Intl.DateTimeFormatOptions,
   locale: keyofELocalization,
 ): string => {
-  const localDate = new Date(date);
-  let userLocale = 'en-US';
-
-  switch (locale) {
-    case 'uk':
-      userLocale = 'ua-Uk';
-      break;
-    default:
-      break;
-  }
-
-  const formatter = new Intl.DateTimeFormat(userLocale, option);
-
-  const parts = formatter.formatToParts(localDate);
-  // const parts = formatter.format(localDate); for full date
-
-  const formattedDate = parts
-    .filter((part) => part.type !== 'literal' && part.type !== 'era')
-    .map((part) => part.value)
-    .join(' ');
-  return formattedDate;
+  dayjs.extend(localizedFormat);
+  return dayjs(date).locale(locale).format('LL');
 };
