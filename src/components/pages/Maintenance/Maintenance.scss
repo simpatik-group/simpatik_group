@@ -1,0 +1,237 @@
+:root {
+  --logo_width: 56px;
+}
+@media only screen and (min-width: 992px) {
+  :root {
+    --logo_width: 120px;
+  }
+}
+section,
+main,
+p,
+div {
+  margin: 0;
+  padding: 0;
+}
+*:focus {
+  outline: 0;
+}
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+canvas,
+img,
+video,
+svg,
+audio,
+iframe {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Raleway', sans-serif;
+  color: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+.nobr {
+  white-space: nowrap;
+}
+html {
+  font-size: var(--main_size);
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+}
+body {
+  font-size: var(--main_size);
+  font-family: 'Raleway', sans-serif;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  font-weight: normal;
+  background: url('https://cloud.devtome.top/domains/simpatik.group/forbidden/bg.png')
+    center/cover #1c1e24;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+@media only screen and (min-width: 768px) {
+  body {
+    background-image: url('https://cloud.devtome.top/domains/simpatik.group/forbidden/bg--desk.png');
+  }
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.wrap {
+  overflow: hidden;
+}
+.container {
+  padding: 8px 15px 0;
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  letter-spacing: 0.02em;
+}
+main {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+h1 {
+  font-size: 36px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.subtitle {
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 1.2;
+  margin-bottom: 50px;
+}
+.header__logo {
+  width: var(--logo_width);
+  margin-bottom: 8px;
+}
+.decor {
+  position: absolute;
+  left: 23%;
+  bottom: 16%;
+}
+footer {
+  text-align: center;
+  margin-left: -15px;
+  width: calc(100% + 30px);
+  background-color: rgba(24, 25, 30, 0.9);
+  padding: 8px 15px 15px;
+  position: relative;
+  z-index: 1;
+  font-size: 18px;
+  line-height: 1.3;
+}
+.icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 16px;
+}
+.icon {
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 56px;
+  aspect-ratio: 1/1;
+}
+.icon:hover,
+.icon:after {
+  background-color: #f1a21e;
+}
+@media only screen and (min-width: 768px) {
+  .container {
+    text-align: center;
+  }
+  h1 {
+    font-size: 52px;
+  }
+  .subtitle {
+    font-size: 46px;
+  }
+  .decor {
+    width: min(942px, 65%);
+  }
+  .header__logo {
+    margin: auto auto 20px;
+  }
+  footer {
+    font-size: 20px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .container {
+    margin-left: 5%;
+    text-align: left;
+    padding: 8px 0 100px;
+  }
+  .header__logo {
+    margin-left: 0;
+    margin-bottom: 72px;
+  }
+  h1 {
+    font-size: 72px;
+  }
+  .subtitle {
+    font-size: 52px;
+  }
+  footer {
+    background-color: rgba(0, 0, 0, 0);
+    padding: 0;
+    text-align: left;
+    width: 640px;
+    font-size: 24px;
+  }
+  .icons {
+    margin-top: 32px;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+  .icon {
+    width: 128px;
+  }
+  .icon img {
+    width: auto;
+  }
+  .decor {
+    left: 60%;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  h1 {
+    font-size: 96px;
+    margin-bottom: 24px;
+  }
+  .subtitle {
+    font-size: 64px;
+  }
+  .decor {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .container {
+    margin-left: 10%;
+  }
+} /*# sourceMappingURL=style_land.min.css.map */
