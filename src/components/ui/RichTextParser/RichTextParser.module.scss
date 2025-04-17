@@ -27,6 +27,9 @@
 }
 .link {
   @apply underline italic;
+  &:hover {
+    @apply text-orange-500;
+  }
 }
 @include customMedia(992px) {
   .list {
