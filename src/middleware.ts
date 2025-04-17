@@ -5,13 +5,16 @@ import { routing } from './i18n/i18n.config';
 
 const intlMiddleware = createMiddleware(routing);
 
-export default function middleware(request: NextRequest) {
-  if (request.nextUrl.pathname.startsWith('/maintenance')) {
-    return intlMiddleware(request);
+export function middleware(request: NextRequest): NextResponse {
+  const { pathname } = request.nextUrl;
+
+  // Дозволити доступ до сторінки /maintenance напряму
+  if (pathname.startsWith('/uk/maintenance')) {
+    return NextResponse.next();
   }
 
-  // Redirect all other requests to /forbidden
-  return NextResponse.redirect(new URL('/maintenance', request.url));
+  // Редірект усіх інших на maintenance
+  return NextResponse.redirect(new URL('/uk/maintenance', request.url));
 }
 
 export const config = {
