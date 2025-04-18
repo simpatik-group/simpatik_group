@@ -19,7 +19,7 @@ const Maintenance: FC = () => {
           <h1>сайт закрито</h1>
           <p className='subtitle'>на реконструкцію</p>
         </main>
-        <footer>
+        {/* <footer>
           <p>
             Проте ми завжди на зв’язку в{' '}
             <span className='nobr'>соціальних мережах!</span> <br />
@@ -67,7 +67,7 @@ const Maintenance: FC = () => {
               />
             </a>
           </div>
-        </footer>
+        </footer> */}
         <picture>
           <source
             srcSet='https://cloud.devtome.top/domains/simpatik.group/forbidden/decor--desk.png'
