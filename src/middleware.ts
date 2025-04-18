@@ -10,7 +10,6 @@ export function middleware(request: NextRequest): NextResponse {
   if (request.nextUrl.pathname.startsWith('/uk/maintenance')) {
     return NextResponse.next();
   }
-
   return NextResponse.redirect(new URL('/uk/maintenance', request.url));
 }
 
