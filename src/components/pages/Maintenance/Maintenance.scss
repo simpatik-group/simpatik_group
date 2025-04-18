@@ -93,7 +93,7 @@ main {
   flex: 1;
   position: relative;
   z-index: 1;
-}
+  text-align: center;
 h1 {
   font-size: 36px;
   line-height: 1.2;
@@ -109,12 +109,13 @@ h1 {
 }
 .header__logo {
   width: var(--logo_width);
-  margin-bottom: 8px;
+  margin-bottom: 7dvh;
 }
 .decor {
   position: absolute;
-  left: 23%;
-  bottom: 16%;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 footer {
   text-align: center;
@@ -167,17 +168,17 @@ footer {
   .subtitle {
     font-size: 46px;
   }
-  .decor {
-    width: min(942px, 65%);
-  }
   .header__logo {
-    margin: auto auto 20px;
+    margin: auto auto 15dvh;
   }
   footer {
     font-size: 20px;
   }
 }
 @media only screen and (min-width: 992px) {
+  main {
+    text-align: left;
+  }
   .container {
     margin-left: 5%;
     text-align: left;
@@ -185,7 +186,6 @@ footer {
   }
   .header__logo {
     margin-left: 0;
-    margin-bottom: 72px;
   }
   h1 {
     font-size: 72px;
@@ -213,8 +213,7 @@ footer {
     width: auto;
   }
   .decor {
-    left: 60%;
-  }
+    width: min(942px, 65%);
 }
 @media only screen and (min-width: 1200px) {
   h1 {
@@ -225,9 +224,7 @@ footer {
     font-size: 64px;
   }
   .decor {
-    top: 0;
     bottom: 0;
-    margin: auto;
   }
 }
 @media only screen and (min-width: 1400px) {
