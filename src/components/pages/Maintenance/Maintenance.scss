@@ -94,6 +94,7 @@ main {
   position: relative;
   z-index: 1;
   text-align: center;
+}
 h1 {
   font-size: 36px;
   line-height: 1.2;
@@ -214,6 +215,8 @@ footer {
   }
   .decor {
     width: min(942px, 65%);
+    left: 60%;
+  }
 }
 @media only screen and (min-width: 1200px) {
   h1 {
